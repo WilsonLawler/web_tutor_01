@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一章：HTML 基礎 - 互動式學習網頁製作</title>
+    <meta name="description" content="學習 HTML 語法、標籤結構和語義化標籤，建立中西醫筆記頁面的基礎架構">
+    <meta name="keywords" content="HTML, 語法, 標籤, 語義化, 網頁製作, 學習">
+    
+    <!-- 預載入字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 樣式表 -->
+    <link rel="stylesheet" href="css/lesson_1.css">
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav class="lesson-nav">
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← 返回主頁</a>
+            <h1 class="lesson-title">第一章：HTML 基礎</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="lesson-content">
+        <!-- 章節介紹 -->
+        <section class="intro-section">
+            <h2 class="section-title">什麼是 HTML？</h2>
+            <div class="content-card">
+                <p class="intro-text">
+                    HTML（HyperText Markup Language）是網頁的骨架，它使用標籤（tags）來定義網頁的結構和內容。
+                    就像建築物的鋼筋水泥一樣，HTML 為網頁提供了基本的框架。
+                </p>
+                <div class="highlight-box">
+                    <h3>🎯 學習目標</h3>
+                    <ul>
+                        <li>理解 HTML 的基本語法結構</li>
+                        <li>掌握常用 HTML 標籤的使用</li>
+                        <li>學會建立語義化的網頁結構</li>
+                        <li>能夠建立基本的中西醫筆記頁面</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML 語法基礎 -->
+        <section class="syntax-section">
+            <h2 class="section-title">HTML 語法基礎</h2>
+            <div class="content-card">
+                <h3>標籤的基本結構</h3>
+                <p>HTML 標籤通常成對出現，包含開始標籤和結束標籤：</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">基本標籤結構</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>&lt;標籤名稱&gt;內容&lt;/標籤名稱&gt;</code></pre>
+                </div>
+
+                <div class="example-demo">
+                    <h4>實際範例：</h4>
+                    <div class="demo-container">
+                        <div class="demo-code">
+                            <pre><code>&lt;h1&gt;中西醫人體導覽&lt;/h1&gt;
+&lt;p&gt;這是一個關於人體構造的學習網站&lt;/p&gt;</code></pre>
+                        </div>
+                        <div class="demo-result">
+                            <h1 style="font-size: 1.5rem; margin: 0;">中西醫人體導覽</h1>
+                            <p style="margin: 0.5rem 0 0 0;">這是一個關於人體構造的學習網站</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常用 HTML 標籤 -->
+        <section class="tags-section">
+            <h2 class="section-title">常用 HTML 標籤</h2>
+            
+            <!-- 標題標籤 -->
+            <div class="content-card">
+                <h3>📝 標題標籤 (h1-h6)</h3>
+                <p>標題標籤用於建立網頁的層次結構，從 h1（最重要）到 h6（最不重要）：</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">標題標籤範例</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>&lt;h1&gt;西醫｜臟腑（器官系統總覽）&lt;/h1&gt;
+&lt;h2&gt;心臟（Cardiac）&lt;/h2&gt;
+&lt;h3&gt;心臟功能&lt;/h3&gt;
+&lt;h4&gt;心跳指標&lt;/h4&gt;</code></pre>
+                </div>
+
+                <div class="live-demo">
+                    <h4>實際效果：</h4>
+                    <div class="demo-output">
+                        <h1 style="font-size: 2rem; margin: 0;">西醫｜臟腑（器官系統總覽）</h1>
+                        <h2 style="font-size: 1.5rem; margin: 0.5rem 0;">心臟（Cardiac）</h2>
+                        <h3 style="font-size: 1.25rem; margin: 0.5rem 0;">心臟功能</h3>
+                        <h4 style="font-size: 1.1rem; margin: 0.5rem 0;">心跳指標</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 段落和文字標籤 -->
+            <div class="content-card">
+                <h3>📄 段落和文字標籤</h3>
+                <p>用於組織文字內容的基本標籤：</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">段落和文字標籤</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>&lt;p&gt;這是一個段落，用於包含文字內容。&lt;/p&gt;
+&lt;strong&gt;重要文字&lt;/strong&gt;
+&lt;em&gt;強調文字&lt;/em&gt;
+&lt;br&gt;換行標籤（自閉合標籤）</code></pre>
+                </div>
+
+                <div class="live-demo">
+                    <h4>實際效果：</h4>
+                    <div class="demo-output">
+                        <p>這是一個段落，用於包含文字內容。</p>
+                        <p><strong>重要文字</strong> 和 <em>強調文字</em></p>
+                        <p>第一行<br>第二行（使用 br 標籤換行）</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 列表標籤 -->
+            <div class="content-card">
+                <h3>📋 列表標籤</h3>
+                <p>用於建立有序和無序列表：</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">列表標籤範例</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>&lt;!-- 無序列表 --&gt;
+&lt;ul&gt;
+    &lt;li&gt;心臟（Cardiac）&lt;/li&gt;
+    &lt;li&gt;肺（Pulmonary）&lt;/li&gt;
+    &lt;li&gt;肝（Hepatic）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- 有序列表 --&gt;
+&lt;ol&gt;
+    &lt;li&gt;學習 HTML 基礎&lt;/li&gt;
+    &lt;li&gt;掌握 CSS 樣式&lt;/li&gt;
+    &lt;li&gt;學習 JavaScript&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                </div>
+
+                <div class="live-demo">
+                    <h4>實際效果：</h4>
+                    <div class="demo-output">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div>
+                                <h5>無序列表：</h5>
+                                <ul>
+                                    <li>心臟（Cardiac）</li>
+                                    <li>肺（Pulmonary）</li>
+                                    <li>肝（Hepatic）</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>有序列表：</h5>
+                                <ol>
+                                    <li>學習 HTML 基礎</li>
+                                    <li>掌握 CSS 樣式</li>
+                                    <li>學習 JavaScript</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 連結標籤 -->
+            <div class="content-card">
+                <h3>🔗 連結標籤</h3>
+                <p>用於建立超連結，連接不同的網頁或資源：</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">連結標籤範例</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>&lt;!-- 外部連結 --&gt;
+&lt;a href="https://www.example.com"&gt;外部網站&lt;/a&gt;
+
+&lt;!-- 內部連結 --&gt;
+&lt;a href="index.html"&gt;返回主頁&lt;/a&gt;
+
+&lt;!-- 新視窗開啟 --&gt;
+&lt;a href="demo.html" target="_blank"&gt;查看示範&lt;/a&gt;</code></pre>
+                </div>
+
+                <div class="live-demo">
+                    <h4>實際效果：</h4>
+                    <div class="demo-output">
+                        <p><a href="https://www.example.com" target="_blank">外部網站</a></p>
+                        <p><a href="index.html">返回主頁</a></p>
+                        <p><a href="demo.html" target="_blank">查看示範</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 語義化標籤 -->
+        <section class="semantic-section">
+            <h2 class="section-title">語義化標籤</h2>
+            <div class="content-card">
+                <h3>🏗️ 語義化標籤的重要性</h3>
+                <p>語義化標籤讓網頁結構更清晰，對搜尋引擎和螢幕閱讀器更友善：</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">語義化標籤範例</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>&lt;header&gt;
+    &lt;h1&gt;中西醫人體導覽&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#chapter1"&gt;臟腑系統&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#chapter2"&gt;骨骼系統&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;心臟功能&lt;/h2&gt;
+        &lt;p&gt;心臟是循環系統的核心...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;© 2025 人體導覽專題&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+
+                <div class="semantic-explanation">
+                    <h4>語義化標籤說明：</h4>
+                    <div class="semantic-grid">
+                        <div class="semantic-item">
+                            <code>&lt;header&gt;</code>
+                            <p>頁面或區塊的標題區域</p>
+                        </div>
+                        <div class="semantic-item">
+                            <code>&lt;nav&gt;</code>
+                            <p>導航連結區域</p>
+                        </div>
+                        <div class="semantic-item">
+                            <code>&lt;main&gt;</code>
+                            <p>主要內容區域</p>
+                        </div>
+                        <div class="semantic-item">
+                            <code>&lt;article&gt;</code>
+                            <p>獨立的文章內容</p>
+                        </div>
+                        <div class="semantic-item">
+                            <code>&lt;section&gt;</code>
+                            <p>內容的區塊</p>
+                        </div>
+                        <div class="semantic-item">
+                            <code>&lt;footer&gt;</code>
+                            <p>頁面或區塊的結尾</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 實作練習 -->
+        <section class="practice-section">
+            <h2 class="section-title">實作練習</h2>
+            <div class="content-card">
+                <h3>🎯 建立中西醫筆記頁面</h3>
+                <p>現在讓我們用學到的 HTML 標籤來建立一個基本的中西醫筆記頁面：</p>
+                
+                <div class="practice-exercise">
+                    <h4>練習任務：</h4>
+                    <ol>
+                        <li>建立一個基本的 HTML 頁面結構</li>
+                        <li>使用語義化標籤組織內容</li>
+                        <li>添加標題、段落和列表</li>
+                        <li>建立導航連結</li>
+                    </ol>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">完整範例</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-TW"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;中西醫人體導覽&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;中西醫人體導覽&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#western"&gt;西醫觀點&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#chinese"&gt;中醫觀點&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section id="western"&gt;
+            &lt;h2&gt;西醫｜臟腑（器官系統總覽）&lt;/h2&gt;
+            &lt;article&gt;
+                &lt;h3&gt;心臟（Cardiac）&lt;/h3&gt;
+                &lt;p&gt;心臟是循環系統的核心，負責泵血維持全身循環。&lt;/p&gt;
+                &lt;h4&gt;重要指標：&lt;/h4&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;心跳速率&lt;/li&gt;
+                    &lt;li&gt;血壓&lt;/li&gt;
+                    &lt;li&gt;心電圖&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;© 2025 人體導覽專題。僅供教育與參考使用。&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 章節總結 -->
+        <section class="summary-section">
+            <h2 class="section-title">章節總結</h2>
+            <div class="content-card">
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h3>✅ 已學習內容</h3>
+                        <ul>
+                            <li>HTML 基本語法結構</li>
+                            <li>常用標籤：h1-h6, p, strong, em, br</li>
+                            <li>列表標籤：ul, ol, li</li>
+                            <li>連結標籤：a</li>
+                            <li>語義化標籤：header, nav, main, article, section, footer</li>
+                        </ul>
+                    </div>
+                    <div class="summary-item">
+                        <h3>🎯 下一步</h3>
+                        <p>在下一章中，我們將學習 CSS 樣式，讓我們的 HTML 頁面變得更加美觀和專業。</p>
+                        <div class="next-lesson">
+                            <a href="pages/demo_1.html" class="next-btn secondary" target="_blank">查看純 HTML 示範頁面 →</a>
+                            <a href="lesson_2.html" class="next-btn primary">前往第二章：CSS 基礎 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="lesson-footer">
+        <div class="footer-content">
+            <p>© 2025 互動式學習網頁製作 - 中西醫筆記實作課程</p>
+            <div class="footer-links">
+                <a href="index.html">返回主頁</a>
+                <a href="lesson_2.html">下一章</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 複製程式碼功能
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '已複製！';
+                button.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    button.textContent = '複製';
+                    button.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
+
+        // 進度追蹤
+        document.addEventListener('DOMContentLoaded', function() {
+            // 標記章節完成
+            localStorage.setItem('chapter_1_completed', 'true');
+            
+            // 更新主頁進度
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.saveProgress(1, true);
+            }
+        });
+    </script>
+</body>
+</html>

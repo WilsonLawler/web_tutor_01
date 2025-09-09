@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動式學習網頁製作 - 中西醫筆記</title>
+    <meta name="description" content="從 HTML 到 JavaScript 的完整網頁製作學習課程，以中西醫筆記內容為實作範例">
+    <meta name="keywords" content="網頁製作, HTML, CSS, JavaScript, 中西醫, 學習, 互動式">
+    
+    <!-- 預載入字體和圖示 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 主要樣式表 -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="main-layout">
+        <!-- 側邊欄導航 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="sidebar-title">網頁製作學習</h1>
+                <p class="sidebar-subtitle">中西醫筆記實作課程</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <div class="nav-section-title">學習章節</div>
+                    <a href="#chapter1" class="nav-item active" data-chapter="1">
+                        <span class="nav-item-icon">📝</span>
+                        HTML 基礎
+                        <span class="progress-indicator current"></span>
+                    </a>
+                    <a href="#chapter2" class="nav-item" data-chapter="2">
+                        <span class="nav-item-icon">🎨</span>
+                        CSS 基礎
+                        <span class="progress-indicator"></span>
+                    </a>
+                    <a href="#chapter3" class="nav-item" data-chapter="3">
+                        <span class="nav-item-icon">✨</span>
+                        進階 CSS
+                        <span class="progress-indicator"></span>
+                    </a>
+                    <a href="#chapter4" class="nav-item" data-chapter="4">
+                        <span class="nav-item-icon">⚡</span>
+                        JavaScript 基礎
+                        <span class="progress-indicator"></span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">實作範例</div>
+                    <a href="#demo1" class="nav-item">
+                        <span class="nav-item-icon">🏥</span>
+                        中西醫筆記頁面
+                    </a>
+                    <a href="#demo2" class="nav-item">
+                        <span class="nav-item-icon">📊</span>
+                        醫學圖表展示
+                    </a>
+                    <a href="#demo3" class="nav-item">
+                        <span class="nav-item-icon">🔍</span>
+                        互動式搜尋
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 主要內容區域 -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 class="content-title">互動式學習網頁製作</h1>
+                <p class="content-description">
+                    從零開始學習現代網頁開發技術，透過中西醫筆記內容的實作範例，
+                    掌握 HTML、CSS 和 JavaScript 的核心概念與最佳實踐。
+                    每個章節都包含理論學習和實際操作，讓您能夠建立完整的網頁應用程式。
+                </p>
+            </header>
+
+            <div class="chapters-grid">
+                <!-- 第一章：HTML 基礎 -->
+                <div class="chapter-card" data-chapter="1">
+                    <div class="chapter-number">1</div>
+                    <h3 class="chapter-title">HTML 基礎</h3>
+                    <p class="chapter-description">
+                        學習 HTML 語法、標籤結構和語義化標籤，建立中西醫筆記頁面的基礎架構。
+                        包含標題、段落、列表、連結等基本元素的使用。
+                    </p>
+                    <div class="chapter-meta">
+                        <span>⏱️ 約 2 小時</span>
+                        <a href="lesson_1.html" class="demo-link" target="_blank">
+                            查看示範 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 第二章：CSS 基礎 -->
+                <div class="chapter-card locked" data-chapter="2">
+                    <div class="chapter-number">2</div>
+                    <h3 class="chapter-title">CSS 基礎</h3>
+                    <p class="chapter-description">
+                        掌握 CSS 選擇器、盒模型和基本佈局，美化中西醫筆記頁面的視覺呈現。
+                        學習顏色、字體、間距和背景的設定技巧。
+                    </p>
+                    <div class="chapter-meta">
+                        <span>⏱️ 約 2.5 小時</span>
+                        <a href="demos/demo2.html" class="demo-link" target="_blank">
+                            查看示範 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 第三章：進階 CSS -->
+                <div class="chapter-card locked" data-chapter="3">
+                    <div class="chapter-number">3</div>
+                    <h3 class="chapter-title">進階 CSS</h3>
+                    <p class="chapter-description">
+                        深入學習 Flexbox、Grid 佈局、動畫效果和響應式設計，
+                        建立複雜的醫學圖表佈局和互動式介面。
+                    </p>
+                    <div class="chapter-meta">
+                        <span>⏱️ 約 3 小時</span>
+                        <a href="demos/demo3.html" class="demo-link" target="_blank">
+                            查看示範 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 第四章：JavaScript 基礎 -->
+                <div class="chapter-card locked" data-chapter="4">
+                    <div class="chapter-number">4</div>
+                    <h3 class="chapter-title">JavaScript 基礎</h3>
+                    <p class="chapter-description">
+                        學習 DOM 操作、事件處理和資料管理，實現互動式醫學圖表、
+                        搜尋功能和動態內容載入。
+                    </p>
+                    <div class="chapter-meta">
+                        <span>⏱️ 約 4 小時</span>
+                        <a href="demos/demo4.html" class="demo-link" target="_blank">
+                            查看示範 →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 基礎 JavaScript 功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 導航功能
+            const navItems = document.querySelectorAll('.nav-item');
+            const chapterCards = document.querySelectorAll('.chapter-card');
+            
+            // 導航點擊事件
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 移除所有 active 狀態
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    
+                    // 添加 active 狀態到當前項目
+                    this.classList.add('active');
+                    
+                    // 更新進度指示器
+                    updateProgressIndicators();
+                });
+            });
+            
+            // 章節卡片點擊事件
+            chapterCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    if (!this.classList.contains('locked')) {
+                        const chapterNumber = this.dataset.chapter;
+                        // 這裡可以添加章節內容載入邏輯
+                        console.log(`載入章節 ${chapterNumber}`);
+                    }
+                });
+            });
+            
+            // 更新進度指示器
+            function updateProgressIndicators() {
+                const indicators = document.querySelectorAll('.progress-indicator');
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.remove('completed', 'current');
+                    
+                    // 這裡可以根據實際進度來設定狀態
+                    if (index === 0) {
+                        indicator.classList.add('current');
+                    }
+                });
+            }
+            
+            // 響應式側邊欄
+            function handleResponsiveSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    // 手機版側邊欄邏輯
+                    document.addEventListener('click', function(e) {
+                        if (!sidebar.contains(e.target) && sidebar.classList.contains('open')) {
+                            sidebar.classList.remove('open');
+                        }
+                    });
+                }
+            }
+            
+            // 初始化
+            updateProgressIndicators();
+            handleResponsiveSidebar();
+            
+            // 監聽視窗大小變化
+            window.addEventListener('resize', handleResponsiveSidebar);
+            
+            // 載入動畫
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+        
+        // 進度追蹤功能
+        const ProgressTracker = {
+            saveProgress: function(chapter, completed) {
+                localStorage.setItem(`chapter_${chapter}`, completed);
+                this.updateUI();
+            },
+            
+            getProgress: function(chapter) {
+                return localStorage.getItem(`chapter_${chapter}`) === 'true';
+            },
+            
+            updateUI: function() {
+                // 更新 UI 顯示進度
+                console.log('更新進度 UI');
+            }
+        };
+        
+        // 工具提示功能
+        function initTooltips() {
+            const tooltipElements = document.querySelectorAll('[data-tooltip]');
+            tooltipElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    // 顯示工具提示
+                });
+            });
+        }
+    </script>
+</body>
+</html>
