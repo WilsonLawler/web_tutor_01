@@ -20,34 +20,36 @@
         <!-- 側邊欄導航 -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h1 class="sidebar-title">網頁製作學習</h1>
-                <p class="sidebar-subtitle">中西醫筆記實作課程</p>
+                <a href="index.html" class="sidebar-title-link">
+                    <h1 class="sidebar-title">網頁製作學習</h1>
+                    <p class="sidebar-subtitle">中西醫筆記實作課程</p>
+                </a>
             </div>
             
             <nav class="nav-menu">
                 <div class="nav-section">
                     <div class="nav-section-title">學習章節</div>
-                    <a href="#chapter0" class="nav-item active" data-chapter="0">
+                    <a href="lesson_0.html" class="nav-item active" data-chapter="0">
                         <span class="nav-item-icon">🚀</span>
                         準備課程
                         <span class="progress-indicator current"></span>
                     </a>
-                    <a href="#chapter1" class="nav-item" data-chapter="1">
+                    <a href="lesson_1.html" class="nav-item" data-chapter="1">
                         <span class="nav-item-icon">📝</span>
                         HTML 基礎
                         <span class="progress-indicator"></span>
                     </a>
-                    <a href="#chapter2" class="nav-item" data-chapter="2">
+                    <a href="lesson_2.html" class="nav-item" data-chapter="2">
                         <span class="nav-item-icon">🎨</span>
                         CSS 基礎
                         <span class="progress-indicator"></span>
                     </a>
-                    <a href="#chapter3" class="nav-item" data-chapter="3">
+                    <a href="lesson_3.html" class="nav-item" data-chapter="3">
                         <span class="nav-item-icon">✨</span>
                         進階 CSS
                         <span class="progress-indicator"></span>
                     </a>
-                    <a href="#chapter4" class="nav-item" data-chapter="4">
+                    <a href="lesson_4.html" class="nav-item" data-chapter="4">
                         <span class="nav-item-icon">⚡</span>
                         JavaScript 基礎
                         <span class="progress-indicator"></span>
@@ -56,15 +58,15 @@
                 
                 <div class="nav-section">
                     <div class="nav-section-title">實作範例</div>
-                    <a href="#demo1" class="nav-item">
+                    <a href="pages/demo_1.html" class="nav-item">
                         <span class="nav-item-icon">🏥</span>
                         中西醫筆記頁面
                     </a>
-                    <a href="#demo2" class="nav-item">
+                    <a href="pages/demo_2.html" class="nav-item">
                         <span class="nav-item-icon">📊</span>
                         醫學圖表展示
                     </a>
-                    <a href="#demo3" class="nav-item">
+                    <a href="pages/demo_3.html" class="nav-item">
                         <span class="nav-item-icon">🔍</span>
                         互動式搜尋
                     </a>
@@ -174,11 +176,9 @@
             const navItems = document.querySelectorAll('.nav-item');
             const chapterCards = document.querySelectorAll('.chapter-card');
             
-            // 導航點擊事件
+            // 導航點擊事件 - 現在直接導航到對應頁面
             navItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
+                item.addEventListener('click', function() {
                     // 移除所有 active 狀態
                     navItems.forEach(nav => nav.classList.remove('active'));
                     
@@ -226,6 +226,38 @@
                     });
                 }
             }
+            
+            // 根據當前頁面設定 active 狀態
+            function setActiveNavItem() {
+                const currentPage = window.location.pathname.split('/').pop();
+                const pageMap = {
+                    'index.html': 0,
+                    'lesson_0.html': 0,
+                    'lesson_1.html': 1,
+                    'lesson_2.html': 2,
+                    'lesson_3.html': 3,
+                    'lesson_4.html': 4,
+                    'demo_1.html': 'demo1',
+                    'demo_2.html': 'demo2',
+                    'demo_3.html': 'demo3'
+                };
+                
+                const currentChapter = pageMap[currentPage];
+                if (currentChapter !== undefined) {
+                    // 移除所有 active 狀態
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    
+                    // 設定對應的 active 狀態
+                    if (typeof currentChapter === 'number') {
+                        const targetNav = document.querySelector(`[data-chapter="${currentChapter}"]`);
+                        if (targetNav) {
+                            targetNav.classList.add('active');
+                        }
+                    }
+                }
+            }
+            
+            setActiveNavItem();
             
             // 初始化
             updateProgressIndicators();
