@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中西醫人體導覽：CSS 美化版 - 臟腑、骨骼、肌肉與經脈全圖解</title>
+    <meta name="description" content="使用 CSS 美化後的中西醫人體導覽頁面，展示選擇器、盒模型、顏色、字體和佈局的實際應用">
+    <meta name="keywords" content="CSS, 中西醫, 臟腑, 骨骼, 肌肉, 經脈, 網頁設計, 醫學">
+    
+    <!-- 預載入字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 樣式表 -->
+    <link rel="stylesheet" href="../css/demo_2.css">
+</head>
+<body>
+    <!-- 頁面標題區域 -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="site-title">中西醫人體導覽</h1>
+            <p class="site-subtitle">臟腑、骨骼、肌肉與經脈全圖解</p>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#western-organs" class="nav-link">西醫｜臟腑</a></li>
+                    <li><a href="#western-skeleton" class="nav-link">西醫｜骨骼</a></li>
+                    <li><a href="#western-muscles" class="nav-link">西醫｜肌肉</a></li>
+                    <li><a href="#chinese-meridians" class="nav-link">中醫｜經脈</a></li>
+                    <li><a href="#chinese-channels" class="nav-link">中醫｜十二正經</a></li>
+                    <li><a href="#chinese-organs" class="nav-link">中醫｜五臟六腑</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主要內容區域 -->
+    <main class="main-content">
+        <!-- 西醫章節 -->
+        <section id="western-organs" class="medical-section heart-system">
+            <div class="section-header">
+                <h2 class="section-title">西醫｜臟腑（器官系統總覽）</h2>
+                <img src="../img/human_body.jpg" alt="人體構造圖" class="section-image">
+            </div>
+            
+            <article class="content-article">
+                <h3 class="article-title">章節導言</h3>
+                <p class="intro-text">本章以系統解剖學角度統整主要器官：心血管、呼吸、消化、泌尿、內分泌、神經等，說明核心功能與常見檢查指標。</p>
+                
+                <h3 class="article-title">核心內容</h3>
+                <div class="organs-grid">
+                    <div class="organ-card heart-card">
+                        <img src="../img/heart.jpeg" alt="心臟系統" class="organ-image">
+                        <div class="organ-content">
+                            <h4 class="organ-title">心臟（Cardiac）</h4>
+                            <p class="organ-description">泵血維持循環；重點指標：心跳、血壓、心電圖。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="organ-card lung-card">
+                        <img src="../img/lung.webp" alt="肺部系統" class="organ-image">
+                        <div class="organ-content">
+                            <h4 class="organ-title">肺（Pulmonary）</h4>
+                            <p class="organ-description">氣體交換；重點指標：血氧、肺功能（FEV1/FVC）。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="organ-card liver-card">
+                        <img src="../img/liver.jpg" alt="肝臟系統" class="organ-image">
+                        <div class="organ-content">
+                            <h4 class="organ-title">肝（Hepatic）</h4>
+                            <p class="organ-description">代謝解毒、膽汁生成；重點指標：AST/ALT、膽紅素。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="organ-card kidney-card">
+                        <img src="../img/kidney.png" alt="腎臟系統" class="organ-image">
+                        <div class="organ-content">
+                            <h4 class="organ-title">腎（Renal）</h4>
+                            <p class="organ-description">過濾、電解質與水分平衡；重點指標：eGFR、肌酸酐。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="additional-organs">
+                    <h4 class="subsection-title">其他重要器官</h4>
+                    <ul class="organ-list">
+                        <li class="organ-item"><strong>胃與腸（GI）</strong>：消化吸收；常見症狀：胃痛、脹氣、腹瀉/便秘。</li>
+                        <li class="organ-item"><strong>內分泌（Endocrine）</strong>：激素調節；甲狀腺、胰腺（血糖）等。</li>
+                        <li class="organ-item"><strong>神經（Neuro）</strong>：中樞與周邊神經協調運動與感覺。</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4 class="highlight-title">延伸提示</h4>
+                    <p class="highlight-text">就醫常見檢查：血液檢驗、影像（X-ray、CT、MRI、超音波）、功能檢查（心電圖、肺功能）。</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="western-skeleton" class="medical-section bone-system">
+            <div class="section-header">
+                <h2 class="section-title">西醫｜骨骼系統與關節</h2>
+                <img src="../img/bones.gif" alt="骨骼系統動畫" class="section-image">
+            </div>
+            
+            <article class="content-article">
+                <h3 class="article-title">章節導言</h3>
+                <p class="intro-text">說明骨架支撐與保護、關節活動與負重，並列出常見部位與病症。</p>
+                
+                <h3 class="article-title">核心內容</h3>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h4 class="card-title">骨骼功能</h4>
+                        <p class="card-text">支撐、保護、造血（骨髓）、礦物質儲存（鈣、磷）。</p>
+                    </div>
+                    <div class="content-card">
+                        <h4 class="card-title">主要軸線</h4>
+                        <p class="card-text">脊柱（頸椎–胸椎–腰椎–薦尾）、胸廓、骨盆。</p>
+                    </div>
+                    <div class="content-card">
+                        <h4 class="card-title">四肢骨</h4>
+                        <p class="card-text">肩帶–上肢（肱骨、橈骨、尺骨），骨盆帶–下肢（股骨、脛骨、腓骨）。</p>
+                    </div>
+                    <div class="content-card">
+                        <h4 class="card-title">關節類型</h4>
+                        <p class="card-text">球窩（肩、髖）、樞軸（寰樞）、鉸鏈（肘、膝）、滑動（腕）。</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4 class="highlight-title">保健要點</h4>
+                    <p class="highlight-text">負重訓練與日照/鈣質攝取、核心肌群強化、正確姿勢與漸進負荷。</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="western-muscles" class="medical-section muscle-system">
+            <div class="section-header">
+                <h2 class="section-title">西醫｜肌肉系統與動作</h2>
+                <img src="../img/muscle_system.webp" alt="肌肉系統" class="section-image">
+            </div>
+            
+            <article class="content-article">
+                <h3 class="article-title">章節導言</h3>
+                <p class="intro-text">介紹骨骼肌、平滑肌與心肌差異，並聚焦於動作與運動表現相關的骨骼肌群。</p>
+                
+                <h3 class="article-title">核心內容</h3>
+                <div class="muscle-types">
+                    <h4 class="subsection-title">肌肉分類：</h4>
+                    <div class="type-grid">
+                        <div class="type-card">
+                            <h5 class="type-title">骨骼肌</h5>
+                            <p class="type-description">隨意運動，附著骨骼</p>
+                        </div>
+                        <div class="type-card">
+                            <h5 class="type-title">平滑肌</h5>
+                            <p class="type-description">內臟與血管壁，非隨意</p>
+                        </div>
+                        <div class="type-card">
+                            <h5 class="type-title">心肌</h5>
+                            <p class="type-description">心臟專屬，節律性</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="muscle-groups">
+                    <h4 class="subsection-title">主要肌群</h4>
+                    <p class="group-description">頸肩（斜方肌、三角肌）、胸（胸大肌）、背（背闊肌、豎脊肌）、核心（腹直肌、腹斜肌）、下肢（股四頭肌、腿後肌群、小腿三頭肌）。</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4 class="highlight-title">訓練建議</h4>
+                    <p class="highlight-text">週期化訓練、暖身與放鬆、負荷管理、睡眠與蛋白質補充。</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- 中醫章節 -->
+        <section id="chinese-meridians" class="medical-section meridian-system">
+            <div class="section-header">
+                <h2 class="section-title">中醫｜經脈學說總論（經絡、氣血、陰陽表裡）</h2>
+                <img src="../img/Meridian.jpg" alt="經脈系統" class="section-image">
+            </div>
+            
+            <article class="content-article">
+                <h3 class="article-title">章節導言</h3>
+                <p class="intro-text">概述經絡為「聯絡臟腑、通達肢節、運行氣血、調節陰陽」之網路。</p>
+                
+                <h3 class="article-title">核心內容</h3>
+                <div class="meridian-content">
+                    <div class="meridian-card">
+                        <h4 class="meridian-title">經絡構成</h4>
+                        <p class="meridian-text">經（主幹）與絡（分支）；經別、經筋、皮部等。</p>
+                    </div>
+                    <div class="meridian-card">
+                        <h4 class="meridian-title">運行原則</h4>
+                        <p class="meridian-text">氣血循行、晝夜節律、上下往返、內外相連。</p>
+                    </div>
+                    <div class="meridian-card">
+                        <h4 class="meridian-title">陰陽表裡</h4>
+                        <p class="meridian-text">臟腑與經脈配對形成相互關係（如肺–大腸表裡）。</p>
+                    </div>
+                    <div class="meridian-card">
+                        <h4 class="meridian-title">臨床意義</h4>
+                        <p class="meridian-text">經絡循行處的酸脹痛、刺痛或寒熱變化可反映臟腑失衡。</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="chinese-channels" class="medical-section channel-system">
+            <div class="section-header">
+                <h2 class="section-title">中醫｜十二正經與奇經八脈（循行與常見症候）</h2>
+                <img src="../img/Meridian13.jpg" alt="十二正經圖" class="section-image">
+            </div>
+            
+            <article class="content-article">
+                <h3 class="article-title">章節導言</h3>
+                <p class="intro-text">逐條列出主要經脈走向、所屬臟腑、常見症候與應用提示。</p>
+                
+                <h3 class="article-title">十二正經（例示）</h3>
+                <div class="channels-list">
+                    <div class="channel-item">
+                        <h4 class="channel-name">手太陰肺經</h4>
+                        <p class="channel-description">胸起→上肢內側至拇指；常見症候：咳嗽、氣短、皮毛不固。</p>
+                    </div>
+                    <div class="channel-item">
+                        <h4 class="channel-name">手陽明大腸經</h4>
+                        <p class="channel-description">食指出發→上肢外側至面鼻；症候：咽喉腫痛、齒痛、鼻塞。</p>
+                    </div>
+                    <div class="channel-item">
+                        <h4 class="channel-name">足陽明胃經</h4>
+                        <p class="channel-description">面起→軀幹→下肢前外側至第二趾；症候：胃脘痛、消化不良。</p>
+                    </div>
+                    <div class="channel-item">
+                        <h4 class="channel-name">足太陰脾經</h4>
+                        <p class="channel-description">足大趾→內踝上→腹胸；症候：倦怠、食少、濕困。</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4 class="highlight-title">奇經八脈（提要）</h4>
+                    <p class="highlight-text"><strong>任脈</strong>（陰脈之海，腹前正中）、<strong>督脈</strong>（陽脈之海，背後正中）等，用於調和陰陽、統攝諸經。</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="chinese-organs" class="medical-section organ-system">
+            <div class="section-header">
+                <h2 class="section-title">中醫｜五臟六腑與經絡對應（生理功能與情志）</h2>
+            </div>
+            
+            <article class="content-article">
+                <h3 class="article-title">章節導言</h3>
+                <p class="intro-text">闡述五臟六腑的生理功能、表裡配對與與情志、體表徵象之關聯。</p>
+                
+                <h3 class="article-title">五臟（主藏精氣、偏陰）</h3>
+                <div class="organs-five">
+                    <div class="organ-five-card heart-organ">
+                        <h4 class="organ-five-title">心</h4>
+                        <p class="organ-five-description">主血脈、神志；情志：喜；徵象：面色、舌。</p>
+                    </div>
+                    <div class="organ-five-card liver-organ">
+                        <h4 class="organ-five-title">肝</h4>
+                        <p class="organ-five-description">主疏泄、藏血；情志：怒；徵象：筋、爪、目。</p>
+                    </div>
+                    <div class="organ-five-card spleen-organ">
+                        <h4 class="organ-five-title">脾</h4>
+                        <p class="organ-five-description">主運化、統血；情志：思；徵象：肌肉、口唇。</p>
+                    </div>
+                    <div class="organ-five-card lung-organ">
+                        <h4 class="organ-five-title">肺</h4>
+                        <p class="organ-five-description">主氣司呼吸；情志：憂；徵象：皮毛、鼻。</p>
+                    </div>
+                    <div class="organ-five-card kidney-organ">
+                        <h4 class="organ-five-title">腎</h4>
+                        <p class="organ-five-description">主藏精、水液代謝；情志：恐；徵象：骨、髮、耳。</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4 class="highlight-title">表裡關係與臨床觀察</h4>
+                    <p class="highlight-text">肺–大腸、脾–胃、心–小腸、肝–膽、腎–膀胱、心包–三焦。<br>
+                    <strong>觀察點</strong>：面色、舌象、脈象、疼痛走向與時段性加劇，結合經脈循行辨識。</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- 頁尾區域 -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">用語與閱讀提示</h3>
+                <ul class="footer-list">
+                    <li>文中醫學名詞僅作科普用途，不替代專業診療。</li>
+                    <li>如有身體不適，建議向合格醫事人員諮詢。</li>
+                    <li>西醫重結構與指標；中醫重整體與動態平衡，兩者可互補參照。</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">頁尾版權與聯絡</h3>
+                <p class="footer-text">© 2025 人體導覽專題。僅供教育與參考使用。</p>
+                <p class="footer-text">聯絡與建議：請來信至 <a href="mailto:contact@example.com" class="footer-link">contact@example.com</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">相關連結</h3>
+                <nav class="footer-nav">
+                    <ul class="footer-nav-list">
+                        <li><a href="../index.html" class="footer-link">返回主頁</a></li>
+                        <li><a href="../lesson_2.html" class="footer-link">CSS 基礎教學</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

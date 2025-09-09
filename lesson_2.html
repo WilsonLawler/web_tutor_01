@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二章：CSS 基礎 - 互動式學習網頁製作</title>
+    <meta name="description" content="學習 CSS 選擇器、盒模型和基本佈局，美化中西醫筆記頁面的視覺呈現">
+    <meta name="keywords" content="CSS, 選擇器, 盒模型, 佈局, 樣式, 網頁製作, 學習">
+    
+    <!-- 預載入字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 樣式表 -->
+    <link rel="stylesheet" href="css/lesson_2.css">
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav class="lesson-nav">
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← 返回主頁</a>
+            <h1 class="lesson-title">第二章：CSS 基礎</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="lesson-content">
+        <!-- 章節介紹 -->
+        <section class="intro-section">
+            <h2 class="section-title">什麼是 CSS？</h2>
+            <div class="content-card">
+                <p class="intro-text">
+                    CSS（Cascading Style Sheets）是網頁的化妝師，它負責美化 HTML 元素的視覺呈現。
+                    就像給建築物裝潢一樣，CSS 讓我們的網頁變得美觀、專業且易於閱讀。
+                </p>
+                <div class="highlight-box">
+                    <h3>🎯 學習目標</h3>
+                    <ul>
+                        <li>理解 CSS 選擇器的使用方式</li>
+                        <li>掌握盒模型的概念和應用</li>
+                        <li>學會基本的佈局技巧</li>
+                        <li>能夠美化中西醫筆記頁面</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS 選擇器 -->
+        <section class="selectors-section">
+            <h2 class="section-title">CSS 選擇器</h2>
+            <div class="content-card">
+                <h3>選擇器的基本概念</h3>
+                <p>CSS 選擇器用來指定要套用樣式的 HTML 元素。就像給不同的人穿不同的衣服一樣。</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">基本選擇器</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>/* 標籤選擇器 */
+h1 { color: blue; }
+
+/* 類別選擇器 */
+.medical-title { font-size: 24px; }
+
+/* ID 選擇器 */
+#heart-info { background: lightblue; }</code></pre>
+                </div>
+
+                <div class="example-demo">
+                    <h4>實際效果：</h4>
+                    <div class="demo-container">
+                        <div class="demo-code">
+                            <pre><code>&lt;h1&gt;心臟系統&lt;/h1&gt;
+&lt;h2 class="medical-title"&gt;心臟功能&lt;/h2&gt;
+&lt;div id="heart-info"&gt;心臟是循環系統的核心&lt;/div&gt;</code></pre>
+                        </div>
+                        <div class="demo-result">
+                            <h1 style="color: blue; margin: 0;">心臟系統</h1>
+                            <h2 style="font-size: 24px; margin: 0.5rem 0;">心臟功能</h2>
+                            <div style="background: lightblue; padding: 0.5rem; margin: 0.5rem 0;">心臟是循環系統的核心</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 盒模型 -->
+        <section class="box-model-section">
+            <h2 class="section-title">盒模型 (Box Model)</h2>
+            <div class="content-card">
+                <h3>盒模型的組成</h3>
+                <p>每個 HTML 元素都可以視為一個盒子，由內到外包含：內容、內距、邊框、外距。</p>
+                
+                <div class="box-model-demo">
+                    <div class="box-model-visual">
+                        <div class="box-margin">
+                            <div class="box-border">
+                                <div class="box-padding">
+                                    <div class="box-content">
+                                        <h4>心臟系統</h4>
+                                        <p>心臟是循環系統的核心器官</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-model-labels">
+                        <div class="label margin">外距 (margin)</div>
+                        <div class="label border">邊框 (border)</div>
+                        <div class="label padding">內距 (padding)</div>
+                        <div class="label content">內容 (content)</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">盒模型 CSS 範例</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>.medical-card {
+    width: 300px;           /* 內容寬度 */
+    padding: 20px;          /* 內距 */
+    border: 2px solid #ccc; /* 邊框 */
+    margin: 10px;           /* 外距 */
+    background: #f9f9f9;    /* 背景色 */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 顏色和字體 -->
+        <section class="colors-typography-section">
+            <h2 class="section-title">顏色和字體</h2>
+            <div class="content-card">
+                <h3>顏色設定</h3>
+                <p>CSS 提供了多種方式來設定顏色，讓我們的醫學內容更加清晰易讀。</p>
+                
+                <div class="color-examples">
+                    <div class="color-demo">
+                        <div class="color-box" style="background: #ff6b6b;">
+                            <span>#ff6b6b</span>
+                            <small>心臟系統</small>
+                        </div>
+                        <div class="color-box" style="background: #4ecdc4;">
+                            <span>#4ecdc4</span>
+                            <small>呼吸系統</small>
+                        </div>
+                        <div class="color-box" style="background: #45b7d1;">
+                            <span>#45b7d1</span>
+                            <small>循環系統</small>
+                        </div>
+                        <div class="color-box" style="background: #96ceb4;">
+                            <span>#96ceb4</span>
+                            <small>消化系統</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">顏色設定範例</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>/* 十六進位顏色 */
+.heart-system { color: #ff6b6b; }
+
+/* RGB 顏色 */
+.lung-system { color: rgb(78, 205, 196); }
+
+/* 具名顏色 */
+.liver-system { color: darkgreen; }</code></pre>
+                </div>
+
+                <h3>字體設定</h3>
+                <p>字體的選擇和設定對醫學內容的可讀性非常重要。</p>
+                
+                <div class="typography-demo">
+                    <div class="font-example">
+                        <h4 style="font-family: 'Noto Sans TC', sans-serif;">繁體中文字體</h4>
+                        <p style="font-family: 'Noto Sans TC', sans-serif;">這是適合醫學內容的繁體中文字體，清晰易讀。</p>
+                    </div>
+                    <div class="font-example">
+                        <h4 style="font-family: Arial, sans-serif;">英文字體</h4>
+                        <p style="font-family: Arial, sans-serif;">This is a clean English font for medical terms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 基本佈局 -->
+        <section class="layout-section">
+            <h2 class="section-title">基本佈局</h2>
+            <div class="content-card">
+                <h3>文字對齊和間距</h3>
+                <p>適當的文字對齊和間距能讓醫學內容更加整齊美觀。</p>
+                
+                <div class="layout-demo">
+                    <div class="alignment-demo">
+                        <h4>文字對齊範例：</h4>
+                        <div class="text-left">
+                            <h5>左對齊</h5>
+                            <p>心臟是循環系統的核心，負責泵血維持全身循環。</p>
+                        </div>
+                        <div class="text-center">
+                            <h5>置中對齊</h5>
+                            <p>心臟是循環系統的核心，負責泵血維持全身循環。</p>
+                        </div>
+                        <div class="text-right">
+                            <h5>右對齊</h5>
+                            <p>心臟是循環系統的核心，負責泵血維持全身循環。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">佈局 CSS 範例</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>.medical-content {
+    text-align: center;     /* 文字置中 */
+    line-height: 1.6;       /* 行高 */
+    margin: 20px 0;         /* 上下外距 */
+    padding: 15px;          /* 內距 */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 背景和圖片 -->
+        <section class="background-section">
+            <h2 class="section-title">背景和圖片</h2>
+            <div class="content-card">
+                <h3>背景設定</h3>
+                <p>適當的背景設定能讓醫學內容更加突出和專業。</p>
+                
+                <div class="background-demo">
+                    <div class="bg-example bg-color">
+                        <h4>純色背景</h4>
+                        <p>心臟系統介紹</p>
+                    </div>
+                    <div class="bg-example bg-gradient">
+                        <h4>漸層背景</h4>
+                        <p>呼吸系統介紹</p>
+                    </div>
+                </div>
+
+                <h3>圖片整合</h3>
+                <p>讓我們看看如何將醫學圖片整合到網頁中：</p>
+                
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="img/heart.jpeg" alt="心臟系統" class="medical-image">
+                        <h4>心臟系統</h4>
+                        <p>心臟是循環系統的核心器官</p>
+                    </div>
+                    <div class="image-card">
+                        <img src="img/lung.webp" alt="肺部系統" class="medical-image">
+                        <h4>肺部系統</h4>
+                        <p>負責氣體交換的重要器官</p>
+                    </div>
+                    <div class="image-card">
+                        <img src="img/liver.jpg" alt="肝臟系統" class="medical-image">
+                        <h4>肝臟系統</h4>
+                        <p>代謝和解毒的重要器官</p>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">圖片和背景 CSS</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>.medical-image {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+.medical-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: cover;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 實作練習 -->
+        <section class="practice-section">
+            <h2 class="section-title">實作練習</h2>
+            <div class="content-card">
+                <h3>🎯 美化中西醫筆記頁面</h3>
+                <p>現在讓我們用學到的 CSS 技巧來美化之前建立的 HTML 頁面：</p>
+                
+                <div class="practice-exercise">
+                    <h4>練習任務：</h4>
+                    <ol>
+                        <li>為不同系統設定不同的顏色主題</li>
+                        <li>調整字體大小和行高提升可讀性</li>
+                        <li>添加適當的內距和外距</li>
+                        <li>整合醫學圖片並設定樣式</li>
+                    </ol>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">完整 CSS 範例</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>/* 中西醫筆記頁面樣式 */
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f9fa;
+}
+
+.medical-section {
+    background: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.heart-system {
+    border-left: 4px solid #ff6b6b;
+}
+
+.lung-system {
+    border-left: 4px solid #4ecdc4;
+}
+
+.medical-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 章節總結 -->
+        <section class="summary-section">
+            <h2 class="section-title">章節總結</h2>
+            <div class="content-card">
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h3>✅ 已學習內容</h3>
+                        <ul>
+                            <li>CSS 選擇器：標籤、類別、ID 選擇器</li>
+                            <li>盒模型：內容、內距、邊框、外距</li>
+                            <li>顏色設定：十六進位、RGB、具名顏色</li>
+                            <li>字體設定：字體族、大小、行高</li>
+                            <li>基本佈局：對齊、間距、背景</li>
+                            <li>圖片整合：尺寸、邊框、圓角</li>
+                        </ul>
+                    </div>
+                    <div class="summary-item">
+                        <h3>🎯 下一步</h3>
+                        <p>在下一章中，我們將學習進階 CSS 技巧，包括 Flexbox、Grid 佈局和動畫效果，讓我們的醫學網站更加專業和互動。</p>
+                        <div class="next-lesson">
+                            <a href="pages/demo_2.html" class="next-btn secondary" target="_blank">查看 CSS 示範頁面 →</a>
+                            <a href="lesson_3.html" class="next-btn primary">前往第三章：進階 CSS →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="lesson-footer">
+        <div class="footer-content">
+            <p>© 2025 互動式學習網頁製作 - 中西醫筆記實作課程</p>
+            <div class="footer-links">
+                <a href="index.html">返回主頁</a>
+                <a href="lesson_1.html">上一章</a>
+                <a href="lesson_3.html">下一章</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 複製程式碼功能
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '已複製！';
+                button.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    button.textContent = '複製';
+                    button.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
+
+        // 進度追蹤
+        document.addEventListener('DOMContentLoaded', function() {
+            // 標記章節完成
+            localStorage.setItem('chapter_2_completed', 'true');
+            
+            // 更新主頁進度
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.saveProgress(2, true);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -177,10 +177,7 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-.chapter-card.locked {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
+/* 移除 locked 樣式，所有章節都可點擊 */
 
 .chapter-number {
     display: inline-block;
@@ -195,9 +192,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.chapter-card.locked .chapter-number {
-    background: var(--text-secondary);
-}
+/* 移除 locked 章節號碼樣式 */
 
 .chapter-title {
     font-size: 1.25rem;

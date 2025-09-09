@@ -90,13 +90,13 @@
                     <div class="chapter-meta">
                         <span>⏱️ 約 2 小時</span>
                         <a href="lesson_1.html" class="demo-link" target="_blank">
-                            查看示範 →
+                            開始學習 →
                         </a>
                     </div>
                 </div>
 
                 <!-- 第二章：CSS 基礎 -->
-                <div class="chapter-card locked" data-chapter="2">
+                <div class="chapter-card" data-chapter="2">
                     <div class="chapter-number">2</div>
                     <h3 class="chapter-title">CSS 基礎</h3>
                     <p class="chapter-description">
@@ -105,14 +105,14 @@
                     </p>
                     <div class="chapter-meta">
                         <span>⏱️ 約 2.5 小時</span>
-                        <a href="demos/demo2.html" class="demo-link" target="_blank">
-                            查看示範 →
+                        <a href="lesson_2.html" class="demo-link" target="_blank">
+                            開始學習 →
                         </a>
                     </div>
                 </div>
 
                 <!-- 第三章：進階 CSS -->
-                <div class="chapter-card locked" data-chapter="3">
+                <div class="chapter-card" data-chapter="3">
                     <div class="chapter-number">3</div>
                     <h3 class="chapter-title">進階 CSS</h3>
                     <p class="chapter-description">
@@ -121,14 +121,14 @@
                     </p>
                     <div class="chapter-meta">
                         <span>⏱️ 約 3 小時</span>
-                        <a href="demos/demo3.html" class="demo-link" target="_blank">
-                            查看示範 →
+                        <a href="lesson_3.html" class="demo-link" target="_blank">
+                            開始學習 →
                         </a>
                     </div>
                 </div>
 
                 <!-- 第四章：JavaScript 基礎 -->
-                <div class="chapter-card locked" data-chapter="4">
+                <div class="chapter-card" data-chapter="4">
                     <div class="chapter-number">4</div>
                     <h3 class="chapter-title">JavaScript 基礎</h3>
                     <p class="chapter-description">
@@ -137,8 +137,8 @@
                     </p>
                     <div class="chapter-meta">
                         <span>⏱️ 約 4 小時</span>
-                        <a href="demos/demo4.html" class="demo-link" target="_blank">
-                            查看示範 →
+                        <a href="lesson_4.html" class="demo-link" target="_blank">
+                            開始學習 →
                         </a>
                     </div>
                 </div>
@@ -172,11 +172,9 @@
             // 章節卡片點擊事件
             chapterCards.forEach(card => {
                 card.addEventListener('click', function() {
-                    if (!this.classList.contains('locked')) {
-                        const chapterNumber = this.dataset.chapter;
-                        // 這裡可以添加章節內容載入邏輯
-                        console.log(`載入章節 ${chapterNumber}`);
-                    }
+                    const chapterNumber = this.dataset.chapter;
+                    // 這裡可以添加章節內容載入邏輯
+                    console.log(`載入章節 ${chapterNumber}`);
                 });
             });
             
