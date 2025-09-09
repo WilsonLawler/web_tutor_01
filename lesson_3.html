@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三章：進階 CSS - 互動式學習網頁製作</title>
+    <meta name="description" content="深入學習 Flexbox、Grid 佈局、動畫效果和響應式設計，建立複雜的醫學圖表佈局和互動式介面">
+    <meta name="keywords" content="進階 CSS, Flexbox, Grid, 動畫, 響應式設計, 網頁製作, 學習">
+    
+    <!-- 預載入字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 樣式表 -->
+    <link rel="stylesheet" href="css/lesson_3.css">
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav class="lesson-nav">
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← 返回主頁</a>
+            <h1 class="lesson-title">第三章：進階 CSS</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="lesson-content">
+        <!-- 章節介紹 -->
+        <section class="intro-section">
+            <h2 class="section-title">進階 CSS 技術</h2>
+            <div class="content-card">
+                <p class="intro-text">
+                    現在我們要學習現代 CSS 的強大功能：Flexbox 和 Grid 佈局系統、動畫效果、以及進階的響應式設計技巧。
+                    這些技術讓我們能夠建立複雜的醫學圖表佈局和專業的互動式介面。
+                </p>
+                <div class="highlight-box">
+                    <h3>🎯 學習目標</h3>
+                    <ul>
+                        <li>掌握 Flexbox 佈局系統</li>
+                        <li>學會 CSS Grid 網格佈局</li>
+                        <li>建立流暢的動畫效果</li>
+                        <li>設計複雜的響應式介面</li>
+                        <li>建立專業的醫學圖表佈局</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flexbox 佈局 -->
+        <section class="flexbox-section">
+            <h2 class="section-title">Flexbox 佈局系統</h2>
+            <div class="content-card">
+                <h3>什麼是 Flexbox？</h3>
+                <p>Flexbox 是一維佈局系統，特別適合處理元素在一個方向上的排列和對齊。它讓複雜的佈局變得簡單直觀。</p>
+                
+                <div class="flexbox-demo">
+                    <h4>基本 Flexbox 範例：</h4>
+                    <div class="flex-container">
+                        <div class="flex-item">心臟系統</div>
+                        <div class="flex-item">肺部系統</div>
+                        <div class="flex-item">肝臟系統</div>
+                        <div class="flex-item">腎臟系統</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">Flexbox 基本語法</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>.flex-container {
+    display: flex;
+    justify-content: space-between;  /* 主軸對齊 */
+    align-items: center;             /* 交叉軸對齊 */
+    gap: 1rem;                      /* 元素間距 */
+}
+
+.flex-item {
+    flex: 1;                        /* 彈性增長 */
+    padding: 1rem;
+    background: #f0f0f0;
+    border-radius: 8px;
+}</code></pre>
+                </div>
+
+                <div class="flexbox-properties">
+                    <h4>常用 Flexbox 屬性：</h4>
+                    <div class="properties-grid">
+                        <div class="property-card">
+                            <h5>justify-content</h5>
+                            <p>控制主軸上的對齊方式</p>
+                            <div class="demo-flex justify-demo">
+                                <span>start</span>
+                                <span>center</span>
+                                <span>end</span>
+                                <span>space-between</span>
+                            </div>
+                        </div>
+                        <div class="property-card">
+                            <h5>align-items</h5>
+                            <p>控制交叉軸上的對齊方式</p>
+                            <div class="demo-flex align-demo">
+                                <span>stretch</span>
+                                <span>center</span>
+                                <span>flex-start</span>
+                                <span>flex-end</span>
+                            </div>
+                        </div>
+                        <div class="property-card">
+                            <h5>flex-direction</h5>
+                            <p>控制彈性項目的排列方向</p>
+                            <div class="demo-flex direction-demo">
+                                <span>row</span>
+                                <span>column</span>
+                                <span>row-reverse</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 擴充的 Flexbox 範例 -->
+                <div class="extended-flexbox-examples">
+                    <h4>進階 Flexbox 範例：</h4>
+                    
+                    <!-- justify-content 詳細示範 -->
+                    <div class="flexbox-example-group">
+                        <h5>justify-content 詳細示範</h5>
+                        <div class="example-container">
+                            <div class="flex-demo-container justify-start">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">flex-start (預設)</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container justify-center">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">center</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container justify-end">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">flex-end</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container justify-between">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">space-between</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container justify-around">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">space-around</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container justify-evenly">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">space-evenly</div>
+                        </div>
+                    </div>
+
+                    <!-- align-items 詳細示範 -->
+                    <div class="flexbox-example-group">
+                        <h5>align-items 詳細示範</h5>
+                        <div class="example-container">
+                            <div class="flex-demo-container align-stretch">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item tall">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">stretch (預設)</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container align-center">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item tall">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">center</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container align-start">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item tall">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">flex-start</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container align-end">
+                                <div class="flex-demo-item">1</div>
+                                <div class="flex-demo-item tall">2</div>
+                                <div class="flex-demo-item">3</div>
+                            </div>
+                            <div class="example-label">flex-end</div>
+                        </div>
+                    </div>
+
+                    <!-- flex-wrap 示範 -->
+                    <div class="flexbox-example-group">
+                        <h5>flex-wrap 換行示範</h5>
+                        <div class="example-container">
+                            <div class="flex-demo-container wrap-nowrap">
+                                <div class="flex-demo-item">心臟系統</div>
+                                <div class="flex-demo-item">肺部系統</div>
+                                <div class="flex-demo-item">肝臟系統</div>
+                                <div class="flex-demo-item">腎臟系統</div>
+                                <div class="flex-demo-item">神經系統</div>
+                            </div>
+                            <div class="example-label">nowrap (預設) - 不換行</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container wrap-wrap">
+                                <div class="flex-demo-item">心臟系統</div>
+                                <div class="flex-demo-item">肺部系統</div>
+                                <div class="flex-demo-item">肝臟系統</div>
+                                <div class="flex-demo-item">腎臟系統</div>
+                                <div class="flex-demo-item">神經系統</div>
+                            </div>
+                            <div class="example-label">wrap - 允許換行</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container wrap-reverse">
+                                <div class="flex-demo-item">心臟系統</div>
+                                <div class="flex-demo-item">肺部系統</div>
+                                <div class="flex-demo-item">肝臟系統</div>
+                                <div class="flex-demo-item">腎臟系統</div>
+                                <div class="flex-demo-item">神經系統</div>
+                            </div>
+                            <div class="example-label">wrap-reverse - 反向換行</div>
+                        </div>
+                    </div>
+
+                    <!-- flex 屬性示範 -->
+                    <div class="flexbox-example-group">
+                        <h5>flex 屬性示範</h5>
+                        <div class="example-container">
+                            <div class="flex-demo-container">
+                                <div class="flex-demo-item flex-1">flex: 1</div>
+                                <div class="flex-demo-item flex-2">flex: 2</div>
+                                <div class="flex-demo-item flex-1">flex: 1</div>
+                            </div>
+                            <div class="example-label">flex 比例分配</div>
+                        </div>
+                        
+                        <div class="example-container">
+                            <div class="flex-demo-container">
+                                <div class="flex-demo-item flex-grow">flex-grow: 1</div>
+                                <div class="flex-demo-item flex-shrink">flex-shrink: 0</div>
+                                <div class="flex-demo-item flex-basis">flex-basis: 200px</div>
+                            </div>
+                            <div class="example-label">flex-grow, flex-shrink, flex-basis</div>
+                        </div>
+                    </div>
+
+                    <!-- align-self 示範 -->
+                    <div class="flexbox-example-group">
+                        <h5>align-self 個別對齊示範</h5>
+                        <div class="example-container">
+                            <div class="flex-demo-container align-self-demo">
+                                <div class="flex-demo-item">預設</div>
+                                <div class="flex-demo-item self-start">align-self: flex-start</div>
+                                <div class="flex-demo-item">預設</div>
+                                <div class="flex-demo-item self-center">align-self: center</div>
+                                <div class="flex-demo-item">預設</div>
+                                <div class="flex-demo-item self-end">align-self: flex-end</div>
+                            </div>
+                            <div class="example-label">個別元素對齊</div>
+                        </div>
+                    </div>
+
+                    <!-- 實際應用範例 -->
+                    <div class="flexbox-example-group">
+                        <h5>實際應用範例 - 醫學卡片佈局</h5>
+                        <div class="medical-cards-layout">
+                            <div class="medical-card-header">
+                                <h6>人體系統總覽</h6>
+                                <div class="card-actions">
+                                    <button class="action-btn">編輯</button>
+                                    <button class="action-btn">分享</button>
+                                </div>
+                            </div>
+                            <div class="medical-cards-grid">
+                                <div class="medical-card-item heart-card">
+                                    <div class="card-icon">❤️</div>
+                                    <div class="card-content">
+                                        <h6>心臟系統</h6>
+                                        <p>循環系統核心</p>
+                                    </div>
+                                </div>
+                                <div class="medical-card-item lung-card">
+                                    <div class="card-icon">🫁</div>
+                                    <div class="card-content">
+                                        <h6>肺部系統</h6>
+                                        <p>氣體交換</p>
+                                    </div>
+                                </div>
+                                <div class="medical-card-item liver-card">
+                                    <div class="card-icon">🫀</div>
+                                    <div class="card-content">
+                                        <h6>肝臟系統</h6>
+                                        <p>代謝解毒</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS Grid 佈局 -->
+        <section class="grid-section">
+            <h2 class="section-title">CSS Grid 網格佈局</h2>
+            <div class="content-card">
+                <h3>什麼是 CSS Grid？</h3>
+                <p>CSS Grid 是二維佈局系統，可以同時控制行和列，非常適合建立複雜的網格佈局，如醫學圖表展示。</p>
+                
+                <div class="grid-demo">
+                    <h4>基本 Grid 範例：</h4>
+                    <div class="grid-container">
+                        <div class="grid-item header">人體系統總覽</div>
+                        <div class="grid-item sidebar">導航</div>
+                        <div class="grid-item main">主要內容</div>
+                        <div class="grid-item footer">頁尾</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">CSS Grid 基本語法</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;  /* 定義列 */
+    grid-template-rows: auto 1fr auto;       /* 定義行 */
+    gap: 1rem;                               /* 網格間距 */
+    height: 400px;
+}
+
+.header {
+    grid-column: 1 / -1;                     /* 跨越所有列 */
+}
+
+.sidebar {
+    grid-row: 2 / 4;                         /* 跨越多行 */
+}</code></pre>
+                </div>
+
+                <div class="grid-examples">
+                    <h4>醫學圖表 Grid 佈局：</h4>
+                    <div class="medical-grid">
+                        <div class="medical-card heart">
+                            <img src="img/heart.jpeg" alt="心臟" class="medical-img">
+                            <h5>心臟系統</h5>
+                        </div>
+                        <div class="medical-card lung">
+                            <img src="img/lung.webp" alt="肺部" class="medical-img">
+                            <h5>肺部系統</h5>
+                        </div>
+                        <div class="medical-card liver">
+                            <img src="img/liver.jpg" alt="肝臟" class="medical-img">
+                            <h5>肝臟系統</h5>
+                        </div>
+                        <div class="medical-card kidney">
+                            <img src="img/kidney.png" alt="腎臟" class="medical-img">
+                            <h5>腎臟系統</h5>
+                        </div>
+                        <div class="medical-card nervous">
+                            <img src="img/nervous.webp" alt="神經系統" class="medical-img">
+                            <h5>神經系統</h5>
+                        </div>
+                        <div class="medical-card endocrine">
+                            <img src="img/endocrine.jpg" alt="內分泌系統" class="medical-img">
+                            <h5>內分泌系統</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS 動畫 -->
+        <section class="animation-section">
+            <h2 class="section-title">CSS 動畫效果</h2>
+            <div class="content-card">
+                <h3>動畫基礎概念</h3>
+                <p>CSS 動畫讓我們的醫學介面更加生動和互動，可以吸引使用者注意力並提升使用體驗。</p>
+                
+                <div class="animation-demo">
+                    <h4>動畫效果示範：</h4>
+                    <div class="animation-showcase">
+                        <div class="animated-card pulse">
+                            <h5>心跳動畫</h5>
+                            <p>模擬心跳的脈衝效果</p>
+                        </div>
+                        <div class="animated-card bounce">
+                            <h5>彈跳動畫</h5>
+                            <p>吸引注意力的彈跳效果</p>
+                        </div>
+                        <div class="animated-card rotate">
+                            <h5>旋轉動畫</h5>
+                            <p>持續旋轉的載入效果</p>
+                        </div>
+                        <div class="animated-card slide">
+                            <h5>滑動動畫</h5>
+                            <p>平滑的滑動進入效果</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">CSS 動畫語法</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>/* 關鍵幀動畫 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.animated-card {
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease;
+}
+
+.animated-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}</code></pre>
+                </div>
+
+                <div class="transition-demo">
+                    <h4>過渡效果示範：</h4>
+                    <div class="transition-showcase">
+                        <div class="transition-card color-transition">
+                            <h5>顏色過渡</h5>
+                            <p>hover 時顏色平滑變化</p>
+                        </div>
+                        <div class="transition-card size-transition">
+                            <h5>尺寸過渡</h5>
+                            <p>hover 時尺寸平滑變化</p>
+                        </div>
+                        <div class="transition-card position-transition">
+                            <h5>位置過渡</h5>
+                            <p>hover 時位置平滑移動</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 響應式設計 -->
+        <section class="responsive-section">
+            <h2 class="section-title">進階響應式設計</h2>
+            <div class="content-card">
+                <h3>響應式設計策略</h3>
+                <p>現代網頁必須在各種裝置上都能完美顯示，響應式設計確保我們的醫學內容在任何螢幕尺寸下都清晰易讀。</p>
+                
+                <div class="responsive-demo">
+                    <h4>響應式網格示範：</h4>
+                    <div class="responsive-grid">
+                        <div class="responsive-item">桌面版：4欄</div>
+                        <div class="responsive-item">平板版：2欄</div>
+                        <div class="responsive-item">手機版：1欄</div>
+                        <div class="responsive-item">自動適應</div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">響應式設計語法</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>/* 響應式網格 */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* 媒體查詢 */
+@media (max-width: 768px) {
+    .medical-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-card {
+        padding: 1rem;
+    }
+}</code></pre>
+                </div>
+
+                <div class="breakpoint-demo">
+                    <h4>斷點設計：</h4>
+                    <div class="breakpoint-showcase">
+                        <div class="breakpoint-card desktop">
+                            <h5>桌面版 (1200px+)</h5>
+                            <p>多欄位佈局，豐富的視覺效果</p>
+                        </div>
+                        <div class="breakpoint-card tablet">
+                            <h5>平板版 (768px-1199px)</h5>
+                            <p>適中的佈局，保持功能完整</p>
+                        </div>
+                        <div class="breakpoint-card mobile">
+                            <h5>手機版 (767px以下)</h5>
+                            <p>單欄位佈局，優化觸控體驗</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 進階技巧 -->
+        <section class="advanced-section">
+            <h2 class="section-title">進階 CSS 技巧</h2>
+            <div class="content-card">
+                <h3>CSS 變數和自定義屬性</h3>
+                <p>CSS 變數讓我們能夠建立一致的設計系統，特別適合醫學主題的配色方案。</p>
+                
+                <div class="variables-demo">
+                    <h4>CSS 變數示範：</h4>
+                    <div class="variable-showcase">
+                        <div class="variable-card heart-theme">
+                            <h5>心臟系統主題</h5>
+                            <p>使用 CSS 變數統一配色</p>
+                        </div>
+                        <div class="variable-card lung-theme">
+                            <h5>肺部系統主題</h5>
+                            <p>動態切換主題色彩</p>
+                        </div>
+                        <div class="variable-card liver-theme">
+                            <h5>肝臟系統主題</h5>
+                            <p>保持設計一致性</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">CSS 變數語法</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>:root {
+    --heart-color: #ff6b6b;
+    --lung-color: #4ecdc4;
+    --liver-color: #45b7d1;
+    --primary-font: 'Noto Sans TC', sans-serif;
+    --border-radius: 8px;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.heart-theme {
+    --primary-color: var(--heart-color);
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}</code></pre>
+                </div>
+
+                <div class="advanced-features">
+                    <h4>進階功能示範：</h4>
+                    <div class="features-showcase">
+                        <div class="feature-card backdrop">
+                            <h5>背景模糊效果</h5>
+                            <p>backdrop-filter: blur(10px)</p>
+                        </div>
+                        <div class="feature-card gradient">
+                            <h5>漸層背景</h5>
+                            <p>linear-gradient 多色漸層</p>
+                        </div>
+                        <div class="feature-card transform">
+                            <h5>3D 變換</h5>
+                            <p>transform: perspective()</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 實作練習 -->
+        <section class="practice-section">
+            <h2 class="section-title">實作練習</h2>
+            <div class="content-card">
+                <h3>🎯 建立複雜的醫學圖表佈局</h3>
+                <p>現在讓我們用學到的進階 CSS 技巧來建立一個專業的醫學圖表展示頁面：</p>
+                
+                <div class="practice-exercise">
+                    <h4>練習任務：</h4>
+                    <ol>
+                        <li>使用 CSS Grid 建立複雜的網格佈局</li>
+                        <li>應用 Flexbox 處理元素對齊</li>
+                        <li>添加流暢的動畫效果</li>
+                        <li>實現完整的響應式設計</li>
+                        <li>使用 CSS 變數建立主題系統</li>
+                    </ol>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">完整進階 CSS 範例</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>/* 醫學圖表佈局 */
+.medical-dashboard {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main charts"
+        "footer footer footer";
+    grid-template-columns: 250px 1fr 300px;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    min-height: 100vh;
+}
+
+.medical-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.medical-chart:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 章節總結 -->
+        <section class="summary-section">
+            <h2 class="section-title">章節總結</h2>
+            <div class="content-card">
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h3>✅ 已學習內容</h3>
+                        <ul>
+                            <li>Flexbox 一維佈局系統</li>
+                            <li>CSS Grid 二維網格佈局</li>
+                            <li>CSS 動畫和過渡效果</li>
+                            <li>進階響應式設計技巧</li>
+                            <li>CSS 變數和自定義屬性</li>
+                            <li>現代 CSS 進階功能</li>
+                        </ul>
+                    </div>
+                    <div class="summary-item">
+                        <h3>🎯 下一步</h3>
+                        <p>在下一章中，我們將學習 JavaScript 基礎，實現真正的互動功能，包括 DOM 操作、事件處理和動態內容載入。</p>
+                        <div class="next-lesson">
+                            <a href="pages/demo_3.html" class="next-btn secondary" target="_blank">查看進階 CSS 示範頁面 →</a>
+                            <a href="lesson_4.html" class="next-btn primary">前往第四章：JavaScript 基礎 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="lesson-footer">
+        <div class="footer-content">
+            <p>© 2025 互動式學習網頁製作 - 中西醫筆記實作課程</p>
+            <div class="footer-links">
+                <a href="index.html">返回主頁</a>
+                <a href="lesson_2.html">上一章</a>
+                <a href="lesson_4.html">下一章</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 複製程式碼功能
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '已複製！';
+                button.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    button.textContent = '複製';
+                    button.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
+
+        // 進度追蹤
+        document.addEventListener('DOMContentLoaded', function() {
+            // 標記章節完成
+            localStorage.setItem('chapter_3_completed', 'true');
+            
+            // 更新主頁進度
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.saveProgress(3, true);
+            }
+        });
+    </script>
+</body>
+</html>
