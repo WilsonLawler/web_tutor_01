@@ -1,0 +1,1496 @@
+/* Lesson 0 CSS - 準備課程樣式 */
+
+/* CSS Reset 和基礎樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #64748b;
+    --accent-color: #f59e0b;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --background-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* 準備課程專用色彩 */
+    --html-color: #e34c26;
+    --css-color: #1572b6;
+    --js-color: #f7df1e;
+    --vscode-color: #007acc;
+    --browser-color: #4285f4;
+    
+    /* 間距系統 */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* 字體大小 */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    
+    /* 圓角 */
+    --radius-sm: 0.25rem;
+    --radius: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    
+    /* 過渡動畫 */
+    --transition-fast: 0.15s ease;
+    --transition: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+/* 導航列樣式 */
+.lesson-nav {
+    background: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+}
+
+.back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: color var(--transition);
+}
+
+.back-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.lesson-title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: var(--radius-sm);
+    transition: width var(--transition);
+}
+
+/* 主要內容區域 */
+.lesson-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+/* 章節樣式 */
+.intro-section,
+.concepts-section,
+.rendering-section,
+.tools-section,
+.vscode-section,
+.liveserver-section,
+.practice-section,
+.summary-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.section-title {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 2rem;
+    background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* 內容卡片 */
+.content-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-xl);
+}
+
+.content-card h3 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.content-card p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
+
+/* 介紹區域 */
+.intro-text {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(245, 158, 11, 0.1));
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.highlight-box h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--text-lg);
+}
+
+.highlight-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.highlight-box li {
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    color: var(--text-primary);
+}
+
+.highlight-box li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* 網頁結構展示 */
+.web-structure {
+    margin: var(--spacing-xl) 0;
+}
+
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.structure-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.structure-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: all var(--transition);
+}
+
+.structure-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.structure-card.html-card::before {
+    background: var(--html-color);
+}
+
+.structure-card.css-card::before {
+    background: var(--css-color);
+}
+
+.structure-card.js-card::before {
+    background: var(--js-color);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.structure-card h5 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.structure-card p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.detail-item {
+    background: var(--background-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+/* 工作流程圖 */
+.workflow-diagram {
+    margin: var(--spacing-xl) 0;
+}
+
+.workflow-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.workflow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 150px;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-content h6 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.step-content p {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.workflow-arrow {
+    font-size: var(--text-lg);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* 瀏覽器渲染流程 */
+.rendering-process {
+    margin: var(--spacing-xl) 0;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.process-step {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition);
+}
+
+.process-step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.step-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.process-step h5 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.process-step p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* DOM 樹狀結構 */
+.dom-example {
+    margin: var(--spacing-xl) 0;
+}
+
+.dom-tree {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    margin-top: var(--spacing-lg);
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.dom-node {
+    margin: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.dom-node::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border-color);
+}
+
+.dom-node::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: var(--spacing-sm);
+    height: 1px;
+    background: var(--border-color);
+}
+
+.node-tag {
+    color: var(--html-color);
+    font-weight: 600;
+}
+
+.node-text {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.dom-children {
+    margin-left: var(--spacing-md);
+}
+
+.dom-node.leaf {
+    padding-left: var(--spacing-xl);
+}
+
+.dom-node.root {
+    padding-left: 0;
+}
+
+.dom-node.root::before,
+.dom-node.root::after {
+    display: none;
+}
+
+/* 工具介紹 */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.tool-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: all var(--transition);
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tool-card.essential::before {
+    background: var(--success-color);
+}
+
+.tool-card.recommended::before {
+    background: var(--accent-color);
+}
+
+.tool-card.optional::before {
+    background: var(--secondary-color);
+}
+
+.tool-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.tool-icon {
+    font-size: 2rem;
+}
+
+.tool-header h4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.tool-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.essential-badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+}
+
+.recommended-badge {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--accent-color);
+}
+
+.optional-badge {
+    background: rgba(100, 116, 139, 0.1);
+    color: var(--secondary-color);
+}
+
+.tool-content p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.tool-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.feature {
+    background: var(--background-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+
+.tool-recommendations,
+.tool-benefits {
+    margin-top: var(--spacing-md);
+}
+
+.tool-recommendations h5,
+.tool-benefits h5 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.tool-recommendations ul,
+.tool-benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tool-recommendations li,
+.tool-benefits li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.tool-recommendations li::before,
+.tool-benefits li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* VS Code 安裝步驟 */
+.installation-steps {
+    margin: var(--spacing-xl) 0;
+}
+
+.step-card {
+    display: flex;
+    gap: var(--spacing-lg);
+    background: var(--surface-color);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-lg);
+    transition: all var(--transition);
+}
+
+.step-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.step-card .step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--text-lg);
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.step-action {
+    margin-top: var(--spacing-md);
+}
+
+.action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius);
+    font-weight: 500;
+    transition: all var(--transition);
+}
+
+.action-link:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.step-tips {
+    background: var(--background-color);
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.step-tips h5 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.step-tips li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.step-tips li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+}
+
+/* 擴展安裝步驟 */
+.extension-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.extension-step {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--background-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.extension-step .step-icon {
+    font-size: var(--text-base);
+}
+
+/* 專案設定 */
+.project-setup {
+    margin-top: var(--spacing-md);
+}
+
+.setup-step {
+    background: var(--background-color);
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.setup-step h5 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.setup-step p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Windows 特定內容樣式 */
+.windows-specific {
+    margin-top: var(--spacing-md);
+    background: rgba(0, 122, 204, 0.1);
+    border: 1px solid rgba(0, 122, 204, 0.2);
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+}
+
+.windows-specific h5 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: #007acc;
+    margin-bottom: var(--spacing-sm);
+}
+
+.windows-tips {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--surface-color);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+.tip-icon {
+    font-size: var(--text-base);
+    flex-shrink: 0;
+}
+
+.tip-content h6 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tip-content p {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.windows-workflow {
+    margin-top: var(--spacing-sm);
+    background: rgba(0, 122, 204, 0.05);
+    border: 1px solid rgba(0, 122, 204, 0.1);
+    border-radius: var(--radius);
+    padding: var(--spacing-sm);
+}
+
+.windows-workflow h6 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: #007acc;
+    margin-bottom: var(--spacing-sm);
+}
+
+.windows-workflow ol {
+    padding-left: var(--spacing-lg);
+    margin: 0;
+}
+
+.windows-workflow li {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    padding: var(--spacing-xs) 0;
+}
+
+.method-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.method-option {
+    background: var(--surface-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+
+.method-option strong {
+    color: var(--text-primary);
+}
+
+/* Windows 快捷鍵樣式 */
+.windows-shortcuts {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.shortcut {
+    background: #007acc;
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.shortcut-desc {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+
+.windows-shortcuts-list {
+    margin-top: var(--spacing-md);
+    background: rgba(0, 122, 204, 0.05);
+    border: 1px solid rgba(0, 122, 204, 0.1);
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+}
+
+.windows-shortcuts-list h6 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: #007acc;
+    margin-bottom: var(--spacing-sm);
+}
+
+.shortcut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--surface-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+.shortcut-item .shortcut {
+    background: #007acc;
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    font-family: 'Monaco', 'Consolas', monospace;
+    min-width: 80px;
+    text-align: center;
+}
+
+.shortcut-item .shortcut-desc {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    flex: 1;
+}
+
+/* Live Server 工作流程 */
+.liveserver-workflow {
+    margin: var(--spacing-xl) 0;
+}
+
+.workflow-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.demo-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 150px;
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition);
+}
+
+.demo-step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.demo-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.demo-step h5 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.demo-step p {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.demo-arrow {
+    font-size: var(--text-lg);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Live Server 功能 */
+.liveserver-features {
+    margin: var(--spacing-xl) 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.feature-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-card h5 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.feature-card p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Live Server 使用方法 */
+.liveserver-usage {
+    margin: var(--spacing-xl) 0;
+}
+
+.usage-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.method-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition);
+}
+
+.method-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.method-card h5 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.method-card ol {
+    padding-left: var(--spacing-lg);
+}
+
+.method-card li {
+    padding: var(--spacing-xs) 0;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+/* 實作練習 */
+.practice-exercise {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(37, 99, 235, 0.1));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.practice-exercise h4 {
+    color: var(--success-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.exercise-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.exercise-step {
+    display: flex;
+    gap: var(--spacing-lg);
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition);
+}
+
+.exercise-step:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.exercise-step .step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--success-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.exercise-step .step-content {
+    flex: 1;
+}
+
+.exercise-step h5 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exercise-step p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+/* 程式碼範例 */
+.code-example {
+    background: #1e293b;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: var(--spacing-md) 0;
+    box-shadow: var(--shadow-lg);
+}
+
+.code-header {
+    background: #334155;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #475569;
+}
+
+.code-title {
+    color: #e2e8f0;
+    font-size: var(--text-sm);
+    font-weight: 500;
+}
+
+.copy-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    cursor: pointer;
+    transition: background-color var(--transition);
+}
+
+.copy-btn:hover {
+    background: #1d4ed8;
+}
+
+.code-example pre {
+    padding: var(--spacing-lg);
+    margin: 0;
+    overflow-x: auto;
+}
+
+.code-example code {
+    color: #e2e8f0;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+}
+
+/* 章節總結 */
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+.summary-item {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+}
+
+.summary-item h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--text-lg);
+}
+
+.summary-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.summary-item li {
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    color: var(--text-primary);
+}
+
+.summary-item li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.next-lesson {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+}
+
+.next-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    text-decoration: none;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    transition: all var(--transition);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.next-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.next-btn:hover::before {
+    left: 100%;
+}
+
+.next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.next-btn.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+/* 頁尾 */
+.lesson-footer {
+    background: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    margin-top: var(--spacing-2xl);
+    padding: var(--spacing-xl) 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .lesson-title {
+        font-size: var(--text-xl);
+        text-align: left;
+    }
+
+    .progress-bar {
+        width: 100%;
+    }
+
+    .lesson-content {
+        padding: var(--spacing-md);
+    }
+
+    .section-title {
+        font-size: var(--text-2xl);
+    }
+
+    .content-card {
+        padding: var(--spacing-lg);
+    }
+
+    .structure-grid,
+    .process-steps,
+    .tools-grid,
+    .features-grid,
+    .usage-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .workflow-steps,
+    .workflow-demo {
+        flex-direction: column;
+    }
+
+    .workflow-arrow,
+    .demo-arrow {
+        transform: rotate(90deg);
+    }
+
+    .step-card,
+    .exercise-step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .code-example pre {
+        padding: var(--spacing-md);
+        font-size: var(--text-xs);
+    }
+
+    .step-card,
+    .exercise-step {
+        padding: var(--spacing-md);
+    }
+
+    .extension-steps {
+        grid-template-columns: 1fr;
+    }
+
+    /* Windows 特定內容的響應式設計 */
+    .windows-tips {
+        gap: var(--spacing-xs);
+    }
+
+    .tip-item {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-xs);
+    }
+
+    .method-options {
+        gap: var(--spacing-xs);
+    }
+
+    .method-option {
+        padding: var(--spacing-xs);
+        font-size: var(--text-xs);
+    }
+
+    .shortcut-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+
+    .shortcut-item {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-xs);
+    }
+
+    .shortcut-item .shortcut {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .windows-shortcuts {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
+}
+
+/* 動畫效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* 滾動條樣式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* 選擇文字樣式 */
+::selection {
+    background: rgba(37, 99, 235, 0.2);
+    color: var(--text-primary);
+}

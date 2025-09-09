@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第零章：準備課程 - 互動式學習網頁製作</title>
+    <meta name="description" content="學習網頁開發前的準備工作：開發工具介紹、瀏覽器渲染原理、VS Code 安裝和 Live Server 擴展設定">
+    <meta name="keywords" content="網頁開發準備, 開發工具, VS Code, Live Server, 瀏覽器渲染, HTML 基礎">
+    
+    <!-- 預載入字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 樣式表 -->
+    <link rel="stylesheet" href="css/lesson_0.css">
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav class="lesson-nav">
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← 返回主頁</a>
+            <h1 class="lesson-title">第零章：準備課程</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="lesson-content">
+        <!-- 章節介紹 -->
+        <section class="intro-section">
+            <h2 class="section-title">開始網頁開發前的準備</h2>
+            <div class="content-card">
+                <p class="intro-text">
+                    在開始學習 HTML 之前，我們需要了解網頁開發的基本概念、準備必要的開發工具，
+                    以及理解 HTML 如何在瀏覽器中渲染。這堂準備課程將為您建立穩固的基礎。
+                </p>
+                <div class="highlight-box">
+                    <h3>🎯 學習目標</h3>
+                    <ul>
+                        <li>了解網頁開發的基本概念</li>
+                        <li>認識必要的開發工具</li>
+                        <li>理解瀏覽器渲染原理</li>
+                        <li>安裝並設定 VS Code</li>
+                        <li>使用 Live Server 進行開發</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 網頁開發基礎概念 -->
+        <section class="concepts-section">
+            <h2 class="section-title">網頁開發基礎概念</h2>
+            <div class="content-card">
+                <h3>什麼是網頁？</h3>
+                <p>網頁是由 HTML、CSS 和 JavaScript 三種技術構成的文件，透過瀏覽器顯示給使用者。</p>
+                
+                <div class="web-structure">
+                    <h4>網頁的三大組成部分：</h4>
+                    <div class="structure-grid">
+                        <div class="structure-card html-card">
+                            <div class="card-icon">📄</div>
+                            <h5>HTML</h5>
+                            <p>網頁的骨架和內容結構</p>
+                            <div class="card-details">
+                                <span class="detail-item">標題、段落、圖片</span>
+                                <span class="detail-item">連結、列表、表格</span>
+                                <span class="detail-item">語義化標籤</span>
+                            </div>
+                        </div>
+                        <div class="structure-card css-card">
+                            <div class="card-icon">🎨</div>
+                            <h5>CSS</h5>
+                            <p>網頁的樣式和視覺呈現</p>
+                            <div class="card-details">
+                                <span class="detail-item">顏色、字體、間距</span>
+                                <span class="detail-item">佈局、動畫、響應式</span>
+                                <span class="detail-item">視覺效果</span>
+                            </div>
+                        </div>
+                        <div class="structure-card js-card">
+                            <div class="card-icon">⚡</div>
+                            <h5>JavaScript</h5>
+                            <p>網頁的互動和動態功能</p>
+                            <div class="card-details">
+                                <span class="detail-item">按鈕點擊、表單驗證</span>
+                                <span class="detail-item">動態內容、API 呼叫</span>
+                                <span class="detail-item">用戶互動</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-diagram">
+                    <h4>網頁開發流程：</h4>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h6>規劃設計</h6>
+                                <p>確定網站結構和功能需求</p>
+                            </div>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h6>HTML 結構</h6>
+                                <p>建立網頁的基本骨架</p>
+                            </div>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h6>CSS 樣式</h6>
+                                <p>美化網頁的視覺呈現</p>
+                            </div>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h6>JavaScript 功能</h6>
+                                <p>添加互動和動態效果</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 瀏覽器渲染原理 -->
+        <section class="rendering-section">
+            <h2 class="section-title">瀏覽器如何渲染網頁</h2>
+            <div class="content-card">
+                <h3>從 HTML 到視覺化網頁的過程</h3>
+                <p>當您在瀏覽器中輸入網址或開啟 HTML 檔案時，瀏覽器會執行一系列複雜的處理步驟。</p>
+                
+                <div class="rendering-process">
+                    <h4>瀏覽器渲染流程：</h4>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-icon">📥</div>
+                            <h5>1. 接收 HTML</h5>
+                            <p>瀏覽器從伺服器或本地檔案讀取 HTML 代碼</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-icon">🔍</div>
+                            <h5>2. 解析 HTML</h5>
+                            <p>將 HTML 代碼轉換成 DOM（文件物件模型）樹狀結構</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-icon">🎨</div>
+                            <h5>3. 解析 CSS</h5>
+                            <p>讀取並解析 CSS 樣式，建立樣式規則</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-icon">🏗️</div>
+                            <h5>4. 建立渲染樹</h5>
+                            <p>結合 DOM 和 CSS 建立渲染樹（Render Tree）</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-icon">📐</div>
+                            <h5>5. 佈局計算</h5>
+                            <p>計算每個元素的位置和大小（Layout/Reflow）</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-icon">🖼️</div>
+                            <h5>6. 繪製頁面</h5>
+                            <p>將元素繪製到螢幕上（Paint）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dom-example">
+                    <h4>DOM 樹狀結構範例：</h4>
+                    <div class="dom-tree">
+                        <div class="dom-node root">
+                            <span class="node-tag">html</span>
+                            <div class="dom-children">
+                                <div class="dom-node">
+                                    <span class="node-tag">head</span>
+                                    <div class="dom-children">
+                                        <div class="dom-node leaf">
+                                            <span class="node-tag">title</span>
+                                            <span class="node-text">我的網頁</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dom-node">
+                                    <span class="node-tag">body</span>
+                                    <div class="dom-children">
+                                        <div class="dom-node">
+                                            <span class="node-tag">h1</span>
+                                            <span class="node-text">歡迎來到我的網站</span>
+                                        </div>
+                                        <div class="dom-node">
+                                            <span class="node-tag">p</span>
+                                            <span class="node-text">這是一個段落</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 開發工具介紹 -->
+        <section class="tools-section">
+            <h2 class="section-title">必要的開發工具</h2>
+            <div class="content-card">
+                <h3>網頁開發工具介紹</h3>
+                <p>選擇合適的開發工具能大幅提升您的開發效率和學習體驗。</p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card essential">
+                        <div class="tool-header">
+                            <div class="tool-icon">💻</div>
+                            <h4>文字編輯器</h4>
+                            <span class="tool-badge essential-badge">必備</span>
+                        </div>
+                        <div class="tool-content">
+                            <p>用於編寫 HTML、CSS 和 JavaScript 代碼</p>
+                            <div class="tool-features">
+                                <span class="feature">語法高亮</span>
+                                <span class="feature">自動完成</span>
+                                <span class="feature">錯誤檢查</span>
+                            </div>
+                            <div class="tool-recommendations">
+                                <h5>推薦工具：</h5>
+                                <ul>
+                                    <li><strong>VS Code</strong> - 免費且功能強大</li>
+                                    <li>Sublime Text - 輕量快速</li>
+                                    <li>Atom - 開源選擇</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card essential">
+                        <div class="tool-header">
+                            <div class="tool-icon">🌐</div>
+                            <h4>瀏覽器</h4>
+                            <span class="tool-badge essential-badge">必備</span>
+                        </div>
+                        <div class="tool-content">
+                            <p>預覽和測試您的網頁效果</p>
+                            <div class="tool-features">
+                                <span class="feature">即時預覽</span>
+                                <span class="feature">開發者工具</span>
+                                <span class="feature">響應式測試</span>
+                            </div>
+                            <div class="tool-recommendations">
+                                <h5>推薦瀏覽器：</h5>
+                                <ul>
+                                    <li><strong>Chrome</strong> - 開發者工具最完整</li>
+                                    <li>Firefox - 開源且功能豐富</li>
+                                    <li>Safari - Mac 用戶首選</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card recommended">
+                        <div class="tool-header">
+                            <div class="tool-icon">🚀</div>
+                            <h4>Live Server</h4>
+                            <span class="tool-badge recommended-badge">推薦</span>
+                        </div>
+                        <div class="tool-content">
+                            <p>即時重新載入網頁，提升開發效率</p>
+                            <div class="tool-features">
+                                <span class="feature">自動重新載入</span>
+                                <span class="feature">本地伺服器</span>
+                                <span class="feature">熱重載</span>
+                            </div>
+                            <div class="tool-benefits">
+                                <h5>使用好處：</h5>
+                                <ul>
+                                    <li>修改代碼後自動更新瀏覽器</li>
+                                    <li>模擬真實的網頁環境</li>
+                                    <li>支援 AJAX 和 API 測試</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card optional">
+                        <div class="tool-header">
+                            <div class="tool-icon">📁</div>
+                            <h4>檔案管理</h4>
+                            <span class="tool-badge optional-badge">選用</span>
+                        </div>
+                        <div class="tool-content">
+                            <p>組織和管理您的專案檔案</p>
+                            <div class="tool-features">
+                                <span class="feature">資料夾結構</span>
+                                <span class="feature">版本控制</span>
+                                <span class="feature">團隊協作</span>
+                            </div>
+                            <div class="tool-recommendations">
+                                <h5>推薦工具：</h5>
+                                <ul>
+                                    <li><strong>Git</strong> - 版本控制</li>
+                                    <li>GitHub Desktop - 圖形化 Git</li>
+                                    <li>VS Code 內建檔案管理</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VS Code 安裝指南 -->
+        <section class="vscode-section">
+            <h2 class="section-title">VS Code 安裝與設定</h2>
+            <div class="content-card">
+                <h3>Visual Studio Code 安裝步驟</h3>
+                <p>VS Code 是目前最受歡迎的免費程式碼編輯器，擁有豐富的擴展生態系統。</p>
+                
+                <div class="installation-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>下載 VS Code</h4>
+                            <p>前往官方網站下載適合您作業系統的版本</p>
+                            <div class="step-action">
+                                <a href="https://code.visualstudio.com/" target="_blank" class="action-link">
+                                    🌐 前往 VS Code 官網下載
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>安裝 VS Code</h4>
+                            <p>執行下載的安裝檔，按照指示完成安裝</p>
+                            <div class="step-tips">
+                                <h5>💡 Windows 安裝提示：</h5>
+                                <ul>
+                                    <li>建議勾選「Add to PATH」選項</li>
+                                    <li>選擇「Open with Code」檔案關聯</li>
+                                    <li>勾選「Create a desktop icon」建立桌面圖示</li>
+                                    <li>勾選「Add 'Open with Code' action to Windows Explorer」</li>
+                                    <li>安裝完成後重新啟動電腦</li>
+                                </ul>
+                            </div>
+                            <div class="windows-specific">
+                                <h5>🪟 Windows 特定設定：</h5>
+                                <div class="windows-tips">
+                                    <div class="tip-item">
+                                        <span class="tip-icon">📁</span>
+                                        <div class="tip-content">
+                                            <h6>檔案總管整合</h6>
+                                            <p>安裝後可在檔案總管中右鍵選擇「Open with Code」</p>
+                                        </div>
+                                    </div>
+                                    <div class="tip-item">
+                                        <span class="tip-icon">⌨️</span>
+                                        <div class="tip-content">
+                                            <h6>快捷鍵設定</h6>
+                                            <p>Windows 快捷鍵：Ctrl+Shift+P（命令面板）</p>
+                                        </div>
+                                    </div>
+                                    <div class="tip-item">
+                                        <span class="tip-icon">🔧</span>
+                                        <div class="tip-content">
+                                            <h6>終端機整合</h6>
+                                            <p>使用內建終端機：Ctrl+`（反引號）</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>安裝 Live Server 擴展</h4>
+                            <p>Live Server 是網頁開發的必備擴展，提供即時預覽功能</p>
+                            <div class="extension-steps">
+                                <div class="extension-step">
+                                    <span class="step-icon">🔍</span>
+                                    <span>點擊左側「擴展」圖示</span>
+                                </div>
+                                <div class="extension-step">
+                                    <span class="step-icon">📝</span>
+                                    <span>搜尋「Live Server」</span>
+                                </div>
+                                <div class="extension-step">
+                                    <span class="step-icon">⬇️</span>
+                                    <span>點擊「安裝」按鈕</span>
+                                </div>
+                                <div class="extension-step">
+                                    <span class="step-icon">✅</span>
+                                    <span>安裝完成後重新載入 VS Code</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>建立第一個專案</h4>
+                            <p>建立資料夾並開始您的第一個網頁專案</p>
+                            <div class="project-setup">
+                                <div class="setup-step">
+                                    <h5>📁 建立專案資料夾</h5>
+                                    <p>在桌面或您喜歡的位置建立一個新資料夾，命名為「my-first-website」</p>
+                                    <div class="windows-workflow">
+                                        <h6>🪟 Windows 操作步驟：</h6>
+                                        <ol>
+                                            <li>在桌面空白處按右鍵</li>
+                                            <li>選擇「新增」→「資料夾」</li>
+                                            <li>將資料夾命名為「my-first-website」</li>
+                                            <li>按 Enter 確認</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="setup-step">
+                                    <h5>📂 在 VS Code 中開啟</h5>
+                                    <p>使用 VS Code 開啟這個資料夾</p>
+                                    <div class="windows-workflow">
+                                        <h6>🪟 Windows 開啟方法：</h6>
+                                        <div class="method-options">
+                                            <div class="method-option">
+                                                <strong>方法一：</strong>在資料夾上右鍵 → 選擇「Open with Code」
+                                            </div>
+                                            <div class="method-option">
+                                                <strong>方法二：</strong>開啟 VS Code → File → Open Folder → 選擇資料夾
+                                            </div>
+                                            <div class="method-option">
+                                                <strong>方法三：</strong>拖拽資料夾到 VS Code 視窗中
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setup-step">
+                                    <h5>📄 建立 HTML 檔案</h5>
+                                    <p>在資料夾中建立一個名為「index.html」的檔案</p>
+                                    <div class="windows-workflow">
+                                        <h6>🪟 Windows 建立檔案：</h6>
+                                        <ol>
+                                            <li>在 VS Code 左側檔案總管中，右鍵點擊資料夾</li>
+                                            <li>選擇「新增檔案」</li>
+                                            <li>輸入檔案名稱「index.html」</li>
+                                            <li>按 Enter 確認</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Server 使用指南 -->
+        <section class="liveserver-section">
+            <h2 class="section-title">Live Server 使用指南</h2>
+            <div class="content-card">
+                <h3>如何使用 Live Server 進行開發</h3>
+                <p>Live Server 讓您能夠即時預覽網頁變更，大幅提升開發效率。</p>
+                
+                <div class="liveserver-workflow">
+                    <h4>Live Server 工作流程：</h4>
+                    <div class="workflow-demo">
+                        <div class="demo-step">
+                            <div class="demo-icon">📝</div>
+                            <h5>1. 編寫代碼</h5>
+                            <p>在 VS Code 中編寫或修改 HTML 代碼</p>
+                        </div>
+                        <div class="demo-arrow">→</div>
+                        <div class="demo-step">
+                            <div class="demo-icon">💾</div>
+                            <h5>2. 儲存檔案</h5>
+                            <p>使用 Ctrl+S 儲存檔案</p>
+                            <div class="windows-shortcuts">
+                                <span class="shortcut">Ctrl+S</span>
+                                <span class="shortcut-desc">儲存檔案</span>
+                            </div>
+                        </div>
+                        <div class="demo-arrow">→</div>
+                        <div class="demo-step">
+                            <div class="demo-icon">🔄</div>
+                            <h5>3. 自動重新載入</h5>
+                            <p>瀏覽器自動重新載入，顯示最新變更</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="liveserver-features">
+                    <h4>Live Server 主要功能：</h4>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h5>即時重新載入</h5>
+                            <p>修改代碼後自動更新瀏覽器，無需手動重新整理</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h5>本地伺服器</h5>
+                            <p>建立本地 HTTP 伺服器，模擬真實網頁環境</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <h5>多裝置預覽</h5>
+                            <p>支援在不同裝置上預覽響應式設計</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔧</div>
+                            <h5>自訂設定</h5>
+                            <p>可調整端口號、延遲時間等設定</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="liveserver-usage">
+                    <h4>啟動 Live Server 的方法：</h4>
+                    <div class="usage-methods">
+                        <div class="method-card">
+                            <h5>方法一：右鍵選單</h5>
+                            <ol>
+                                <li>在 HTML 檔案上按右鍵</li>
+                                <li>選擇「Open with Live Server」</li>
+                                <li>瀏覽器會自動開啟並顯示網頁</li>
+                            </ol>
+                        </div>
+                        <div class="method-card">
+                            <h5>方法二：狀態列</h5>
+                            <ol>
+                                <li>開啟 HTML 檔案</li>
+                                <li>點擊 VS Code 底部狀態列的「Go Live」</li>
+                                <li>選擇要開啟的檔案</li>
+                            </ol>
+                        </div>
+                        <div class="method-card">
+                            <h5>方法三：快捷鍵</h5>
+                            <ol>
+                                <li>開啟 HTML 檔案</li>
+                                <li>使用快捷鍵 Alt+L Alt+O</li>
+                                <li>或使用命令面板 (Ctrl+Shift+P)</li>
+                            </ol>
+                            <div class="windows-shortcuts-list">
+                                <h6>🪟 Windows 常用快捷鍵：</h6>
+                                <div class="shortcut-grid">
+                                    <div class="shortcut-item">
+                                        <span class="shortcut">Ctrl+Shift+P</span>
+                                        <span class="shortcut-desc">命令面板</span>
+                                    </div>
+                                    <div class="shortcut-item">
+                                        <span class="shortcut">Ctrl+`</span>
+                                        <span class="shortcut-desc">開啟終端機</span>
+                                    </div>
+                                    <div class="shortcut-item">
+                                        <span class="shortcut">Ctrl+S</span>
+                                        <span class="shortcut-desc">儲存檔案</span>
+                                    </div>
+                                    <div class="shortcut-item">
+                                        <span class="shortcut">Ctrl+Z</span>
+                                        <span class="shortcut-desc">復原</span>
+                                    </div>
+                                    <div class="shortcut-item">
+                                        <span class="shortcut">Ctrl+Y</span>
+                                        <span class="shortcut-desc">重做</span>
+                                    </div>
+                                    <div class="shortcut-item">
+                                        <span class="shortcut">Ctrl+F</span>
+                                        <span class="shortcut-desc">搜尋</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 實作練習 -->
+        <section class="practice-section">
+            <h2 class="section-title">實作練習</h2>
+            <div class="content-card">
+                <h3>🎯 建立您的第一個網頁</h3>
+                <p>現在讓我們實際操作，建立您的第一個網頁並使用 Live Server 預覽。</p>
+                
+                <div class="practice-exercise">
+                    <h4>練習步驟：</h4>
+                    <div class="exercise-steps">
+                        <div class="exercise-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>建立專案資料夾</h5>
+                                <p>在桌面建立名為「my-first-website」的資料夾</p>
+                            </div>
+                        </div>
+                        <div class="exercise-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>在 VS Code 中開啟</h5>
+                                <p>使用 VS Code 開啟這個資料夾</p>
+                            </div>
+                        </div>
+                        <div class="exercise-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>建立 HTML 檔案</h5>
+                                <p>建立「index.html」檔案並輸入以下代碼：</p>
+                                <div class="code-example">
+                                    <div class="code-header">
+                                        <span class="code-title">index.html</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    </div>
+                                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-TW"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;我的第一個網頁&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;歡迎來到我的網站！&lt;/h1&gt;
+    &lt;p&gt;這是我使用 HTML 建立的第一個網頁。&lt;/p&gt;
+    &lt;p&gt;我學會了如何使用 VS Code 和 Live Server 進行開發。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exercise-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>使用 Live Server 預覽</h5>
+                                <p>右鍵點擊 HTML 檔案，選擇「Open with Live Server」</p>
+                            </div>
+                        </div>
+                        <div class="exercise-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h5>測試即時更新</h5>
+                                <p>修改 HTML 內容並儲存，觀察瀏覽器自動更新</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 章節總結 -->
+        <section class="summary-section">
+            <h2 class="section-title">章節總結</h2>
+            <div class="content-card">
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h3>✅ 已學習內容</h3>
+                        <ul>
+                            <li>網頁開發的基本概念</li>
+                            <li>HTML、CSS、JavaScript 的作用</li>
+                            <li>瀏覽器渲染原理</li>
+                            <li>必要的開發工具介紹</li>
+                            <li>VS Code 安裝與設定</li>
+                            <li>Live Server 擴展使用</li>
+                        </ul>
+                    </div>
+                    <div class="summary-item">
+                        <h3>🎯 下一步</h3>
+                        <p>現在您已經準備好開始學習 HTML 基礎了！在下一章中，我們將深入學習 HTML 語法、標籤結構和語義化標籤。</p>
+                        <div class="next-lesson">
+                            <a href="lesson_1.html" class="next-btn primary">前往第一章：HTML 基礎 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="lesson-footer">
+        <div class="footer-content">
+            <p>© 2025 互動式學習網頁製作 - 中西醫筆記實作課程</p>
+            <div class="footer-links">
+                <a href="index.html">返回主頁</a>
+                <a href="lesson_1.html">下一章</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 複製程式碼功能
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '已複製！';
+                button.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    button.textContent = '複製';
+                    button.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
+
+        // 進度追蹤
+        document.addEventListener('DOMContentLoaded', function() {
+            // 標記章節完成
+            localStorage.setItem('chapter_0_completed', 'true');
+            
+            // 更新主頁進度
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.saveProgress(0, true);
+            }
+        });
+    </script>
+</body>
+</html>
