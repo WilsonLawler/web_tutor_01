@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動式醫學圖表 - JavaScript 示範</title>
+    <meta name="description" content="展示 JavaScript 互動功能：醫學圖表、搜尋系統、動態內容載入和資料管理">
+    <meta name="keywords" content="JavaScript, 互動式, 醫學圖表, 搜尋, 動態載入">
+    
+    <!-- 預載入字體和圖示 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 主要樣式表 -->
+    <link rel="stylesheet" href="../css/demo_4.css">
+</head>
+<body>
+    <div class="demo-container">
+        <!-- 頁面標題 -->
+        <header class="demo-header">
+            <div class="header-content">
+                <h1 class="demo-title">互動式醫學圖表系統</h1>
+                <p class="demo-subtitle">JavaScript 互動功能完整示範：DOM 操作、事件處理、資料管理和動態載入</p>
+                <div class="header-actions">
+                    <button class="btn-primary" onclick="scrollToSection('interactive-chart')">
+                        <span>探索圖表</span>
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('search-system')">
+                        <span>搜尋功能</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 導航列 -->
+        <nav class="demo-nav" id="demo-nav">
+            <div class="nav-content">
+                <div class="nav-logo">
+                    <h3>醫學圖表系統</h3>
+                </div>
+                <div class="nav-links">
+                    <a href="#interactive-chart" class="nav-link">互動圖表</a>
+                    <a href="#search-system" class="nav-link">搜尋系統</a>
+                    <a href="#data-management" class="nav-link">資料管理</a>
+                    <a href="#dynamic-content" class="nav-link">動態載入</a>
+                </div>
+                <div class="nav-controls">
+                    <button class="nav-toggle" id="nav-toggle">☰</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 主要內容 -->
+        <main class="demo-main">
+            <!-- 互動式醫學圖表 -->
+            <section id="interactive-chart" class="demo-section">
+                <div class="section-header">
+                    <h2>🫀 互動式人體解剖圖表</h2>
+                    <p>點擊器官標記查看詳細資訊，體驗 JavaScript DOM 操作和事件處理。使用真實的人體解剖圖展示器官位置。</p>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="human-body-chart">
+                        <img src="../img/human_body_anatomy.jpg" alt="人體解剖圖" class="body-image" id="body-chart">
+                        <div class="organ-overlay">
+                            <div class="organ-point heart" data-organ="heart" title="心臟">
+                                <div class="organ-tooltip">心臟</div>
+                            </div>
+                            <div class="organ-point lung-left" data-organ="lung" title="左肺">
+                                <div class="organ-tooltip">左肺</div>
+                            </div>
+                            <div class="organ-point lung-right" data-organ="lung" title="右肺">
+                                <div class="organ-tooltip">右肺</div>
+                            </div>
+                            <div class="organ-point liver" data-organ="liver" title="肝臟">
+                                <div class="organ-tooltip">肝臟</div>
+                            </div>
+                            <div class="organ-point kidney-left" data-organ="kidney" title="左腎">
+                                <div class="organ-tooltip">左腎</div>
+                            </div>
+                            <div class="organ-point kidney-right" data-organ="kidney" title="右腎">
+                                <div class="organ-tooltip">右腎</div>
+                            </div>
+                            <div class="organ-point stomach" data-organ="stomach" title="胃">
+                                <div class="organ-tooltip">胃</div>
+                            </div>
+                            <div class="organ-point brain" data-organ="brain" title="大腦">
+                                <div class="organ-tooltip">大腦</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-info-panel">
+                        <div class="info-header">
+                            <h3 id="selected-organ-title">選擇器官查看詳細資訊</h3>
+                            <div class="organ-status" id="organ-status">
+                                <span class="status-indicator"></span>
+                                <span class="status-text">未選擇</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-content">
+                            <div class="organ-description" id="organ-description">
+                                <p>點擊人體解剖圖上的器官標記來了解更多資訊。每個器官都有詳細的功能說明、位置描述和相關疾病資訊。這張解剖圖展示了真實的人體內部結構。</p>
+                            </div>
+                            
+                            <div class="organ-details" id="organ-details">
+                                <div class="detail-placeholder">
+                                    <div class="placeholder-icon">🫀</div>
+                                    <p>選擇器官後，這裡將顯示詳細的醫學資訊</p>
+                                </div>
+                            </div>
+                            
+                            <div class="organ-actions" id="organ-actions" style="display: none;">
+                                <button class="action-btn primary" onclick="addToFavorites()">
+                                    <span>⭐</span> 加入收藏
+                                </button>
+                                <button class="action-btn secondary" onclick="shareOrganInfo()">
+                                    <span>📤</span> 分享資訊
+                                </button>
+                                <button class="action-btn tertiary" onclick="viewRelatedDiseases()">
+                                    <span>🔍</span> 相關疾病
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-controls">
+                    <div class="control-group">
+                        <label>圖表模式：</label>
+                        <select id="chart-mode" onchange="changeChartMode(this.value)">
+                            <option value="normal">標準模式</option>
+                            <option value="detailed">詳細模式</option>
+                            <option value="systems">系統模式</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>顯示選項：</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="show-labels" checked onchange="toggleLabels()"> 顯示標籤</label>
+                            <label><input type="checkbox" id="show-systems" onchange="toggleSystems()"> 系統分組</label>
+                            <label><input type="checkbox" id="show-diseases" onchange="toggleDiseases()"> 疾病標記</label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 搜尋系統 -->
+            <section id="search-system" class="demo-section">
+                <div class="section-header">
+                    <h2>🔍 智能搜尋系統</h2>
+                    <p>即時搜尋醫學資料，支援多條件篩選和智能建議</p>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-interface">
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="搜尋器官、疾病、症狀或治療方法..." autocomplete="off">
+                            <button class="search-btn" onclick="performSearch()">
+                                <span>🔍</span>
+                            </button>
+                            <div class="search-suggestions" id="search-suggestions"></div>
+                        </div>
+                        
+                        <div class="search-filters">
+                            <div class="filter-group">
+                                <label>類別：</label>
+                                <select id="category-filter" onchange="updateSearch()">
+                                    <option value="">所有類別</option>
+                                    <option value="organs">器官</option>
+                                    <option value="diseases">疾病</option>
+                                    <option value="symptoms">症狀</option>
+                                    <option value="treatments">治療</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>系統：</label>
+                                <select id="system-filter" onchange="updateSearch()">
+                                    <option value="">所有系統</option>
+                                    <option value="circulatory">循環系統</option>
+                                    <option value="respiratory">呼吸系統</option>
+                                    <option value="digestive">消化系統</option>
+                                    <option value="nervous">神經系統</option>
+                                    <option value="endocrine">內分泌系統</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>難度：</label>
+                                <select id="difficulty-filter" onchange="updateSearch()">
+                                    <option value="">所有難度</option>
+                                    <option value="beginner">初級</option>
+                                    <option value="intermediate">中級</option>
+                                    <option value="advanced">高級</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="search-results">
+                        <div class="results-header">
+                            <h4>搜尋結果</h4>
+                            <div class="results-info">
+                                <span id="results-count">0</span> 個結果
+                                <button class="clear-search" onclick="clearSearch()">清除</button>
+                            </div>
+                        </div>
+                        <div class="results-list" id="search-results">
+                            <div class="no-results">
+                                <div class="no-results-icon">🔍</div>
+                                <p>輸入關鍵字開始搜尋醫學資料</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 資料管理 -->
+            <section id="data-management" class="demo-section">
+                <div class="section-header">
+                    <h2>💾 資料管理系統</h2>
+                    <p>本地儲存、用戶偏好設定和學習進度追蹤</p>
+                </div>
+                
+                <div class="data-management-grid">
+                    <div class="data-panel">
+                        <h4>學習進度</h4>
+                        <div class="progress-tracker">
+                            <div class="progress-item">
+                                <span class="progress-label">器官學習</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="progress-percent">75%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">疾病知識</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                                <span class="progress-percent">45%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">症狀識別</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 30%"></div>
+                                </div>
+                                <span class="progress-percent">30%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-panel">
+                        <h4>收藏夾</h4>
+                        <div class="favorites-list" id="favorites-list">
+                            <div class="favorite-item">
+                                <span class="favorite-icon">🫀</span>
+                                <div class="favorite-info">
+                                    <h5>心臟</h5>
+                                    <p>循環系統核心器官</p>
+                                </div>
+                                <button class="remove-favorite" onclick="removeFavorite('heart')">×</button>
+                            </div>
+                            <div class="favorite-item">
+                                <span class="favorite-icon">🫁</span>
+                                <div class="favorite-info">
+                                    <h5>肺臟</h5>
+                                    <p>呼吸系統主要器官</p>
+                                </div>
+                                <button class="remove-favorite" onclick="removeFavorite('lung')">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-panel">
+                        <h4>用戶設定</h4>
+                        <div class="settings-list">
+                            <div class="setting-item">
+                                <label>語言設定：</label>
+                                <select id="language-setting" onchange="updateSetting('language', this.value)">
+                                    <option value="zh-TW" selected>繁體中文</option>
+                                    <option value="en">English</option>
+                                    <option value="ja">日本語</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>主題模式：</label>
+                                <select id="theme-setting" onchange="updateSetting('theme', this.value)">
+                                    <option value="light" selected>淺色模式</option>
+                                    <option value="dark">深色模式</option>
+                                    <option value="auto">自動</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>通知設定：</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" id="notifications" checked onchange="updateSetting('notifications', this.checked)"> 學習提醒</label>
+                                    <label><input type="checkbox" id="updates" onchange="updateSetting('updates', this.checked)"> 內容更新</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 動態內容載入 -->
+            <section id="dynamic-content" class="demo-section">
+                <div class="section-header">
+                    <h2>🔄 動態內容載入</h2>
+                    <p>非同步載入醫學資料、圖片和相關內容</p>
+                </div>
+                
+                <div class="loading-demo">
+                    <div class="loading-controls">
+                        <button class="load-btn primary" onclick="loadMedicalData()">
+                            <span>📊</span> 載入醫學資料
+                        </button>
+                        <button class="load-btn secondary" onclick="loadOrganImages()">
+                            <span>🖼️</span> 載入器官圖片
+                        </button>
+                        <button class="load-btn tertiary" onclick="loadDiseaseInfo()">
+                            <span>🏥</span> 載入疾病資訊
+                        </button>
+                        <button class="load-btn quaternary" onclick="simulateApiCall()">
+                            <span>🌐</span> 模擬 API 呼叫
+                        </button>
+                    </div>
+                    
+                    <div class="loading-content">
+                        <div class="loading-indicator" id="loading-indicator" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>載入中...</p>
+                        </div>
+                        
+                        <div class="loaded-content" id="loaded-content">
+                            <div class="content-placeholder">
+                                <div class="placeholder-icon">📚</div>
+                                <h4>準備載入內容</h4>
+                                <p>點擊上方按鈕開始載入不同的醫學資料</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="loading-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="loaded-items">0</span>
+                        <span class="stat-label">已載入項目</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="load-time">0</span>
+                        <span class="stat-label">載入時間 (ms)</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="cache-hits">0</span>
+                        <span class="stat-label">快取命中</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 頁尾 -->
+        <footer class="demo-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>JavaScript 互動功能示範</h4>
+                    <p>展示 DOM 操作、事件處理、資料管理和動態載入等核心功能</p>
+                </div>
+                <div class="footer-section">
+                    <h4>技術特色</h4>
+                    <ul>
+                        <li>響應式設計</li>
+                        <li>即時搜尋</li>
+                        <li>本地儲存</li>
+                        <li>動態載入</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>學習資源</h4>
+                    <ul>
+                        <li><a href="../lesson_4.html">JavaScript 基礎課程</a></li>
+                        <li><a href="../index.html">返回首頁</a></li>
+                        <li><a href="../lesson_3.html">進階 CSS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 互動式醫學圖表系統 - JavaScript 示範</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/demo_4.js"></script>
+</body>
+</html>

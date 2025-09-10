@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四章：JavaScript 基礎 - 互動式網頁開發</title>
+    <meta name="description" content="學習 DOM 操作、事件處理和資料管理，實現互動式醫學圖表、搜尋功能和動態內容載入">
+    <meta name="keywords" content="JavaScript, DOM, 事件處理, 資料管理, 互動式, 醫學圖表">
+    
+    <!-- 預載入字體和圖示 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 主要樣式表 -->
+    <link rel="stylesheet" href="css/lesson_4.css">
+</head>
+<body>
+    <div class="lesson-container">
+        <!-- 課程標題區域 -->
+        <header class="lesson-header">
+            <div class="breadcrumb">
+                <a href="index.html">首頁</a> > <a href="index.html">課程章節</a> > <span>第四章：JavaScript 基礎</span>
+            </div>
+            <h1 class="lesson-title">JavaScript 基礎：互動式網頁開發</h1>
+            <p class="lesson-subtitle">學習 DOM 操作、事件處理和資料管理，實現互動式醫學圖表、搜尋功能和動態內容載入</p>
+            <div class="lesson-meta">
+                <span class="duration">⏱️ 約 4 小時</span>
+                <span class="difficulty">📊 進階</span>
+                <span class="prerequisites">📋 需要：HTML、CSS 基礎</span>
+            </div>
+        </header>
+
+        <!-- 側邊選單按鈕 (僅 PC 版) -->
+        <button class="sidebar-toggle" id="sidebar-toggle">
+            <span class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+            <span class="toggle-text">課程大綱</span>
+        </button>
+
+        <!-- 側邊選單 (僅 PC 版) -->
+        <aside class="lesson-sidebar" id="lesson-sidebar">
+            <div class="sidebar-header">
+                <h3>課程大綱</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li><a href="#overview" class="nav-link">課程概述</a></li>
+                    <li><a href="#dom-basics" class="nav-link">DOM 基礎操作</a></li>
+                    <li><a href="#event-handling" class="nav-link">事件處理機制</a></li>
+                    <li><a href="#data-management" class="nav-link">資料管理與儲存</a></li>
+                    <li><a href="#interactive-features" class="nav-link">互動式功能實作</a></li>
+                    <li><a href="#medical-charts" class="nav-link">醫學圖表互動</a></li>
+                    <li><a href="#search-functionality" class="nav-link">搜尋功能開發</a></li>
+                    <li><a href="#dynamic-content" class="nav-link">動態內容載入</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 側邊選單遮罩 (僅 PC 版) -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- 回到頂部按鈕 (僅手機版) -->
+        <button class="scroll-to-top" id="scroll-to-top" title="回到頂部">
+            <span class="scroll-icon">↑</span>
+        </button>
+
+        <!-- 主要課程內容 -->
+        <main class="lesson-content">
+            <!-- 課程概述 -->
+            <section id="overview" class="content-section">
+                <h2>🎯 課程概述</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <div class="card-icon">🎨</div>
+                        <h3>DOM 操作</h3>
+                        <p>學習如何選取、修改和操作網頁元素，實現動態內容更新</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>事件處理</h3>
+                        <p>掌握用戶互動事件，建立響應式的用戶體驗</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">💾</div>
+                        <h3>資料管理</h3>
+                        <p>學習本地儲存、資料結構和狀態管理技巧</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">🔍</div>
+                        <h3>互動功能</h3>
+                        <p>實作搜尋、篩選和動態載入等進階功能</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DOM 基礎操作 -->
+            <section id="dom-basics" class="content-section">
+                <h2>🌐 DOM 基礎操作</h2>
+                <div class="concept-box">
+                    <h3>什麼是 DOM？</h3>
+                    <p>DOM (Document Object Model) 是網頁的程式化表示，讓我們可以用 JavaScript 來操作網頁元素。</p>
+                </div>
+
+                <div class="code-example">
+                    <h4>基本 DOM 選取方法</h4>
+                    <div class="code-tabs">
+                        <button class="tab-btn active" data-tab="dom-selectors">選取器</button>
+                        <button class="tab-btn" data-tab="dom-methods">操作方法</button>
+                        <button class="tab-btn" data-tab="dom-example">實例</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="dom-selectors">
+                        <pre><code>// 選取單一元素
+const element = document.getElementById('myId');
+const element = document.querySelector('.myClass');
+const element = document.querySelector('h1');
+
+// 選取多個元素
+const elements = document.querySelectorAll('.myClass');
+const elements = document.getElementsByClassName('myClass');
+const elements = document.getElementsByTagName('div');</code></pre>
+                    </div>
+                    
+                    <div class="tab-content" id="dom-methods">
+                        <pre><code>// 修改內容
+element.textContent = '新文字';
+element.innerHTML = '<strong>粗體文字</strong>';
+
+// 修改屬性
+element.setAttribute('class', 'new-class');
+element.style.color = 'red';
+element.style.display = 'none';
+
+// 添加/移除類別
+element.classList.add('active');
+element.classList.remove('inactive');
+element.classList.toggle('visible');</code></pre>
+                    </div>
+                    
+                    <div class="tab-content" id="dom-example">
+                        <pre><code>// 實例：互動式 DOM 操作 (對應下方示範)
+// 1. 更改標題 - 使用 getElementById 選取元素
+function changeTitle() {
+    const title = document.getElementById('demo-title');
+    const titles = ['心臟系統', '肺臟系統', '肝臟系統', '腎臟系統'];
+    const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+    title.textContent = randomTitle; // 修改文字內容
+    
+    // 添加動畫效果
+    title.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+        title.style.transform = 'scale(1)';
+    }, 200);
+}
+
+// 2. 更改顏色 - 使用 getElementById 選取並修改樣式
+function changeColor() {
+    const text = document.getElementById('demo-text');
+    const colors = ['#2563eb', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    text.style.color = randomColor; // 修改 CSS 樣式
+}
+
+// 3. 切換顯示 - 使用 getElementById 控制元素顯示
+function toggleVisibility() {
+    const text = document.getElementById('demo-text');
+    if (text.style.display === 'none') {
+        text.style.display = 'block';
+    } else {
+        text.style.display = 'none';
+    }
+}
+
+// 4. 添加內容 - 使用 createElement 創建新元素
+function addContent() {
+    const container = document.getElementById('demo-content');
+    const newElement = document.createElement('div');
+    newElement.innerHTML = '✅ 新增的內容';
+    container.appendChild(newElement); // 添加到 DOM 中
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4>🔧 互動式 DOM 操作示範</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); font-size: 0.9rem;">
+                        以下按鈕對應上方「實例」標籤中的程式碼範例。點擊按鈕查看實際的 DOM 操作效果：
+                    </p>
+                    <div class="demo-controls">
+                        <button id="change-title" class="demo-btn">1️⃣ 更改標題</button>
+                        <button id="change-color" class="demo-btn">2️⃣ 更改顏色</button>
+                        <button id="toggle-visibility" class="demo-btn">3️⃣ 切換顯示</button>
+                        <button id="add-content" class="demo-btn">4️⃣ 添加內容</button>
+                    </div>
+                    <div class="demo-result">
+                        <h3 id="demo-title">心臟系統</h3>
+                        <p id="demo-text">心臟是人體循環系統的核心，負責將血液泵送到全身各處。</p>
+                        <div id="demo-content"></div>
+                    </div>
+                    <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(37, 99, 235, 0.05); border-radius: var(--radius); border-left: 4px solid var(--primary-color);">
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                            <strong>💡 學習提示：</strong> 點擊上方按鈕時，觀察下方內容的變化，然後對照「實例」標籤中的程式碼，理解每個 DOM 操作是如何實現的。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 事件處理機制 -->
+            <section id="event-handling" class="content-section">
+                <h2>⚡ 事件處理機制</h2>
+                <div class="concept-box">
+                    <h3>事件驅動程式設計</h3>
+                    <p>JavaScript 使用事件驅動模式，當用戶與網頁互動時觸發相應的事件處理函數。</p>
+                </div>
+
+                <div class="code-example">
+                    <h4>常用事件類型</h4>
+                    <div class="event-grid">
+                        <div class="event-card">
+                            <h5>滑鼠事件</h5>
+                            <ul>
+                                <li><code>click</code> - 點擊</li>
+                                <li><code>mouseover</code> - 滑鼠懸停</li>
+                                <li><code>mouseout</code> - 滑鼠離開</li>
+                                <li><code>mousedown</code> - 滑鼠按下</li>
+                            </ul>
+                        </div>
+                        <div class="event-card">
+                            <h5>鍵盤事件</h5>
+                            <ul>
+                                <li><code>keydown</code> - 按鍵按下</li>
+                                <li><code>keyup</code> - 按鍵釋放</li>
+                                <li><code>keypress</code> - 按鍵輸入</li>
+                            </ul>
+                        </div>
+                        <div class="event-card">
+                            <h5>表單事件</h5>
+                            <ul>
+                                <li><code>submit</code> - 表單提交</li>
+                                <li><code>change</code> - 值改變</li>
+                                <li><code>input</code> - 輸入中</li>
+                                <li><code>focus</code> - 獲得焦點</li>
+                            </ul>
+                        </div>
+                        <div class="event-card">
+                            <h5>頁面事件</h5>
+                            <ul>
+                                <li><code>load</code> - 頁面載入</li>
+                                <li><code>resize</code> - 視窗大小改變</li>
+                                <li><code>scroll</code> - 滾動</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h4>事件處理方法</h4>
+                    <pre><code>// 方法一：HTML 屬性
+&lt;button onclick="handleClick()"&gt;點擊我&lt;/button&gt;
+
+// 方法二：DOM 屬性
+button.onclick = function() {
+    console.log('按鈕被點擊了！');
+};
+
+// 方法三：addEventListener (推薦)
+button.addEventListener('click', function(event) {
+    console.log('按鈕被點擊了！', event);
+});
+
+// 事件物件
+function handleEvent(event) {
+    event.preventDefault(); // 阻止預設行為
+    event.stopPropagation(); // 阻止事件冒泡
+    console.log(event.target); // 觸發事件的元素
+    console.log(event.type); // 事件類型
+}</code></pre>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4>🎮 事件處理示範</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); font-size: 0.9rem;">
+                        這個示範展示了 JavaScript 事件處理的實際應用。點擊「開始追蹤」按鈕後，在下方區域內移動滑鼠、點擊或按鍵盤，系統會即時記錄並顯示觸發的事件。
+                    </p>
+                    <div class="event-demo">
+                        <div class="demo-area" id="event-demo-area">
+                            <p style="margin-bottom: var(--spacing-md); font-weight: 500;">🖱️ 互動區域</p>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: var(--spacing-md);">
+                                請先點擊「開始追蹤」按鈕，然後在此區域內：<br>
+                                • 移動滑鼠查看 mouseover/mouseout 事件<br>
+                                • 點擊查看 click 事件<br>
+                                • 按鍵盤查看 keydown 事件
+                            </p>
+                            <div class="event-log" id="event-log">
+                                <p style="color: var(--text-muted); text-align: center; font-style: italic;">
+                                    點擊「開始追蹤」按鈕開始記錄事件...
+                                </p>
+                            </div>
+                        </div>
+                        <div class="demo-controls">
+                            <button id="clear-log" class="demo-btn">清除日誌</button>
+                            <button id="start-tracking" class="demo-btn">開始追蹤</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 資料管理與儲存 -->
+            <section id="data-management" class="content-section">
+                <h2>💾 資料管理與儲存</h2>
+                <div class="concept-box">
+                    <h3>資料持久化</h3>
+                    <p>學習如何在瀏覽器中儲存和讀取資料，實現用戶偏好設定和進度追蹤。</p>
+                </div>
+
+                <div class="storage-methods">
+                    <div class="method-card">
+                        <h4>localStorage</h4>
+                        <p>永久儲存，直到用戶清除瀏覽器資料</p>
+                        <pre><code>// 儲存資料
+localStorage.setItem('userProgress', JSON.stringify({
+    completedLessons: [1, 2, 3],
+    currentLesson: 4,
+    lastVisit: new Date().toISOString()
+}));
+
+// 讀取資料
+const progress = JSON.parse(localStorage.getItem('userProgress'));
+
+// 移除資料
+localStorage.removeItem('userProgress');</code></pre>
+                    </div>
+
+                    <div class="method-card">
+                        <h4>sessionStorage</h4>
+                        <p>會話儲存，關閉瀏覽器後清除</p>
+                        <pre><code>// 儲存臨時資料
+sessionStorage.setItem('currentSearch', '心臟疾病');
+sessionStorage.setItem('filters', JSON.stringify({
+    category: 'cardiology',
+    difficulty: 'beginner'
+}));</code></pre>
+                    </div>
+
+                    <div class="method-card">
+                        <h4>資料結構管理</h4>
+                        <p>使用物件和陣列組織複雜資料</p>
+                        <pre><code>// 醫學資料結構
+const medicalData = {
+    organs: [
+        {
+            id: 'heart',
+            name: '心臟',
+            system: 'circulatory',
+            functions: ['泵血', '循環'],
+            symptoms: ['胸痛', '心悸']
+        }
+    ],
+    searchIndex: {},
+    userFavorites: []
+};</code></pre>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h4>localStorage 實作程式碼</h4>
+                    <pre><code>// 儲存資料到 localStorage
+function saveData() {
+    const inputValue = dataInput.value.trim();
+    if (inputValue) {
+        // 建立資料物件
+        const data = {
+            content: inputValue,
+            timestamp: new Date().toISOString(),
+            id: Date.now()
+        };
+        
+        // 獲取現有資料
+        let existingData = JSON.parse(localStorage.getItem('demoData') || '[]');
+        existingData.push(data);
+        
+        // 儲存到 localStorage
+        localStorage.setItem('demoData', JSON.stringify(existingData));
+        
+        // 更新顯示
+        updateDataDisplay();
+    }
+}
+
+// 清除所有資料
+function clearData() {
+    localStorage.removeItem('demoData');
+    dataOutput.innerHTML = '&lt;p style="color: var(--text-muted);"&gt;沒有儲存的資料&lt;/p&gt;';
+}
+
+// 更新資料顯示
+function updateDataDisplay() {
+    const data = JSON.parse(localStorage.getItem('demoData') || '[]');
+    
+    if (data.length === 0) {
+        dataOutput.innerHTML = '&lt;p style="color: var(--text-muted);"&gt;沒有儲存的資料&lt;/p&gt;';
+        return;
+    }
+
+    const html = data.map(item => `
+        &lt;div style="border-bottom: 1px solid var(--border-light); padding: 0.5rem 0;"&gt;
+            &lt;strong&gt;${item.content}&lt;/strong&gt;
+            &lt;br&gt;
+            &lt;small style="color: var(--text-muted);"&gt;
+                ${new Date(item.timestamp).toLocaleString()}
+            &lt;/small&gt;
+        &lt;/div&gt;
+    `).join('');
+    
+    dataOutput.innerHTML = html;
+}</code></pre>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4>📊 資料管理示範</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); font-size: 0.9rem;">
+                        以下示範展示了 localStorage 的實際應用。輸入資料後點擊「儲存」，資料會永久儲存在瀏覽器中，即使重新整理頁面也不會消失：
+                    </p>
+                    <div class="data-demo">
+                        <div class="demo-controls">
+                            <input type="text" id="data-input" placeholder="輸入要儲存的資料">
+                            <button id="save-data" class="demo-btn">儲存</button>
+                            <button id="clear-data" class="demo-btn">清除</button>
+                        </div>
+                        <div class="data-display">
+                            <h5>儲存的資料：</h5>
+                            <div id="data-output"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(37, 99, 235, 0.05); border-radius: var(--radius); border-left: 4px solid var(--primary-color);">
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                            <strong>💡 學習提示：</strong> 儲存資料後，可以重新整理頁面或關閉瀏覽器再重新開啟，資料仍然會保留。這就是 localStorage 的持久化特性！
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 互動式功能實作 -->
+            <section id="interactive-features" class="content-section">
+                <h2>🎨 互動式功能實作</h2>
+                
+                <div class="code-example">
+                    <h4>動態內容切換程式碼</h4>
+                    <pre><code>// 標籤切換功能
+function initTabSystem() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetTab = this.dataset.tab;
+            
+            // 移除所有 active 狀態
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // 添加 active 狀態到當前選中的標籤和內容
+            this.classList.add('active');
+            const targetContent = document.getElementById(targetTab);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+}
+
+// 動態列表管理
+function initDynamicList() {
+    const listInput = document.getElementById('list-input');
+    const addItemBtn = document.getElementById('add-item');
+    const dynamicList = document.getElementById('dynamic-list');
+
+    // 添加項目
+    addItemBtn.addEventListener('click', function() {
+        const inputValue = listInput.value.trim();
+        if (inputValue) {
+            addListItem(inputValue);
+            listInput.value = '';
+        }
+    });
+
+    // 按 Enter 鍵添加
+    listInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            addItemBtn.click();
+        }
+    });
+
+    // 事件委派處理移除按鈕
+    dynamicList.addEventListener('click', function(e) {
+        if (e.target.classList.contains('remove-btn')) {
+            e.target.parentElement.remove();
+        }
+    });
+}
+
+// 添加列表項目
+function addListItem(text) {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `${text} &lt;button class="remove-btn"&gt;×&lt;/button&gt;`;
+    dynamicList.appendChild(listItem);
+    
+    // 添加動畫效果
+    listItem.style.opacity = '0';
+    listItem.style.transform = 'translateY(-10px)';
+    
+    setTimeout(() => {
+        listItem.style.transition = 'all 0.3s ease';
+        listItem.style.opacity = '1';
+        listItem.style.transform = 'translateY(0)';
+    }, 10);
+}</code></pre>
+                </div>
+
+                <div class="feature-showcase">
+                    <div class="feature-card">
+                        <h4>動態內容切換</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-size: 0.9rem;">
+                            點擊下方標籤按鈕切換不同的器官內容，展示如何使用 JavaScript 實現動態內容切換：
+                        </p>
+                        <div class="tab-demo">
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" data-tab="tab1">心臟</button>
+                                <button class="tab-btn" data-tab="tab2">肺臟</button>
+                                <button class="tab-btn" data-tab="tab3">肝臟</button>
+                            </div>
+                            <div class="tab-content active" id="tab1">
+                                <h5>心臟系統</h5>
+                                <p>心臟是循環系統的核心，負責將含氧血液輸送到全身。</p>
+                                <img src="img/heart.jpeg" alt="心臟" class="organ-image">
+                            </div>
+                            <div class="tab-content" id="tab2">
+                                <h5>肺臟系統</h5>
+                                <p>肺臟負責氣體交換，將氧氣送入血液，排出二氧化碳。</p>
+                                <img src="img/lung.webp" alt="肺臟" class="organ-image">
+                            </div>
+                            <div class="tab-content" id="tab3">
+                                <h5>肝臟系統</h5>
+                                <p>肝臟是人體最大的內臟器官，負責代謝、解毒和膽汁生成。</p>
+                                <img src="img/liver.jpg" alt="肝臟" class="organ-image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <h4>動態列表管理</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); font-size: 0.9rem;">
+                            在下方輸入框中輸入新的醫學術語，點擊「添加」或按 Enter 鍵來動態添加項目。點擊項目右側的「×」可以移除該項目：
+                        </p>
+                        <div class="list-demo">
+                            <div class="list-controls">
+                                <input type="text" id="list-input" placeholder="添加新的醫學術語">
+                                <button id="add-item" class="demo-btn">添加</button>
+                            </div>
+                            <ul id="dynamic-list" class="medical-terms">
+                                <li>心臟病 <button class="remove-btn">×</button></li>
+                                <li>高血壓 <button class="remove-btn">×</button></li>
+                                <li>糖尿病 <button class="remove-btn">×</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(37, 99, 235, 0.05); border-radius: var(--radius); border-left: 4px solid var(--primary-color);">
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                        <strong>💡 學習重點：</strong> 
+                        • <strong>事件委派</strong>：使用事件委派處理動態添加的移除按鈕<br>
+                        • <strong>DOM 操作</strong>：動態創建和移除元素<br>
+                        • <strong>CSS 類別切換</strong>：使用 classList 控制元素顯示狀態<br>
+                        • <strong>動畫效果</strong>：為新添加的元素添加淡入動畫
+                    </p>
+                </div>
+            </section>
+
+            <!-- 醫學圖表互動 -->
+            <section id="medical-charts" class="content-section">
+                <h2>📊 醫學圖表互動</h2>
+                
+                <div class="code-example">
+                    <h4>互動式人體圖表程式碼</h4>
+                    <pre><code>// 醫學圖表互動功能
+function initMedicalChart() {
+    const organPoints = document.querySelectorAll('.organ-point');
+    const selectedOrganTitle = document.getElementById('selected-organ');
+    const organDescription = document.getElementById('organ-description');
+    const organDetails = document.getElementById('organ-details');
+
+    // 醫學資料庫
+    const medicalData = {
+        heart: {
+            name: '心臟',
+            description: '心臟是循環系統的核心器官，負責將血液泵送到全身各處。',
+            details: {
+                '位置': '胸腔中央偏左',
+                '功能': '泵血、維持循環',
+                '大小': '約拳頭大小',
+                '重量': '約250-350克',
+                '心跳': '每分鐘60-100次'
+            }
+        },
+        lung: {
+            name: '肺臟',
+            description: '肺臟負責氣體交換，將氧氣送入血液，排出二氧化碳。',
+            details: {
+                '位置': '胸腔兩側',
+                '功能': '氣體交換、呼吸',
+                '結構': '左肺2葉，右肺3葉',
+                '容量': '約4-6公升',
+                '呼吸頻率': '每分鐘12-20次'
+            }
+        },
+        liver: {
+            name: '肝臟',
+            description: '肝臟是人體最大的內臟器官，負責代謝、解毒和膽汁生成。',
+            details: {
+                '位置': '右上腹部',
+                '功能': '代謝、解毒、膽汁生成',
+                '重量': '約1.5公斤',
+                '再生能力': '具有強大的再生能力',
+                '重要功能': '蛋白質合成、糖原儲存'
+            }
+        },
+        kidney: {
+            name: '腎臟',
+            description: '腎臟負責過濾血液，調節水分和電解質平衡，產生尿液。',
+            details: {
+                '位置': '腰部兩側',
+                '功能': '過濾、調節、排泄',
+                '數量': '左右各一個',
+                '大小': '約拳頭大小',
+                '過濾量': '每天約180公升'
+            }
+        }
+    };
+
+    // 為每個器官點添加點擊事件
+    organPoints.forEach(point => {
+        point.addEventListener('click', function() {
+            const organType = this.dataset.organ;
+            const organInfo = medicalData[organType];
+            
+            if (organInfo) {
+                // 更新標題和描述
+                selectedOrganTitle.textContent = organInfo.name;
+                organDescription.textContent = organInfo.description;
+                
+                // 動態生成詳細資訊
+                const detailsHtml = Object.entries(organInfo.details)
+                    .map(([key, value]) => `
+                        &lt;div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light);"&gt;
+                            &lt;strong&gt;${key}:&lt;/strong&gt;
+                            &lt;span&gt;${value}&lt;/span&gt;
+                        &lt;/div&gt;
+                    `).join('');
+                
+                organDetails.innerHTML = detailsHtml;
+                
+                // 添加視覺反饋
+                organPoints.forEach(p => p.style.background = 'var(--primary-color)');
+                this.style.background = 'var(--accent-color)';
+                this.style.transform = 'scale(1.3)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.2)';
+                }, 200);
+            }
+        });
+
+        // 懸停效果
+        point.addEventListener('mouseenter', function() {
+            if (this.style.background !== 'var(--accent-color)') {
+                this.style.background = 'var(--success-color)';
+            }
+        });
+
+        point.addEventListener('mouseleave', function() {
+            if (this.style.background !== 'var(--accent-color)') {
+                this.style.background = 'var(--primary-color)';
+            }
+        });
+    });
+}</code></pre>
+                </div>
+
+                <div class="chart-demo">
+                    <h4>互動式人體圖表</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); font-size: 0.9rem;">
+                        點擊下方人體圖上的器官標點，查看詳細的醫學資訊。每個器官都有完整的資料庫，包括位置、功能、大小等重要資訊：
+                    </p>
+                    <div class="chart-container">
+                        <div class="human-body-chart">
+                            <img src="img/human_body.jpg" alt="人體圖" class="body-image" id="body-chart">
+                            <div class="organ-overlay">
+                                <div class="organ-point heart" data-organ="heart" title="心臟"></div>
+                                <div class="organ-point lung" data-organ="lung" title="肺臟"></div>
+                                <div class="organ-point liver" data-organ="liver" title="肝臟"></div>
+                                <div class="organ-point kidney" data-organ="kidney" title="腎臟"></div>
+                            </div>
+                        </div>
+                        <div class="chart-info">
+                            <h5 id="selected-organ">點擊器官查看詳細資訊</h5>
+                            <p id="organ-description">選擇人體圖上的器官來了解更多資訊</p>
+                            <div class="organ-details" id="organ-details"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(37, 99, 235, 0.05); border-radius: var(--radius); border-left: 4px solid var(--primary-color);">
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                            <strong>💡 學習重點：</strong> 
+                            • <strong>資料結構設計</strong>：使用物件組織複雜的醫學資料<br>
+                            • <strong>事件處理</strong>：為動態元素添加點擊和懸停事件<br>
+                            • <strong>DOM 更新</strong>：動態生成和更新 HTML 內容<br>
+                            • <strong>視覺反饋</strong>：提供即時的互動視覺效果
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 搜尋功能開發 -->
+            <section id="search-functionality" class="content-section">
+                <h2>🔍 搜尋功能開發</h2>
+                
+                <div class="code-example">
+                    <h4>即時搜尋系統程式碼</h4>
+                    <pre><code>// 搜尋系統初始化
+function initSearchSystem() {
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const categoryFilter = document.getElementById('category-filter');
+    const systemFilter = document.getElementById('system-filter');
+    const searchResults = document.getElementById('search-results');
+
+    // 模擬醫學資料庫
+    const medicalDatabase = [
+        { name: '心臟病', category: 'diseases', system: 'circulatory', description: '心臟相關疾病總稱' },
+        { name: '高血壓', category: 'diseases', system: 'circulatory', description: '血壓持續升高的疾病' },
+        { name: '心臟', category: 'organs', system: 'circulatory', description: '循環系統的核心器官' },
+        { name: '肺臟', category: 'organs', system: 'respiratory', description: '呼吸系統的主要器官' },
+        { name: '肺炎', category: 'diseases', system: 'respiratory', description: '肺部感染性疾病' },
+        { name: '肝臟', category: 'organs', system: 'digestive', description: '最大的內臟器官' },
+        { name: '肝炎', category: 'diseases', system: 'digestive', description: '肝臟發炎性疾病' },
+        { name: '腎臟', category: 'organs', system: 'circulatory', description: '過濾血液的器官' },
+        { name: '腎炎', category: 'diseases', system: 'circulatory', description: '腎臟發炎性疾病' },
+        { name: '胸痛', category: 'symptoms', system: 'circulatory', description: '胸部疼痛症狀' },
+        { name: '咳嗽', category: 'symptoms', system: 'respiratory', description: '呼吸道刺激症狀' },
+        { name: '腹痛', category: 'symptoms', system: 'digestive', description: '腹部疼痛症狀' },
+        { name: '手術治療', category: 'treatments', system: 'circulatory', description: '外科手術治療方法' },
+        { name: '藥物治療', category: 'treatments', system: 'circulatory', description: '使用藥物進行治療' },
+        { name: '物理治療', category: 'treatments', system: 'circulatory', description: '物理方法進行治療' }
+    ];
+
+    let searchTimeout;
+
+    // 執行搜尋功能
+    function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        const category = categoryFilter.value;
+        const system = systemFilter.value;
+
+        if (!query && !category && !system) {
+            searchResults.innerHTML = '&lt;p class="search-placeholder"&gt;輸入關鍵字開始搜尋...&lt;/p&gt;';
+            return;
+        }
+
+        const results = medicalDatabase.filter(item => {
+            const matchesQuery = !query || 
+                item.name.toLowerCase().includes(query) || 
+                item.description.toLowerCase().includes(query);
+            const matchesCategory = !category || item.category === category;
+            const matchesSystem = !system || item.system === system;
+
+            return matchesQuery && matchesCategory && matchesSystem;
+        });
+
+        displaySearchResults(results);
+    }
+
+    // 顯示搜尋結果
+    function displaySearchResults(results) {
+        if (results.length === 0) {
+            searchResults.innerHTML = '&lt;p style="color: var(--error-color); text-align: center;"&gt;沒有找到相關結果&lt;/p&gt;';
+            return;
+        }
+
+        const resultsHtml = results.map(item => `
+            &lt;div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 0.5rem; background: var(--surface-color);"&gt;
+                &lt;h5 style="color: var(--primary-color); margin-bottom: 0.5rem;"&gt;${item.name}&lt;/h5&gt;
+                &lt;p style="color: var(--text-secondary); margin-bottom: 0.5rem;"&gt;${item.description}&lt;/p&gt;
+                &lt;div style="display: flex; gap: 1rem; font-size: 0.8rem;"&gt;
+                    &lt;span style="background: var(--background-color); padding: 0.25rem 0.5rem; border-radius: 4px; color: var(--text-secondary);"&gt;
+                        ${getCategoryLabel(item.category)}
+                    &lt;/span&gt;
+                    &lt;span style="background: var(--background-color); padding: 0.25rem 0.5rem; border-radius: 4px; color: var(--text-secondary);"&gt;
+                        ${getSystemLabel(item.system)}
+                    &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        `).join('');
+
+        searchResults.innerHTML = resultsHtml;
+    }
+
+    // 獲取類別標籤
+    function getCategoryLabel(category) {
+        const labels = {
+            'organs': '器官',
+            'diseases': '疾病',
+            'symptoms': '症狀',
+            'treatments': '治療'
+        };
+        return labels[category] || category;
+    }
+
+    // 獲取系統標籤
+    function getSystemLabel(system) {
+        const labels = {
+            'circulatory': '循環系統',
+            'respiratory': '呼吸系統',
+            'digestive': '消化系統',
+            'nervous': '神經系統'
+        };
+        return labels[system] || system;
+    }
+
+    // 事件監聽器
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(performSearch, 300); // 防抖動
+        });
+    }
+
+    if (searchBtn) {
+        searchBtn.addEventListener('click', performSearch);
+    }
+
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', performSearch);
+    }
+
+    if (systemFilter) {
+        systemFilter.addEventListener('change', performSearch);
+    }
+
+    // 初始化
+    performSearch();
+}</code></pre>
+                </div>
+
+                <div class="search-demo">
+                    <h4>即時搜尋系統</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); font-size: 0.9rem;">
+                        在下方搜尋框中輸入關鍵字，系統會即時過濾醫學資料庫。您也可以使用類別和系統篩選器來縮小搜尋範圍：
+                    </p>
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="搜尋醫學術語、症狀或器官...">
+                            <button id="search-btn" class="search-btn">🔍</button>
+                        </div>
+                        <div class="search-filters">
+                            <select id="category-filter">
+                                <option value="">所有類別</option>
+                                <option value="organs">器官</option>
+                                <option value="symptoms">症狀</option>
+                                <option value="diseases">疾病</option>
+                                <option value="treatments">治療</option>
+                            </select>
+                            <select id="system-filter">
+                                <option value="">所有系統</option>
+                                <option value="circulatory">循環系統</option>
+                                <option value="respiratory">呼吸系統</option>
+                                <option value="digestive">消化系統</option>
+                                <option value="nervous">神經系統</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="search-results" id="search-results">
+                        <p class="search-placeholder">輸入關鍵字開始搜尋...</p>
+                    </div>
+                    <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(37, 99, 235, 0.05); border-radius: var(--radius); border-left: 4px solid var(--primary-color);">
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                            <strong>💡 學習重點：</strong> 
+                            • <strong>即時搜尋</strong>：使用 input 事件實現即時過濾<br>
+                            • <strong>防抖動機制</strong>：使用 setTimeout 避免頻繁搜尋<br>
+                            • <strong>多重篩選</strong>：結合關鍵字、類別和系統篩選<br>
+                            • <strong>動態結果顯示</strong>：根據搜尋結果動態生成 HTML
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 動態內容載入 -->
+            <section id="dynamic-content" class="content-section">
+                <h2>🔄 動態內容載入</h2>
+                
+                <div class="code-example">
+                    <h4>動態內容載入程式碼</h4>
+                    <pre><code>// 動態內容載入功能
+function initLoadingDemo() {
+    const loadContentBtn = document.getElementById('load-content');
+    const loadImagesBtn = document.getElementById('load-images');
+    const simulateApiBtn = document.getElementById('simulate-api');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const loadedContent = document.getElementById('loaded-content');
+
+    // 載入醫學資料
+    if (loadContentBtn) {
+        loadContentBtn.addEventListener('click', function() {
+            showLoadingIndicator();
+            
+            setTimeout(() => {
+                const content = `
+                    &lt;h5&gt;醫學資料載入完成&lt;/h5&gt;
+                    &lt;div style="display: grid; gap: 1rem; margin-top: 1rem;"&gt;
+                        &lt;div style="background: var(--background-color); padding: 1rem; border-radius: 8px;"&gt;
+                            &lt;strong&gt;心臟系統&lt;/strong&gt;&lt;br&gt;
+                            &lt;small&gt;負責血液循環和氧氣運輸&lt;/small&gt;
+                        &lt;/div&gt;
+                        &lt;div style="background: var(--background-color); padding: 1rem; border-radius: 8px;"&gt;
+                            &lt;strong&gt;呼吸系統&lt;/strong&gt;&lt;br&gt;
+                            &lt;small&gt;負責氣體交換和呼吸功能&lt;/small&gt;
+                        &lt;/div&gt;
+                        &lt;div style="background: var(--background-color); padding: 1rem; border-radius: 8px;"&gt;
+                            &lt;strong&gt;消化系統&lt;/strong&gt;&lt;br&gt;
+                            &lt;small&gt;負責食物消化和營養吸收&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `;
+                loadedContent.innerHTML = content;
+                hideLoadingIndicator();
+            }, 2000);
+        });
+    }
+
+    // 載入圖片
+    if (loadImagesBtn) {
+        loadImagesBtn.addEventListener('click', function() {
+            showLoadingIndicator();
+            
+            setTimeout(() => {
+                const content = `
+                    &lt;h5&gt;醫學圖片載入完成&lt;/h5&gt;
+                    &lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;"&gt;
+                        &lt;img src="img/heart.jpeg" alt="心臟" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow);"&gt;
+                        &lt;img src="img/lung.webp" alt="肺臟" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow);"&gt;
+                        &lt;img src="img/liver.jpg" alt="肝臟" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow);"&gt;
+                        &lt;img src="img/kidney.png" alt="腎臟" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow);"&gt;
+                    &lt;/div&gt;
+                `;
+                loadedContent.innerHTML = content;
+                hideLoadingIndicator();
+            }, 1500);
+        });
+    }
+
+    // 模擬 API 呼叫
+    if (simulateApiBtn) {
+        simulateApiBtn.addEventListener('click', async function() {
+            showLoadingIndicator();
+            
+            try {
+                // 模擬 API 呼叫
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                
+                const content = `
+                    &lt;h5&gt;API 資料載入完成&lt;/h5&gt;
+                    &lt;div style="background: var(--success-color); color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem;"&gt;
+                        &lt;strong&gt;✅ 成功連接到醫學資料庫&lt;/strong&gt;&lt;br&gt;
+                        &lt;small&gt;載入了 156 筆醫學記錄&lt;/small&gt;
+                    &lt;/div&gt;
+                    &lt;div style="margin-top: 1rem;"&gt;
+                        &lt;p&gt;資料包含：&lt;/p&gt;
+                        &lt;ul style="margin-left: 1rem;"&gt;
+                            &lt;li&gt;器官功能描述&lt;/li&gt;
+                            &lt;li&gt;常見疾病資訊&lt;/li&gt;
+                            &lt;li&gt;症狀對照表&lt;/li&gt;
+                            &lt;li&gt;治療方法建議&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                `;
+                loadedContent.innerHTML = content;
+            } catch (error) {
+                loadedContent.innerHTML = `
+                    &lt;div style="background: var(--error-color); color: white; padding: 1rem; border-radius: 8px;"&gt;
+                        &lt;strong&gt;❌ 載入失敗&lt;/strong&gt;&lt;br&gt;
+                        &lt;small&gt;請檢查網路連線後重試&lt;/small&gt;
+                    &lt;/div&gt;
+                `;
+            } finally {
+                hideLoadingIndicator();
+            }
+        });
+    }
+
+    // 顯示載入指示器
+    function showLoadingIndicator() {
+        if (loadingIndicator) {
+            loadingIndicator.style.display = 'flex';
+        }
+        if (loadedContent) {
+            loadedContent.innerHTML = '';
+        }
+    }
+
+    // 隱藏載入指示器
+    function hideLoadingIndicator() {
+        if (loadingIndicator) {
+            loadingIndicator.style.display = 'none';
+        }
+    }
+}
+
+// 進階：圖片預載入功能
+function preloadImages(imageUrls) {
+    const promises = imageUrls.map(url => {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = reject;
+            img.src = url;
+        });
+    });
+    
+    return Promise.all(promises);
+}
+
+// 進階：使用 async/await 的 API 呼叫
+async function fetchMedicalData() {
+    try {
+        const response = await fetch('/api/medical-data');
+        if (!response.ok) {
+            throw new Error('網路請求失敗');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('API 呼叫失敗:', error);
+        throw error;
+    }
+}</code></pre>
+                </div>
+
+                <div class="loading-demo">
+                    <h4>非同步內容載入</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); font-size: 0.9rem;">
+                        點擊下方按鈕體驗不同的動態載入方式。每個按鈕都會模擬不同的載入場景，包括資料載入、圖片載入和 API 呼叫：
+                    </p>
+                    <div class="loading-controls">
+                        <button id="load-content" class="demo-btn">載入醫學資料</button>
+                        <button id="load-images" class="demo-btn">載入圖片</button>
+                        <button id="simulate-api" class="demo-btn">模擬 API 呼叫</button>
+                    </div>
+                    <div class="loading-content">
+                        <div class="loading-indicator" id="loading-indicator" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>載入中...</p>
+                        </div>
+                        <div class="loaded-content" id="loaded-content"></div>
+                    </div>
+                    <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(37, 99, 235, 0.05); border-radius: var(--radius); border-left: 4px solid var(--primary-color);">
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                            <strong>💡 學習重點：</strong> 
+                            • <strong>非同步程式設計</strong>：使用 async/await 處理非同步操作<br>
+                            • <strong>載入狀態管理</strong>：顯示和隱藏載入指示器<br>
+                            • <strong>錯誤處理</strong>：使用 try-catch 處理載入失敗<br>
+                            • <strong>動態內容生成</strong>：根據載入結果動態生成 HTML
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 課程總結 -->
+            <section class="content-section summary">
+                <h2>📚 課程總結</h2>
+                <div class="summary-content">
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <h4>🎯 學習成果</h4>
+                            <ul>
+                                <li>掌握 DOM 操作和元素選取</li>
+                                <li>理解事件處理機制</li>
+                                <li>學會資料儲存和管理</li>
+                                <li>實作互動式功能</li>
+                                <li>建立搜尋和篩選系統</li>
+                            </ul>
+                        </div>
+                        <div class="summary-item">
+                            <h4>🛠️ 實用技能</h4>
+                            <ul>
+                                <li>動態內容更新</li>
+                                <li>用戶互動處理</li>
+                                <li>資料持久化</li>
+                                <li>非同步程式設計</li>
+                                <li>效能優化技巧</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 課程導航 -->
+        <div class="lesson-navigation">
+            <a href="lesson_3.html" class="nav-btn prev">
+                <span>←</span>
+                <div>
+                    <div class="nav-label">上一章</div>
+                    <div class="nav-title">進階 CSS</div>
+                </div>
+            </a>
+            <a href="pages/demo_4.html" class="nav-btn demo" target="_blank">
+                <div>
+                    <div class="nav-label">查看示範</div>
+                    <div class="nav-title">互動式醫學圖表</div>
+                </div>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/lesson_4.js"></script>
+</body>
+</html>
