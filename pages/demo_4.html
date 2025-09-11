@@ -53,96 +53,89 @@
 
         <!-- 主要內容 -->
         <main class="demo-main">
-            <!-- 互動式醫學圖表 -->
+            <!-- 互動式醫學資料視覺化 -->
             <section id="interactive-chart" class="demo-section">
                 <div class="section-header">
-                    <h2>🫀 互動式人體解剖圖表</h2>
-                    <p>點擊器官標記查看詳細資訊，體驗 JavaScript DOM 操作和事件處理。使用真實的人體解剖圖展示器官位置。</p>
+                    <h2>📊 互動式醫學資料視覺化</h2>
+                    <p>動態生成醫學圖表，體驗 JavaScript 資料處理、DOM 操作和圖表互動功能</p>
                 </div>
                 
-                <div class="chart-container">
-                    <div class="human-body-chart">
-                        <img src="../img/human_body_anatomy.jpg" alt="人體解剖圖" class="body-image" id="body-chart">
-                        <div class="organ-overlay">
-                            <div class="organ-point heart" data-organ="heart" title="心臟">
-                                <div class="organ-tooltip">心臟</div>
-                            </div>
-                            <div class="organ-point lung-left" data-organ="lung" title="左肺">
-                                <div class="organ-tooltip">左肺</div>
-                            </div>
-                            <div class="organ-point lung-right" data-organ="lung" title="右肺">
-                                <div class="organ-tooltip">右肺</div>
-                            </div>
-                            <div class="organ-point liver" data-organ="liver" title="肝臟">
-                                <div class="organ-tooltip">肝臟</div>
-                            </div>
-                            <div class="organ-point kidney-left" data-organ="kidney" title="左腎">
-                                <div class="organ-tooltip">左腎</div>
-                            </div>
-                            <div class="organ-point kidney-right" data-organ="kidney" title="右腎">
-                                <div class="organ-tooltip">右腎</div>
-                            </div>
-                            <div class="organ-point stomach" data-organ="stomach" title="胃">
-                                <div class="organ-tooltip">胃</div>
-                            </div>
-                            <div class="organ-point brain" data-organ="brain" title="大腦">
-                                <div class="organ-tooltip">大腦</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-info-panel">
-                        <div class="info-header">
-                            <h3 id="selected-organ-title">選擇器官查看詳細資訊</h3>
-                            <div class="organ-status" id="organ-status">
-                                <span class="status-indicator"></span>
-                                <span class="status-text">未選擇</span>
+                <div class="visualization-container">
+                    <div class="chart-controls-panel">
+                        <div class="control-section">
+                            <h4>圖表類型</h4>
+                            <div class="chart-type-buttons">
+                                <button class="chart-type-btn active" data-type="bar">
+                                    <span>📊</span> 長條圖
+                                </button>
+                                <button class="chart-type-btn" data-type="pie">
+                                    <span>🥧</span> 圓餅圖
+                                </button>
+                                <button class="chart-type-btn" data-type="line">
+                                    <span>📈</span> 折線圖
+                                </button>
+                                <button class="chart-type-btn" data-type="scatter">
+                                    <span>⚪</span> 散點圖
+                                </button>
                             </div>
                         </div>
                         
-                        <div class="info-content">
-                            <div class="organ-description" id="organ-description">
-                                <p>點擊人體解剖圖上的器官標記來了解更多資訊。每個器官都有詳細的功能說明、位置描述和相關疾病資訊。這張解剖圖展示了真實的人體內部結構。</p>
-                            </div>
-                            
-                            <div class="organ-details" id="organ-details">
-                                <div class="detail-placeholder">
-                                    <div class="placeholder-icon">🫀</div>
-                                    <p>選擇器官後，這裡將顯示詳細的醫學資訊</p>
-                                </div>
-                            </div>
-                            
-                            <div class="organ-actions" id="organ-actions" style="display: none;">
-                                <button class="action-btn primary" onclick="addToFavorites()">
-                                    <span>⭐</span> 加入收藏
-                                </button>
-                                <button class="action-btn secondary" onclick="shareOrganInfo()">
-                                    <span>📤</span> 分享資訊
-                                </button>
-                                <button class="action-btn tertiary" onclick="viewRelatedDiseases()">
-                                    <span>🔍</span> 相關疾病
-                                </button>
+                        <div class="control-section">
+                            <h4>資料篩選</h4>
+                            <div class="filter-controls">
+                                <select id="data-category">
+                                    <option value="diseases">疾病統計</option>
+                                    <option value="organs">器官功能</option>
+                                    <option value="symptoms">症狀分析</option>
+                                    <option value="treatments">治療方法</option>
+                                </select>
                             </div>
                         </div>
+                        
+                    </div>
+                    
+                    <div class="chart-display-area">
+                        <div class="chart-header">
+                            <h3 id="chart-title">疾病統計 - 長條圖</h3>
+                            <div class="chart-stats">
+                                <span class="stat-item">總計: <strong id="total-count">0</strong></span>
+                                <span class="stat-item">最大值: <strong id="max-value">0</strong></span>
+                                <span class="stat-item">平均值: <strong id="avg-value">0</strong></span>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container" id="chart-container">
+                            <div class="chart-placeholder">
+                                <div class="placeholder-icon">📊</div>
+                                <p>選擇圖表類型和資料類別開始視覺化</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-legend" id="chart-legend"></div>
                     </div>
                 </div>
                 
-                <div class="chart-controls">
-                    <div class="control-group">
-                        <label>圖表模式：</label>
-                        <select id="chart-mode" onchange="changeChartMode(this.value)">
-                            <option value="normal">標準模式</option>
-                            <option value="detailed">詳細模式</option>
-                            <option value="systems">系統模式</option>
-                        </select>
+                <div class="data-table-section">
+                    <h4>原始資料</h4>
+                    <div class="table-controls">
+                        <button class="table-btn" data-sort="name">按名稱排序</button>
+                        <button class="table-btn" data-sort="value">按數值排序</button>
+                        <button class="table-btn" id="export-btn">匯出資料</button>
                     </div>
-                    <div class="control-group">
-                        <label>顯示選項：</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" id="show-labels" checked onchange="toggleLabels()"> 顯示標籤</label>
-                            <label><input type="checkbox" id="show-systems" onchange="toggleSystems()"> 系統分組</label>
-                            <label><input type="checkbox" id="show-diseases" onchange="toggleDiseases()"> 疾病標記</label>
-                        </div>
+                    <div class="data-table-container">
+                        <table class="data-table" id="data-table">
+                            <thead>
+                                <tr>
+                                    <th>項目</th>
+                                    <th>數值</th>
+                                    <th>百分比</th>
+                                    <th>趨勢</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                                <!-- 動態生成 -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
@@ -395,3 +388,4 @@
     <script src="../js/demo_4.js"></script>
 </body>
 </html>
+

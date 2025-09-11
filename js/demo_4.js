@@ -14,204 +14,366 @@ document.addEventListener('DOMContentLoaded', function() {
     updateLoadingStats();
 });
 
-// 醫學圖表互動
+// 互動式資料視覺化
 function initMedicalChart() {
-    const organPoints = document.querySelectorAll('.organ-point');
-    const selectedOrganTitle = document.getElementById('selected-organ-title');
-    const organDescription = document.getElementById('organ-description');
-    const organDetails = document.getElementById('organ-details');
-    const organActions = document.getElementById('organ-actions');
-    const organStatus = document.getElementById('organ-status');
-    
     // 醫學資料庫
-    const medicalDatabase = {
-        heart: {
-            name: '心臟',
-            description: '心臟是循環系統的核心器官，負責將含氧血液泵送到全身各處，維持生命活動。',
-            details: {
-                '位置': '胸腔中央偏左，介於兩肺之間',
-                '功能': '泵血、維持血液循環',
-                '大小': '約成人拳頭大小',
-                '重量': '約250-350克',
-                '心跳頻率': '每分鐘60-100次',
-                '結構': '四個腔室：左心房、左心室、右心房、右心室',
-                '血管': '冠狀動脈供應心臟本身血液'
-            },
-            system: 'circulatory',
-            image: '../img/heart.jpeg',
-            relatedDiseases: ['心臟病', '高血壓', '心律不整', '心肌梗塞']
-        },
-        lung: {
-            name: '肺臟',
-            description: '肺臟是呼吸系統的主要器官，負責氣體交換，將氧氣送入血液，排出二氧化碳。在解剖圖中可以看到左右兩肺的完整結構。',
-            details: {
-                '位置': '胸腔兩側，被肋骨保護',
-                '功能': '氣體交換、呼吸',
-                '結構': '左肺2葉，右肺3葉',
-                '容量': '約4-6公升',
-                '呼吸頻率': '每分鐘12-20次',
-                '表面積': '約70平方米',
-                '肺泡': '約3億個微小氣囊',
-                '解剖特徵': '在解剖圖中清晰可見肺葉分界'
-            },
-            system: 'respiratory',
-            image: '../img/lung.webp',
-            relatedDiseases: ['肺炎', '氣喘', '肺氣腫', '肺癌']
-        },
-        liver: {
-            name: '肝臟',
-            description: '肝臟是人體最大的內臟器官，負責代謝、解毒、膽汁生成等多種重要功能。在解剖圖中可以看到肝臟的完整形狀和位置。',
-            details: {
-                '位置': '右上腹部，肋骨下方',
-                '功能': '代謝、解毒、膽汁生成',
-                '重量': '約1.5公斤',
-                '再生能力': '具有強大的再生能力',
-                '重要功能': '蛋白質合成、糖原儲存、脂肪代謝',
-                '解毒功能': '過濾血液中的毒素',
-                '膽汁分泌': '每日約600-1000毫升',
-                '解剖特徵': '在解剖圖中顯示為深紅褐色的大型器官'
-            },
-            system: 'digestive',
-            image: '../img/liver.jpg',
-            relatedDiseases: ['肝炎', '肝硬化', '脂肪肝', '肝癌']
-        },
-        kidney: {
-            name: '腎臟',
-            description: '腎臟負責過濾血液，調節水分和電解質平衡，產生尿液排出廢物。在解剖圖中可以看到左右兩個腎臟的位置。',
-            details: {
-                '位置': '腰部兩側，脊柱後方',
-                '功能': '過濾、調節、排泄',
-                '數量': '左右各一個',
-                '大小': '約拳頭大小',
-                '過濾量': '每天約180公升',
-                '尿液產生': '每天約1-2公升',
-                '重要功能': '血壓調節、紅血球生成',
-                '解剖特徵': '在解剖圖中位於腰部兩側，呈豆形'
-            },
-            system: 'circulatory',
-            image: '../img/kidney.png',
-            relatedDiseases: ['腎炎', '腎結石', '腎衰竭', '腎癌']
-        },
-        stomach: {
-            name: '胃',
-            description: '胃是消化系統的重要器官，負責儲存食物並進行初步消化。在解剖圖中可以看到胃的完整形狀和位置。',
-            details: {
-                '位置': '上腹部，肝臟下方',
-                '功能': '食物儲存、初步消化',
-                '容量': '約1-1.5公升',
-                'pH值': '約1.5-3.5（強酸性）',
-                '消化時間': '2-4小時',
-                '結構': '賁門、胃體、胃竇、幽門',
-                '肌肉層': '三層平滑肌',
-                '解剖特徵': '在解剖圖中顯示為彎曲的袋狀器官'
-            },
-            system: 'digestive',
-            image: '../img/digestive.jpg',
-            relatedDiseases: ['胃炎', '胃潰瘍', '胃癌', '胃食道逆流']
-        },
-        brain: {
-            name: '大腦',
-            description: '大腦是中樞神經系統的核心，負責思考、記憶、情感和身體控制。在解剖圖中可以看到大腦的完整結構。',
-            details: {
-                '位置': '顱骨內',
-                '功能': '思考、記憶、情感、控制',
-                '重量': '約1.4公斤',
-                '神經元': '約860億個',
-                '耗氧量': '佔全身20%',
-                '結構': '大腦皮質、小腦、腦幹',
-                '保護': '腦脊髓液、血腦屏障',
-                '解剖特徵': '在解剖圖中顯示為複雜的神經組織結構'
-            },
-            system: 'nervous',
-            image: '../img/nervous.webp',
-            relatedDiseases: ['中風', '阿茲海默症', '帕金森氏症', '腦瘤']
-        }
+    const medicalData = {
+        diseases: [
+            { name: '心臟病', value: 45, trend: 'up', color: '#ef4444' },
+            { name: '高血壓', value: 38, trend: 'stable', color: '#f59e0b' },
+            { name: '糖尿病', value: 32, trend: 'up', color: '#8b5cf6' },
+            { name: '肺炎', value: 28, trend: 'down', color: '#06b6d4' },
+            { name: '氣喘', value: 22, trend: 'stable', color: '#10b981' },
+            { name: '肝炎', value: 18, trend: 'down', color: '#84cc16' }
+        ],
+        organs: [
+            { name: '心臟', value: 95, trend: 'stable', color: '#ef4444' },
+            { name: '肺臟', value: 88, trend: 'up', color: '#06b6d4' },
+            { name: '肝臟', value: 82, trend: 'stable', color: '#84cc16' },
+            { name: '腎臟', value: 76, trend: 'down', color: '#8b5cf6' },
+            { name: '胃', value: 71, trend: 'up', color: '#f59e0b' },
+            { name: '大腦', value: 68, trend: 'stable', color: '#ec4899' }
+        ],
+        symptoms: [
+            { name: '胸痛', value: 42, trend: 'up', color: '#ef4444' },
+            { name: '咳嗽', value: 38, trend: 'stable', color: '#06b6d4' },
+            { name: '頭痛', value: 35, trend: 'up', color: '#8b5cf6' },
+            { name: '腹痛', value: 29, trend: 'down', color: '#f59e0b' },
+            { name: '呼吸困難', value: 24, trend: 'stable', color: '#10b981' },
+            { name: '心悸', value: 19, trend: 'up', color: '#ec4899' }
+        ],
+        treatments: [
+            { name: '藥物治療', value: 78, trend: 'up', color: '#10b981' },
+            { name: '手術治療', value: 45, trend: 'stable', color: '#ef4444' },
+            { name: '物理治療', value: 32, trend: 'up', color: '#06b6d4' },
+            { name: '飲食療法', value: 28, trend: 'up', color: '#f59e0b' },
+            { name: '心理治療', value: 22, trend: 'stable', color: '#8b5cf6' },
+            { name: '針灸治療', value: 18, trend: 'down', color: '#84cc16' }
+        ]
     };
     
-    let selectedOrgan = null;
+    let currentChartType = 'bar';
+    let currentDataCategory = 'diseases';
+    let currentData = medicalData[currentDataCategory];
     
-    organPoints.forEach(point => {
-        point.addEventListener('click', function() {
-            const organType = this.dataset.organ;
-            const organInfo = medicalDatabase[organType];
-            
-            if (organInfo) {
-                selectOrgan(organType, organInfo);
-            }
+    // 全域函數定義
+    window.changeChartType = function(type) {
+        currentChartType = type;
+        document.querySelectorAll('.chart-type-btn').forEach(btn => {
+            btn.classList.remove('active');
         });
-        
-        // 懸停效果
-        point.addEventListener('mouseenter', function() {
-            if (!this.classList.contains('active')) {
-                this.style.background = 'var(--success-color)';
-            }
-        });
-        
-        point.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('active')) {
-                this.style.background = 'var(--primary-color)';
-            }
-        });
-    });
+        document.querySelector(`[data-type="${type}"]`).classList.add('active');
+        updateVisualization();
+    };
     
-    function selectOrgan(organType, organInfo) {
-        selectedOrgan = organType;
+    window.updateVisualization = function() {
+        const category = document.getElementById('data-category').value;
+        currentDataCategory = category;
+        currentData = medicalData[category];
         
-        // 更新視覺狀態
-        organPoints.forEach(p => {
-            p.classList.remove('active');
-            p.style.background = 'var(--primary-color)';
+        const categoryNames = {
+            diseases: '疾病統計',
+            organs: '器官功能',
+            symptoms: '症狀分析',
+            treatments: '治療方法'
+        };
+        
+        const chartTypeNames = {
+            bar: '長條圖',
+            pie: '圓餅圖',
+            line: '折線圖',
+            scatter: '散點圖'
+        };
+        
+        document.getElementById('chart-title').textContent = 
+            `${categoryNames[category]} - ${chartTypeNames[currentChartType]}`;
+        
+        updateStats();
+        generateChart();
+        updateDataTable();
+    };
+    
+    
+    window.sortData = function(sortBy) {
+        currentData.sort((a, b) => {
+            if (sortBy === 'name') {
+                return a.name.localeCompare(b.name);
+            } else {
+                return b.value - a.value;
+            }
+        });
+        updateVisualization();
+    };
+    
+    window.exportData = function() {
+        const csvContent = "data:text/csv;charset=utf-8," 
+            + "項目,數值,百分比,趨勢\n"
+            + currentData.map(item => 
+                `${item.name},${item.value},${((item.value / currentData.reduce((sum, d) => sum + d.value, 0)) * 100).toFixed(1)}%,${item.trend}`
+            ).join("\n");
+        
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", `${currentDataCategory}_data.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        showMessage('資料已匯出', 'success');
+    };
+    
+    // 初始化事件監聽器
+    function initEventListeners() {
+        // 圖表類型按鈕
+        document.querySelectorAll('.chart-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const type = this.dataset.type;
+                changeChartType(type);
+            });
         });
         
-        const activePoint = document.querySelector(`[data-organ="${organType}"]`);
-        if (activePoint) {
-            activePoint.classList.add('active');
-            activePoint.style.background = 'var(--success-color)';
+        // 資料類別選擇
+        const dataCategory = document.getElementById('data-category');
+        if (dataCategory) {
+            dataCategory.addEventListener('change', updateVisualization);
         }
         
-        // 更新資訊面板
-        selectedOrganTitle.textContent = organInfo.name;
-        organDescription.innerHTML = `<p>${organInfo.description}</p>`;
         
-        // 更新詳細資訊
-        const detailsHtml = Object.entries(organInfo.details)
-            .map(([key, value]) => `
-                <div class="detail-row">
-                    <span class="detail-label">${key}:</span>
-                    <span class="detail-value">${value}</span>
-                </div>
-            `).join('');
+        // 表格控制按鈕
+        document.querySelectorAll('.table-btn[data-sort]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const sortBy = this.dataset.sort;
+                sortData(sortBy);
+            });
+        });
         
-        organDetails.innerHTML = `
-            <div class="organ-image-container">
-                <img src="${organInfo.image}" alt="${organInfo.name}" class="organ-detail-image">
-            </div>
-            <div class="organ-details-content">
-                ${detailsHtml}
-            </div>
-        `;
-        
-        // 顯示操作按鈕
-        organActions.style.display = 'flex';
-        
-        // 更新狀態
-        const statusIndicator = organStatus.querySelector('.status-indicator');
-        const statusText = organStatus.querySelector('.status-text');
-        statusIndicator.classList.add('active');
-        statusText.textContent = '已選擇';
-        
-        // 儲存到本地
-        localStorage.setItem('lastSelectedOrgan', organType);
-        
-        // 更新統計
-        updateOrganViewCount(organType);
+        // 匯出按鈕
+        const exportBtn = document.getElementById('export-btn');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', exportData);
+        }
     }
     
-    // 載入上次選擇的器官
-    const lastSelected = localStorage.getItem('lastSelectedOrgan');
-    if (lastSelected && medicalDatabase[lastSelected]) {
-        selectOrgan(lastSelected, medicalDatabase[lastSelected]);
+    initEventListeners();
+    
+    // 初始化圖表
+    updateVisualization();
+    
+    function updateStats() {
+        const total = currentData.reduce((sum, item) => sum + item.value, 0);
+        const max = Math.max(...currentData.map(item => item.value));
+        const avg = (total / currentData.length).toFixed(1);
+        
+        document.getElementById('total-count').textContent = total;
+        document.getElementById('max-value').textContent = max;
+        document.getElementById('avg-value').textContent = avg;
     }
+    
+    function generateChart() {
+        const container = document.getElementById('chart-container');
+        container.innerHTML = '';
+        
+        switch (currentChartType) {
+            case 'bar':
+                generateBarChart(container);
+                break;
+            case 'pie':
+                generatePieChart(container);
+                break;
+            case 'line':
+                generateLineChart(container);
+                break;
+            case 'scatter':
+                generateScatterChart(container);
+                break;
+        }
+        
+        generateLegend();
+    }
+    
+    function generateBarChart(container) {
+        const maxValue = Math.max(...currentData.map(item => item.value));
+        const chartHeight = 300;
+        const barWidth = 60;
+        const barSpacing = 20;
+        const chartWidth = currentData.length * (barWidth + barSpacing) + barSpacing;
+        
+        container.style.width = `${chartWidth}px`;
+        container.style.height = `${chartHeight + 60}px`;
+        
+        currentData.forEach((item, index) => {
+            const barHeight = (item.value / maxValue) * chartHeight;
+            const x = index * (barWidth + barSpacing) + barSpacing;
+            
+            const bar = document.createElement('div');
+            bar.className = 'chart-bar';
+            bar.style.cssText = `
+                position: absolute;
+                left: ${x}px;
+                bottom: 60px;
+                width: ${barWidth}px;
+                height: ${barHeight}px;
+                background: ${item.color};
+                transition: all 0.5s ease;
+            `;
+            
+            const label = document.createElement('div');
+            label.style.cssText = `
+                position: absolute;
+                left: ${x}px;
+                bottom: 10px;
+                width: ${barWidth}px;
+                text-align: center;
+                font-size: 0.75rem;
+                color: var(--text-secondary);
+                transform: rotate(-45deg);
+                transform-origin: center;
+            `;
+            label.textContent = item.name;
+            
+            container.appendChild(bar);
+            container.appendChild(label);
+        });
+    }
+    
+    function generatePieChart(container) {
+        const total = currentData.reduce((sum, item) => sum + item.value, 0);
+        const radius = 120;
+        const centerX = 150;
+        const centerY = 150;
+        
+        container.style.width = '300px';
+        container.style.height = '300px';
+        
+        let currentAngle = 0;
+        
+        currentData.forEach((item, index) => {
+            const angle = (item.value / total) * 360;
+            
+            const slice = document.createElement('div');
+            slice.className = 'chart-pie-slice';
+            slice.style.cssText = `
+                position: absolute;
+                left: ${centerX}px;
+                top: ${centerY}px;
+                width: ${radius * 2}px;
+                height: ${radius * 2}px;
+                border-radius: 50%;
+                background: conic-gradient(from ${currentAngle}deg, ${item.color} 0deg ${angle}deg, transparent ${angle}deg);
+                transform: translate(-50%, -50%);
+                transition: all 0.5s ease;
+            `;
+            
+            container.appendChild(slice);
+            currentAngle += angle;
+        });
+    }
+    
+    function generateLineChart(container) {
+        const maxValue = Math.max(...currentData.map(item => item.value));
+        const chartWidth = 400;
+        const chartHeight = 250;
+        const padding = 40;
+        
+        container.style.width = `${chartWidth}px`;
+        container.style.height = `${chartHeight}px`;
+        
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', chartWidth);
+        svg.setAttribute('height', chartHeight);
+        svg.style.cssText = 'position: absolute; top: 0; left: 0;';
+        
+        const points = currentData.map((item, index) => {
+            const x = padding + (index * (chartWidth - 2 * padding) / (currentData.length - 1));
+            const y = chartHeight - padding - ((item.value / maxValue) * (chartHeight - 2 * padding));
+            return `${x},${y}`;
+        }).join(' ');
+        
+        const polyline = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+        polyline.setAttribute('points', points);
+        polyline.setAttribute('fill', 'none');
+        polyline.setAttribute('stroke', 'var(--primary-color)');
+        polyline.setAttribute('stroke-width', '3');
+        polyline.setAttribute('stroke-linecap', 'round');
+        polyline.setAttribute('stroke-linejoin', 'round');
+        
+        svg.appendChild(polyline);
+        container.appendChild(svg);
+    }
+    
+    function generateScatterChart(container) {
+        const maxValue = Math.max(...currentData.map(item => item.value));
+        const chartWidth = 400;
+        const chartHeight = 300;
+        const padding = 40;
+        
+        container.style.width = `${chartWidth}px`;
+        container.style.height = `${chartHeight}px`;
+        
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', chartWidth);
+        svg.setAttribute('height', chartHeight);
+        svg.style.cssText = 'position: absolute; top: 0; left: 0;';
+        
+        currentData.forEach((item, index) => {
+            const x = padding + Math.random() * (chartWidth - 2 * padding);
+            const y = chartHeight - padding - ((item.value / maxValue) * (chartHeight - 2 * padding));
+            const size = 8 + (item.value / maxValue) * 12;
+            
+            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', x);
+            circle.setAttribute('cy', y);
+            circle.setAttribute('r', size);
+            circle.setAttribute('fill', item.color);
+            circle.setAttribute('opacity', '0.7');
+            
+            svg.appendChild(circle);
+        });
+        
+        container.appendChild(svg);
+    }
+    
+    function generateLegend() {
+        const legend = document.getElementById('chart-legend');
+        legend.innerHTML = '';
+        
+        currentData.forEach(item => {
+            const legendItem = document.createElement('div');
+            legendItem.className = 'legend-item';
+            legendItem.innerHTML = `
+                <div class="legend-color" style="background: ${item.color}"></div>
+                <span>${item.name}</span>
+            `;
+            legend.appendChild(legendItem);
+        });
+    }
+    
+    function updateDataTable() {
+        const tbody = document.getElementById('table-body');
+        const total = currentData.reduce((sum, item) => sum + item.value, 0);
+        
+        tbody.innerHTML = currentData.map(item => {
+            const percentage = ((item.value / total) * 100).toFixed(1);
+            const trendIcon = item.trend === 'up' ? '↗️' : item.trend === 'down' ? '↘️' : '➡️';
+            const trendClass = item.trend === 'up' ? 'trend-up' : item.trend === 'down' ? 'trend-down' : 'trend-stable';
+            
+            return `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.value}</td>
+                    <td>${percentage}%</td>
+                    <td>
+                        <div class="trend-indicator ${trendClass}">
+                            <span>${trendIcon}</span>
+                            <span>${item.trend === 'up' ? '上升' : item.trend === 'down' ? '下降' : '穩定'}</span>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+    }
+    
 }
 
 // 搜尋系統

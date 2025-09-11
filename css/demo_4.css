@@ -225,142 +225,94 @@ body {
     font-size: 1.125rem;
 }
 
-/* 互動式圖表 */
-.chart-container {
+/* 互動式資料視覺化 */
+.visualization-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 300px 1fr;
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
 }
 
-.human-body-chart {
-    position: relative;
+.chart-controls-panel {
     background: var(--background-color);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     border: 1px solid var(--border-color);
-    overflow: hidden;
+    height: fit-content;
 }
 
-.body-image {
-    width: 100%;
-    height: auto;
+.control-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.control-section:last-child {
+    margin-bottom: 0;
+}
+
+.control-section h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.chart-type-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+}
+
+.chart-type-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--border-color);
     border-radius: var(--radius);
-    transition: var(--transition);
-}
-
-.organ-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-}
-
-.organ-point {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background: var(--primary-color);
-    border: 3px solid white;
-    border-radius: 50%;
+    background: var(--surface-color);
+    color: var(--text-primary);
     cursor: pointer;
     transition: var(--transition);
-    box-shadow: var(--shadow-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: auto;
-    z-index: 10;
+    gap: var(--spacing-xs);
+    font-size: 0.875rem;
+    font-weight: 500;
 }
 
-.organ-point:hover {
-    transform: scale(1.3);
-    background: var(--accent-color);
-    box-shadow: var(--shadow-lg);
-}
-
-.organ-point.active {
-    background: var(--success-color);
-    transform: scale(1.2);
-}
-
-.organ-tooltip {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--text-primary);
-    color: white;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--radius);
-    font-size: 0.75rem;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: var(--transition);
-    margin-bottom: var(--spacing-xs);
-}
-
-.organ-point:hover .organ-tooltip {
-    opacity: 1;
-}
-
-/* 器官位置 - 根據 human_body_anatomy.jpg 調整 */
-.organ-point.heart {
-    top: 35%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.organ-point.lung-left {
-    top: 30%;
-    left: 35%;
-}
-
-.organ-point.lung-right {
-    top: 30%;
-    left: 65%;
-}
-
-.organ-point.liver {
-    top: 50%;
-    left: 60%;
-}
-
-.organ-point.kidney-left {
-    top: 65%;
-    left: 30%;
-}
-
-.organ-point.kidney-right {
-    top: 65%;
-    left: 70%;
-}
-
-.organ-point.stomach {
-    top: 55%;
-    left: 50%;
-}
-
-.organ-point.brain {
-    top: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* 圖表資訊面板 */
-.chart-info-panel {
+.chart-type-btn:hover {
+    border-color: var(--primary-color);
     background: var(--background-color);
+}
+
+.chart-type-btn.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.filter-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.filter-controls select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background: var(--surface-color);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+
+.chart-display-area {
+    background: var(--surface-color);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
 }
 
-.info-header {
+.chart-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -369,154 +321,211 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-.info-header h3 {
+.chart-header h3 {
     color: var(--text-primary);
     font-size: 1.25rem;
+    margin: 0;
 }
 
-.organ-status {
+.chart-stats {
     display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-lg);
 }
 
-.status-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--text-muted);
-}
-
-.status-indicator.active {
-    background: var(--success-color);
-}
-
-.status-text {
+.stat-item {
     font-size: 0.875rem;
     color: var(--text-secondary);
 }
 
-.info-content {
-    flex: 1;
+.stat-item strong {
+    color: var(--primary-color);
 }
 
-.organ-description {
-    margin-bottom: var(--spacing-lg);
-}
-
-.organ-description p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
-.organ-details {
-    background: var(--surface-color);
+.chart-container {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-color);
     border-radius: var(--radius);
-    padding: var(--spacing-md);
+    border: 1px solid var(--border-light);
     margin-bottom: var(--spacing-lg);
-    min-height: 120px;
-    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
 }
 
-.detail-placeholder {
+.chart-placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
     color: var(--text-muted);
     text-align: center;
 }
 
 .placeholder-icon {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-sm);
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
 }
 
-.organ-actions {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-}
-
-.action-btn {
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: none;
-    border-radius: var(--radius);
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
+/* 圖表元素樣式 */
+.chart-bar {
+    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    border-radius: 4px 4px 0 0;
     transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+}
+
+.chart-bar:hover {
+    background: linear-gradient(135deg, var(--accent-color), #f59e0b);
+    transform: scaleY(1.05);
+}
+
+.chart-pie-slice {
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.chart-pie-slice:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.chart-line {
+    stroke: var(--primary-color);
+    stroke-width: 3;
+    fill: none;
+    transition: var(--transition);
+}
+
+.chart-line:hover {
+    stroke: var(--accent-color);
+    stroke-width: 4;
+}
+
+.chart-scatter-point {
+    fill: var(--primary-color);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.chart-scatter-point:hover {
+    fill: var(--accent-color);
+    transform: scale(1.2);
+}
+
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+.legend-item {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
 }
 
-.action-btn.primary {
-    background: var(--primary-color);
-    color: white;
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
 }
 
-.action-btn.secondary {
-    background: var(--secondary-color);
-    color: white;
-}
-
-.action-btn.tertiary {
-    background: var(--background-color);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-.action-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-}
-
-/* 圖表控制 */
-.chart-controls {
-    display: flex;
-    gap: var(--spacing-lg);
-    flex-wrap: wrap;
-    padding: var(--spacing-lg);
+/* 資料表格 */
+.data-table-section {
     background: var(--background-color);
     border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
     border: 1px solid var(--border-color);
 }
 
-.control-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-}
-
-.control-group label {
-    font-size: 0.875rem;
-    font-weight: 500;
+.data-table-section h4 {
     color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.125rem;
 }
 
-.control-group select {
-    padding: var(--spacing-sm) var(--spacing-md);
+.table-controls {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.table-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     background: var(--surface-color);
     color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
     font-size: 0.875rem;
 }
 
-.checkbox-group {
-    display: flex;
-    gap: var(--spacing-md);
-    flex-wrap: wrap;
+.table-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
 }
 
-.checkbox-group label {
+.data-table-container {
+    overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface-color);
+}
+
+.data-table th,
+.data-table td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.data-table th {
+    background: var(--background-color);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.data-table td {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.data-table tbody tr:hover {
+    background: var(--background-color);
+}
+
+.trend-indicator {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    font-size: 0.875rem;
-    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.trend-up {
+    color: var(--success-color);
+}
+
+.trend-down {
+    color: var(--error-color);
+}
+
+.trend-stable {
+    color: var(--text-muted);
 }
 
 /* 搜尋系統 */
@@ -1093,8 +1102,16 @@ body {
         display: block;
     }
     
-    .chart-container {
+    .visualization-container {
         grid-template-columns: 1fr;
+    }
+    
+    .chart-controls-panel {
+        order: 2;
+    }
+    
+    .chart-display-area {
+        order: 1;
     }
     
     .search-filters {
@@ -1141,57 +1158,20 @@ body {
         flex-direction: column;
     }
     
-    .action-btn {
-        justify-content: center;
+    .chart-type-buttons {
+        grid-template-columns: 1fr;
     }
     
-    /* 手機版器官標記調整 */
-    .organ-point {
-        width: 20px;
-        height: 20px;
-        border-width: 2px;
+    .chart-stats {
+        flex-direction: column;
+        gap: var(--spacing-sm);
     }
     
-    .organ-tooltip {
-        font-size: 0.7rem;
-        padding: 0.25rem 0.5rem;
+    .table-controls {
+        flex-direction: column;
     }
     
-    /* 手機版器官位置微調 */
-    .organ-point.heart {
-        top: 36%;
-    }
-    
-    .organ-point.lung-left {
-        top: 31%;
-        left: 34%;
-    }
-    
-    .organ-point.lung-right {
-        top: 31%;
-        left: 66%;
-    }
-    
-    .organ-point.liver {
-        top: 51%;
-        left: 61%;
-    }
-    
-    .organ-point.kidney-left {
-        top: 66%;
-        left: 29%;
-    }
-    
-    .organ-point.kidney-right {
-        top: 66%;
-        left: 71%;
-    }
-    
-    .organ-point.stomach {
-        top: 56%;
-    }
-    
-    .organ-point.brain {
-        top: 9%;
+    .data-table-container {
+        font-size: 0.8rem;
     }
 }
