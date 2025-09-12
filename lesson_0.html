@@ -583,6 +583,241 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Live Server vs 直接開啟的差異 -->
+                <div class="comparison-section">
+                    <h4>🔍 Live Server vs 直接開啟 HTML 的差異</h4>
+                    <div class="comparison-grid">
+                        <div class="comparison-card live-server">
+                            <div class="comparison-header">
+                                <div class="comparison-icon">🚀</div>
+                                <h5>Live Server</h5>
+                                <span class="comparison-badge recommended">推薦</span>
+                            </div>
+                            <div class="comparison-content">
+                                <div class="comparison-features">
+                                    <div class="feature-item">
+                                        <span class="feature-icon">✅</span>
+                                        <span class="feature-text">自動重新載入</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">✅</span>
+                                        <span class="feature-text">本地 HTTP 伺服器</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">✅</span>
+                                        <span class="feature-text">支援 AJAX 請求</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">✅</span>
+                                        <span class="feature-text">模擬真實網頁環境</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">✅</span>
+                                        <span class="feature-text">支援 CORS 政策</span>
+                                    </div>
+                                </div>
+                                <div class="comparison-url">
+                                    <strong>網址格式：</strong>
+                                    <code>http://127.0.0.1:5500/index.html</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card direct-open">
+                            <div class="comparison-header">
+                                <div class="comparison-icon">📁</div>
+                                <h5>直接開啟 HTML</h5>
+                                <span class="comparison-badge basic">基本</span>
+                            </div>
+                            <div class="comparison-content">
+                                <div class="comparison-features">
+                                    <div class="feature-item">
+                                        <span class="feature-icon">❌</span>
+                                        <span class="feature-text">需手動重新整理</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">❌</span>
+                                        <span class="feature-text">file:// 協議</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">❌</span>
+                                        <span class="feature-text">不支援 AJAX</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">❌</span>
+                                        <span class="feature-text">CORS 限制</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">❌</span>
+                                        <span class="feature-text">功能受限</span>
+                                    </div>
+                                </div>
+                                <div class="comparison-url">
+                                    <strong>網址格式：</strong>
+                                    <code>file:///C:/Users/Desktop/index.html</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-explanation">
+                        <h5>💡 為什麼推薦使用 Live Server？</h5>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <div class="explanation-icon">⚡</div>
+                                <div class="explanation-content">
+                                    <h6>開發效率</h6>
+                                    <p>修改代碼後自動更新，無需手動重新整理頁面</p>
+                                </div>
+                            </div>
+                            <div class="explanation-item">
+                                <div class="explanation-icon">🌐</div>
+                                <div class="explanation-content">
+                                    <h6>真實環境</h6>
+                                    <p>模擬真實的網頁伺服器環境，避免本地檔案限制</p>
+                                </div>
+                            </div>
+                            <div class="explanation-item">
+                                <div class="explanation-icon">🔧</div>
+                                <div class="explanation-content">
+                                    <h6>功能完整</h6>
+                                    <p>支援 AJAX、API 呼叫等進階功能</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 瀏覽器開發者工具 -->
+                <div class="devtools-section">
+                    <h4>🛠️ 如何使用瀏覽器查看原始碼</h4>
+                    <p>學會查看網頁原始碼是網頁開發的重要技能，可以幫助您學習其他網站的實作方式。</p>
+                    
+                    <div class="devtools-methods">
+                        <div class="devtools-method">
+                            <h5>方法一：右鍵選單</h5>
+                            <div class="method-steps">
+                                <div class="step-item">
+                                    <span class="step-number">1</span>
+                                    <span class="step-text">在網頁空白處按右鍵</span>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-number">2</span>
+                                    <span class="step-text">選擇「檢視網頁原始碼」或「View Page Source」</span>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-number">3</span>
+                                    <span class="step-text">新分頁會開啟顯示 HTML 原始碼</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="devtools-method">
+                            <h5>方法二：快捷鍵</h5>
+                            <div class="shortcut-methods">
+                                <div class="shortcut-method">
+                                    <div class="shortcut-keys">
+                                        <span class="key">Ctrl</span>
+                                        <span class="key">U</span>
+                                    </div>
+                                    <span class="shortcut-desc">Windows/Linux</span>
+                                </div>
+                                <div class="shortcut-method">
+                                    <div class="shortcut-keys">
+                                        <span class="key">Cmd</span>
+                                        <span class="key">Option</span>
+                                        <span class="key">U</span>
+                                    </div>
+                                    <span class="shortcut-desc">Mac</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="devtools-method">
+                            <h5>方法三：開發者工具</h5>
+                            <div class="method-steps">
+                                <div class="step-item">
+                                    <span class="step-number">1</span>
+                                    <span class="step-text">按 F12 或右鍵選擇「檢查」</span>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-number">2</span>
+                                    <span class="step-text">開啟開發者工具面板</span>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-number">3</span>
+                                    <span class="step-text">點擊「Elements」或「元素」標籤</span>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-number">4</span>
+                                    <span class="step-text">查看 DOM 樹狀結構</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="devtools-features">
+                        <h5>🔍 開發者工具的主要功能：</h5>
+                        <div class="features-list">
+                            <div class="feature-card">
+                                <div class="feature-icon">📄</div>
+                                <div class="feature-content">
+                                    <h6>Elements 面板</h6>
+                                    <p>查看和編輯 HTML 結構、CSS 樣式</p>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📊</div>
+                                <div class="feature-content">
+                                    <h6>Console 面板</h6>
+                                    <p>查看 JavaScript 錯誤和執行代碼</p>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📱</div>
+                                <div class="feature-content">
+                                    <h6>Responsive 模式</h6>
+                                    <p>測試不同裝置的顯示效果</p>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🌐</div>
+                                <div class="feature-content">
+                                    <h6>Network 面板</h6>
+                                    <p>監控網路請求和載入時間</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="devtools-tips">
+                        <h5>💡 實用技巧：</h5>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <div class="tip-icon">🎯</div>
+                                <div class="tip-content">
+                                    <h6>選取元素</h6>
+                                    <p>點擊開發者工具左上角的選取圖示，然後點擊網頁上的元素，可以直接定位到對應的 HTML 代碼</p>
+                                </div>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">🎨</div>
+                                <div class="tip-content">
+                                    <h6>即時編輯</h6>
+                                    <p>在 Elements 面板中雙擊文字或屬性，可以直接修改並即時看到效果</p>
+                                </div>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">📱</div>
+                                <div class="tip-content">
+                                    <h6>響應式測試</h6>
+                                    <p>使用 Ctrl+Shift+M 快速切換到響應式設計模式，測試不同螢幕尺寸</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
