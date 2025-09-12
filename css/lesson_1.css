@@ -100,9 +100,11 @@ body {
 /* 章節樣式 */
 .intro-section,
 .syntax-section,
+.structure-section,
 .tags-section,
 .semantic-section,
 .practice-section,
+.template-section,
 .summary-section {
     margin-bottom: 3rem;
 }
@@ -297,6 +299,109 @@ body {
     box-shadow: var(--shadow);
 }
 
+/* HTML 結構說明 */
+.structure-explanation {
+    margin-top: 2rem;
+}
+
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.structure-item {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.structure-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.structure-item code {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.structure-item h5 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.structure-item p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Meta 標籤說明 */
+.meta-tags-section {
+    margin-top: 2rem;
+}
+
+.meta-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.meta-example {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s ease;
+}
+
+.meta-example:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.meta-example h5 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.code-snippet {
+    background: #1e293b;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.code-snippet code {
+    color: #e2e8f0;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.75rem;
+}
+
+.meta-example p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
 /* 語義化標籤說明 */
 .semantic-explanation {
     margin-top: 2rem;
@@ -355,6 +460,91 @@ body {
 .practice-exercise li {
     margin-bottom: 0.5rem;
     color: var(--text-primary);
+}
+
+/* 完整 HTML 架構範本 */
+.template-notice {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(37, 99, 235, 0.1));
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.template-notice h4 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.template-notice ul {
+    margin-left: 1.5rem;
+}
+
+.template-notice li {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.full-template {
+    margin: 2rem 0;
+}
+
+.full-template .code-example {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.template-features {
+    margin-top: 2rem;
+}
+
+.template-features h4 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.feature-content h5 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.feature-content p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* 章節總結 */
@@ -528,7 +718,16 @@ body {
         gap: 1rem;
     }
 
+    .structure-grid,
     .semantic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meta-examples {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
         grid-template-columns: 1fr;
     }
 
