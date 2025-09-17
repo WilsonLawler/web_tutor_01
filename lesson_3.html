@@ -37,6 +37,20 @@
                     現在我們要學習現代 CSS 的強大功能：Flexbox 和 Grid 佈局系統、動畫效果、以及進階的響應式設計技巧。
                     這些技術讓我們能夠建立複雜的醫學圖表佈局和專業的互動式介面。
                 </p>
+                
+                <div class="view-source-reminder">
+                    <div class="reminder-icon">💡</div>
+                    <div class="reminder-content">
+                        <h4>學習提示</h4>
+                        <p>建議您同時打開瀏覽器的「檢視原始碼」功能（按 F12 或右鍵 → 檢查元素），對照本頁面的 HTML 和 CSS 程式碼，這樣能更深入理解每個範例的實作細節！</p>
+                        <div class="reminder-actions">
+                            <span class="action-item">🖱️ 右鍵 → 檢查元素</span>
+                            <span class="action-item">⌨️ 按 F12 鍵</span>
+                            <span class="action-item">🔍 Ctrl+Shift+I (Windows)</span>
+                            <span class="action-item">🔍 Cmd+Option+I (Mac)</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="highlight-box">
                     <h3>🎯 學習目標</h3>
                     <ul>
@@ -182,6 +196,105 @@
                             </div>
                             <div class="example-label">space-evenly</div>
                         </div>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">justify-content HTML & CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;!-- justify-content HTML --&gt;
+&lt;div class="flex-demo-container justify-start"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container justify-center"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container justify-end"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container justify-between"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container justify-around"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container justify-evenly"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+/* justify-content CSS */
+.flex-demo-container {
+    display: flex;
+    background: #f1f5f9;
+    border: 2px dashed #e2e8f0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    min-height: 80px;
+    align-items: stretch;
+}
+
+.flex-demo-item {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    transition: all 0.3s ease;
+}
+
+.flex-demo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* justify-content 屬性 */
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}</code></pre>
+                        </div>
                     </div>
 
                     <!-- align-items 詳細示範 -->
@@ -222,6 +335,83 @@
                             </div>
                             <div class="example-label">flex-end</div>
                         </div>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">align-items HTML & CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;!-- align-items HTML --&gt;
+&lt;div class="flex-demo-container align-stretch"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item tall"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container align-center"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item tall"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container align-start"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item tall"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container align-end"&gt;
+    &lt;div class="flex-demo-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-demo-item tall"&gt;2&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+/* align-items CSS */
+.flex-demo-container {
+    display: flex;
+    background: #f1f5f9;
+    border: 2px dashed #e2e8f0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    min-height: 80px;
+}
+
+.flex-demo-item {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    transition: all 0.3s ease;
+}
+
+.flex-demo-item.tall {
+    min-height: 100px;
+}
+
+/* align-items 屬性 */
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}</code></pre>
+                        </div>
                     </div>
 
                     <!-- flex-wrap 示範 -->
@@ -259,6 +449,76 @@
                             </div>
                             <div class="example-label">wrap-reverse - 反向換行</div>
                         </div>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">flex-wrap HTML & CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;!-- flex-wrap HTML --&gt;
+&lt;div class="flex-demo-container wrap-nowrap"&gt;
+    &lt;div class="flex-demo-item"&gt;心臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;肺部系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;肝臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;腎臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;神經系統&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container wrap-wrap"&gt;
+    &lt;div class="flex-demo-item"&gt;心臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;肺部系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;肝臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;腎臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;神經系統&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container wrap-reverse"&gt;
+    &lt;div class="flex-demo-item"&gt;心臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;肺部系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;肝臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;腎臟系統&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;神經系統&lt;/div&gt;
+&lt;/div&gt;
+
+/* flex-wrap CSS */
+.flex-demo-container {
+    display: flex;
+    background: #f1f5f9;
+    border: 2px dashed #e2e8f0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    min-height: 80px;
+    align-items: stretch;
+}
+
+.flex-demo-item {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    transition: all 0.3s ease;
+}
+
+/* flex-wrap 屬性 */
+.wrap-nowrap {
+    flex-wrap: nowrap;
+}
+
+.wrap-wrap {
+    flex-wrap: wrap;
+}
+
+.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}</code></pre>
+                        </div>
                     </div>
 
                     <!-- flex 屬性示範 -->
@@ -281,6 +541,78 @@
                             </div>
                             <div class="example-label">flex-grow, flex-shrink, flex-basis</div>
                         </div>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">flex 屬性 HTML & CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;!-- flex 屬性 HTML --&gt;
+&lt;div class="flex-demo-container"&gt;
+    &lt;div class="flex-demo-item flex-1"&gt;flex: 1&lt;/div&gt;
+    &lt;div class="flex-demo-item flex-2"&gt;flex: 2&lt;/div&gt;
+    &lt;div class="flex-demo-item flex-1"&gt;flex: 1&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex-demo-container"&gt;
+    &lt;div class="flex-demo-item flex-grow"&gt;flex-grow: 1&lt;/div&gt;
+    &lt;div class="flex-demo-item flex-shrink"&gt;flex-shrink: 0&lt;/div&gt;
+    &lt;div class="flex-demo-item flex-basis"&gt;flex-basis: 200px&lt;/div&gt;
+&lt;/div&gt;
+
+/* flex 屬性 CSS */
+.flex-demo-container {
+    display: flex;
+    background: #f1f5f9;
+    border: 2px dashed #e2e8f0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    min-height: 80px;
+    align-items: stretch;
+}
+
+.flex-demo-item {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    transition: all 0.3s ease;
+}
+
+/* flex 屬性類別 */
+.flex-1 {
+    flex: 1;
+    background: #ff6b6b;
+}
+
+.flex-2 {
+    flex: 2;
+    background: #4ecdc4;
+}
+
+.flex-grow {
+    flex-grow: 1;
+    background: #45b7d1;
+}
+
+.flex-shrink {
+    flex-shrink: 0;
+    background: #96ceb4;
+    min-width: 150px;
+}
+
+.flex-basis {
+    flex-basis: 200px;
+    background: #a8a8a8;
+}</code></pre>
+                        </div>
                     </div>
 
                     <!-- align-self 示範 -->
@@ -296,6 +628,69 @@
                                 <div class="flex-demo-item self-end">align-self: flex-end</div>
                             </div>
                             <div class="example-label">個別元素對齊</div>
+                        </div>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">align-self HTML & CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;!-- align-self HTML --&gt;
+&lt;div class="flex-demo-container align-self-demo"&gt;
+    &lt;div class="flex-demo-item"&gt;預設&lt;/div&gt;
+    &lt;div class="flex-demo-item self-start"&gt;align-self: flex-start&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;預設&lt;/div&gt;
+    &lt;div class="flex-demo-item self-center"&gt;align-self: center&lt;/div&gt;
+    &lt;div class="flex-demo-item"&gt;預設&lt;/div&gt;
+    &lt;div class="flex-demo-item self-end"&gt;align-self: flex-end&lt;/div&gt;
+&lt;/div&gt;
+
+/* align-self CSS */
+.flex-demo-container {
+    display: flex;
+    background: #f1f5f9;
+    border: 2px dashed #e2e8f0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    min-height: 80px;
+    align-items: stretch;
+}
+
+.align-self-demo {
+    align-items: center;
+    min-height: 120px;
+}
+
+.flex-demo-item {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    transition: all 0.3s ease;
+}
+
+/* align-self 屬性 */
+.self-start {
+    align-self: flex-start;
+    background: #ff6b6b;
+}
+
+.self-center {
+    align-self: center;
+    background: #4ecdc4;
+}
+
+.self-end {
+    align-self: flex-end;
+    background: #45b7d1;
+}</code></pre>
                         </div>
                     </div>
 
@@ -333,6 +728,173 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">醫學卡片佈局 HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;div class="medical-cards-layout"&gt;
+    &lt;div class="medical-card-header"&gt;
+        &lt;h6&gt;人體系統總覽&lt;/h6&gt;
+        &lt;div class="card-actions"&gt;
+            &lt;button class="action-btn"&gt;編輯&lt;/button&gt;
+            &lt;button class="action-btn"&gt;分享&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="medical-cards-grid"&gt;
+        &lt;div class="medical-card-item heart-card"&gt;
+            &lt;div class="card-icon"&gt;❤️&lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h6&gt;心臟系統&lt;/h6&gt;
+                &lt;p&gt;循環系統核心&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="medical-card-item lung-card"&gt;
+            &lt;div class="card-icon"&gt;🫁&lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h6&gt;肺部系統&lt;/h6&gt;
+                &lt;p&gt;氣體交換&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="medical-card-item liver-card"&gt;
+            &lt;div class="card-icon"&gt;🫀&lt;/div&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h6&gt;肝臟系統&lt;/h6&gt;
+                &lt;p&gt;代謝解毒&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">醫學卡片佈局 CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>/* 醫學卡片佈局樣式 */
+.medical-cards-layout {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.medical-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.medical-card-header h6 {
+    color: #1e293b;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.medical-cards-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.medical-card-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 200px;
+}
+
+.medical-card-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-content h6 {
+    color: #1e293b;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+}
+
+.card-content p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 主題色彩 */
+.medical-card-item.heart-card {
+    border-left: 4px solid #ff6b6b;
+}
+
+.medical-card-item.heart-card .card-icon {
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.medical-card-item.lung-card {
+    border-left: 4px solid #4ecdc4;
+}
+
+.medical-card-item.lung-card .card-icon {
+    background: rgba(78, 205, 196, 0.1);
+}
+
+.medical-card-item.liver-card {
+    border-left: 4px solid #45b7d1;
+}
+
+.medical-card-item.liver-card .card-icon {
+    background: rgba(69, 183, 209, 0.1);
+}</code></pre>
                         </div>
                     </div>
                 </div>
@@ -406,6 +968,122 @@
                             <h5>內分泌系統</h5>
                         </div>
                     </div>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">醫學圖表 Grid HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>&lt;div class="medical-grid"&gt;
+    &lt;div class="medical-card heart"&gt;
+        &lt;img src="img/heart.jpeg" alt="心臟" class="medical-img"&gt;
+        &lt;h5&gt;心臟系統&lt;/h5&gt;
+    &lt;/div&gt;
+    &lt;div class="medical-card lung"&gt;
+        &lt;img src="img/lung.webp" alt="肺部" class="medical-img"&gt;
+        &lt;h5&gt;肺部系統&lt;/h5&gt;
+    &lt;/div&gt;
+    &lt;div class="medical-card liver"&gt;
+        &lt;img src="img/liver.jpg" alt="肝臟" class="medical-img"&gt;
+        &lt;h5&gt;肝臟系統&lt;/h5&gt;
+    &lt;/div&gt;
+    &lt;div class="medical-card kidney"&gt;
+        &lt;img src="img/kidney.png" alt="腎臟" class="medical-img"&gt;
+        &lt;h5&gt;腎臟系統&lt;/h5&gt;
+    &lt;/div&gt;
+    &lt;div class="medical-card nervous"&gt;
+        &lt;img src="img/nervous.webp" alt="神經系統" class="medical-img"&gt;
+        &lt;h5&gt;神經系統&lt;/h5&gt;
+    &lt;/div&gt;
+    &lt;div class="medical-card endocrine"&gt;
+        &lt;img src="img/endocrine.jpg" alt="內分泌系統" class="medical-img"&gt;
+        &lt;h5&gt;內分泌系統&lt;/h5&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">醫學圖表 Grid CSS</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>/* 醫學圖表 Grid 佈局 */
+.medical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.medical-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.medical-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.medical-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 2px solid #e2e8f0;
+}
+
+.medical-card h5 {
+    color: #1e293b;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* 主題色彩邊框 */
+.medical-card.heart {
+    border-top: 4px solid #ff6b6b;
+}
+
+.medical-card.lung {
+    border-top: 4px solid #4ecdc4;
+}
+
+.medical-card.liver {
+    border-top: 4px solid #45b7d1;
+}
+
+.medical-card.kidney {
+    border-top: 4px solid #96ceb4;
+}
+
+.medical-card.nervous {
+    border-top: 4px solid #a8a8a8;
+}
+
+.medical-card.endocrine {
+    border-top: 4px solid #feca57;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .medical-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .medical-grid {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+                    </div>
                 </div>
             </div>
         </section>
@@ -478,6 +1156,182 @@
                             <p>hover 時位置平滑移動</p>
                         </div>
                     </div>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">動畫效果 HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>&lt;!-- 動畫卡片 HTML --&gt;
+&lt;div class="animation-showcase"&gt;
+    &lt;div class="animated-card pulse"&gt;
+        &lt;h5&gt;心跳動畫&lt;/h5&gt;
+        &lt;p&gt;模擬心跳的脈衝效果&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="animated-card bounce"&gt;
+        &lt;h5&gt;彈跳動畫&lt;/h5&gt;
+        &lt;p&gt;吸引注意力的彈跳效果&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="animated-card rotate"&gt;
+        &lt;h5&gt;旋轉動畫&lt;/h5&gt;
+        &lt;p&gt;持續旋轉的載入效果&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="animated-card slide"&gt;
+        &lt;h5&gt;滑動動畫&lt;/h5&gt;
+        &lt;p&gt;平滑的滑動進入效果&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 過渡效果 HTML --&gt;
+&lt;div class="transition-showcase"&gt;
+    &lt;div class="transition-card color-transition"&gt;
+        &lt;h5&gt;顏色過渡&lt;/h5&gt;
+        &lt;p&gt;hover 時顏色平滑變化&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="transition-card size-transition"&gt;
+        &lt;h5&gt;尺寸過渡&lt;/h5&gt;
+        &lt;p&gt;hover 時尺寸平滑變化&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="transition-card position-transition"&gt;
+        &lt;h5&gt;位置過渡&lt;/h5&gt;
+        &lt;p&gt;hover 時位置平滑移動&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">動畫效果 CSS</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>/* 動畫展示區域 */
+.animation-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.animated-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.animated-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.animated-card h5 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.animated-card p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 關鍵幀動畫定義 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes slide {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* 動畫類別 */
+.animated-card.pulse {
+    animation: pulse 2s infinite;
+}
+
+.animated-card.bounce {
+    animation: bounce 2s infinite;
+}
+
+.animated-card.rotate {
+    animation: rotate 3s linear infinite;
+}
+
+.animated-card.slide {
+    animation: slide 1s ease-out;
+}
+
+/* 過渡效果展示 */
+.transition-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.transition-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.transition-card h5 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.transition-card p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 過渡效果類別 */
+.transition-card.color-transition {
+    background: #2563eb;
+    color: white;
+}
+
+.transition-card.color-transition:hover {
+    background: #f59e0b;
+    transform: scale(1.05);
+}
+
+.transition-card.size-transition:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transition-card.position-transition:hover {
+    transform: translateX(10px);
+    background: #10b981;
+    color: white;
+}</code></pre>
+                    </div>
                 </div>
             </div>
         </section>
@@ -544,6 +1398,166 @@
                             <h5>手機版 (767px以下)</h5>
                             <p>單欄位佈局，優化觸控體驗</p>
                         </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">響應式設計 HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>&lt;!-- 響應式網格 HTML --&gt;
+&lt;div class="responsive-grid"&gt;
+    &lt;div class="responsive-item"&gt;桌面版：4欄&lt;/div&gt;
+    &lt;div class="responsive-item"&gt;平板版：2欄&lt;/div&gt;
+    &lt;div class="responsive-item"&gt;手機版：1欄&lt;/div&gt;
+    &lt;div class="responsive-item"&gt;自動適應&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 斷點展示 HTML --&gt;
+&lt;div class="breakpoint-showcase"&gt;
+    &lt;div class="breakpoint-card desktop"&gt;
+        &lt;h5&gt;桌面版 (1200px+)&lt;/h5&gt;
+        &lt;p&gt;多欄位佈局，豐富的視覺效果&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="breakpoint-card tablet"&gt;
+        &lt;h5&gt;平板版 (768px-1199px)&lt;/h5&gt;
+        &lt;p&gt;適中的佈局，保持功能完整&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="breakpoint-card mobile"&gt;
+        &lt;h5&gt;手機版 (767px以下)&lt;/h5&gt;
+        &lt;p&gt;單欄位佈局，優化觸控體驗&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">響應式設計 CSS</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>/* 響應式網格 */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.responsive-item {
+    background: #2563eb;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.responsive-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 斷點展示 */
+.breakpoint-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.breakpoint-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.breakpoint-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.breakpoint-card h5 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.breakpoint-card p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 斷點主題色彩 */
+.breakpoint-card.desktop {
+    border-top: 4px solid #2563eb;
+}
+
+.breakpoint-card.tablet {
+    border-top: 4px solid #f59e0b;
+}
+
+.breakpoint-card.mobile {
+    border-top: 4px solid #10b981;
+}
+
+/* 媒體查詢 - 響應式設計 */
+@media (max-width: 768px) {
+    .medical-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .flex-container {
+        flex-direction: column;
+    }
+    
+    .responsive-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .breakpoint-showcase {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-card {
+        padding: 1rem;
+    }
+    
+    .responsive-item {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .breakpoint-card {
+        padding: 1rem;
+    }
+}
+
+/* 進階響應式技巧 */
+@media (min-width: 1200px) {
+    .responsive-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .responsive-grid {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
                     </div>
                 </div>
             </div>
@@ -612,6 +1626,182 @@
                             <h5>3D 變換</h5>
                             <p>transform: perspective()</p>
                         </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">進階技巧 HTML</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>&lt;!-- CSS 變數主題 HTML --&gt;
+&lt;div class="variable-showcase"&gt;
+    &lt;div class="variable-card heart-theme"&gt;
+        &lt;h5&gt;心臟系統主題&lt;/h5&gt;
+        &lt;p&gt;使用 CSS 變數統一配色&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="variable-card lung-theme"&gt;
+        &lt;h5&gt;肺部系統主題&lt;/h5&gt;
+        &lt;p&gt;動態切換主題色彩&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="variable-card liver-theme"&gt;
+        &lt;h5&gt;肝臟系統主題&lt;/h5&gt;
+        &lt;p&gt;保持設計一致性&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 進階功能 HTML --&gt;
+&lt;div class="features-showcase"&gt;
+    &lt;div class="feature-card backdrop"&gt;
+        &lt;h5&gt;背景模糊效果&lt;/h5&gt;
+        &lt;p&gt;backdrop-filter: blur(10px)&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="feature-card gradient"&gt;
+        &lt;h5&gt;漸層背景&lt;/h5&gt;
+        &lt;p&gt;linear-gradient 多色漸層&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="feature-card transform"&gt;
+        &lt;h5&gt;3D 變換&lt;/h5&gt;
+        &lt;p&gt;transform: perspective()&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">進階技巧 CSS</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>/* CSS 變數定義 */
+:root {
+    --heart-color: #ff6b6b;
+    --lung-color: #4ecdc4;
+    --liver-color: #45b7d1;
+    --primary-font: 'Noto Sans TC', sans-serif;
+    --border-radius: 8px;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* CSS 變數主題 */
+.variable-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.variable-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    color: white;
+    font-weight: 500;
+}
+
+.variable-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.variable-card h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.variable-card p {
+    font-size: 0.875rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* 主題色彩變數應用 */
+.heart-theme {
+    background: var(--heart-color);
+}
+
+.lung-theme {
+    background: var(--lung-color);
+}
+
+.liver-theme {
+    background: var(--liver-color);
+}
+
+/* 進階功能展示 */
+.features-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.feature-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h5 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.feature-card p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 背景模糊效果 */
+.feature-card.backdrop {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 漸層背景 */
+.feature-card.gradient {
+    background: linear-gradient(135deg, #2563eb, #f59e0b);
+    color: white;
+}
+
+/* 3D 變換效果 */
+.feature-card.transform {
+    transform: perspective(1000px) rotateX(5deg);
+}
+
+.feature-card.transform:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-4px);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .variable-showcase,
+    .features-showcase {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-card.transform {
+        transform: none;
+    }
+    
+    .feature-card.transform:hover {
+        transform: translateY(-4px);
+    }
+}</code></pre>
                     </div>
                 </div>
             </div>
