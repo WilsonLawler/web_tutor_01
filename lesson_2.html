@@ -49,6 +49,402 @@
             </div>
         </section>
 
+        <!-- CSS 引入方式 -->
+        <section class="css-introduction-section">
+            <h2 class="section-title">如何引入 CSS</h2>
+            <div class="content-card">
+                <h3>CSS 的三種引入方式</h3>
+                <p>在靜態網頁中，我們有三種方式來引入 CSS 樣式，每種方式都有其適用場景。</p>
+                
+                <div class="introduction-methods">
+                    <div class="method-card">
+                        <h4>1. 內聯樣式 (Inline Styles)</h4>
+                        <p>直接在 HTML 元素中使用 style 屬性</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">內聯樣式範例</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;h1 style="color: blue; font-size: 24px;"&gt;心臟系統&lt;/h1&gt;
+&lt;p style="background: lightblue; padding: 10px;"&gt;心臟是循環系統的核心&lt;/p&gt;</code></pre>
+                        </div>
+                        <div class="method-pros-cons">
+                            <div class="pros">
+                                <strong>優點：</strong> 直接、快速、優先級最高
+                            </div>
+                            <div class="cons">
+                                <strong>缺點：</strong> 難以維護、無法重複使用、混合了結構和樣式
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h4>2. 內部樣式表 (Internal Stylesheet)</h4>
+                        <p>在 HTML 文件的 &lt;head&gt; 區域使用 &lt;style&gt; 標籤</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">內部樣式表範例</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;head&gt;
+    &lt;style&gt;
+        h1 { color: blue; font-size: 24px; }
+        .medical-title { background: lightblue; padding: 10px; }
+    &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+                        </div>
+                        <div class="method-pros-cons">
+                            <div class="pros">
+                                <strong>優點：</strong> 集中管理、可重複使用、結構清晰
+                            </div>
+                            <div class="cons">
+                                <strong>缺點：</strong> 僅限單一頁面、檔案可能過大
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h4>3. 外部樣式表 (External Stylesheet)</h4>
+                        <p>使用 &lt;link&gt; 標籤引入獨立的 CSS 檔案</p>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-title">外部樣式表範例</span>
+                                <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            </div>
+                            <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="css/lesson_2.css"&gt;
+    &lt;link rel="stylesheet" href="css/common.css"&gt;
+&lt;/head&gt;</code></pre>
+                        </div>
+                        <div class="method-pros-cons">
+                            <div class="pros">
+                                <strong>優點：</strong> 可重複使用、易於維護、支援快取、分離關注點
+                            </div>
+                            <div class="cons">
+                                <strong>缺點：</strong> 需要額外的 HTTP 請求
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="best-practices">
+                    <h4>💡 最佳實踐建議</h4>
+                    <ul>
+                        <li><strong>優先使用外部樣式表</strong>：便於維護和重複使用</li>
+                        <li><strong>內部樣式表用於頁面特定樣式</strong>：僅該頁面需要的樣式</li>
+                        <li><strong>內聯樣式僅用於動態樣式</strong>：JavaScript 動態修改的樣式</li>
+                        <li><strong>注意載入順序</strong>：後載入的樣式會覆蓋先載入的樣式</li>
+                    </ul>
+                </div>
+
+                <div class="practical-example">
+                    <h4>🔧 實際範例：完整的 HTML + CSS 專案</h4>
+                    <p>讓我們看看一個完整的醫學筆記頁面如何引入和使用 CSS：</p>
+                    
+                    <div class="file-structure">
+                        <h5>檔案結構：</h5>
+                        <div class="file-tree">
+                            <div class="folder">📁 medical-notes/</div>
+                            <div class="file">📄 index.html</div>
+                            <div class="folder">📁 css/</div>
+                            <div class="file indent">📄 styles.css</div>
+                            <div class="file indent">📄 reset.css</div>
+                            <div class="folder">📁 img/</div>
+                            <div class="file indent">📄 heart.jpg</div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">index.html - HTML 檔案</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-TW"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;中西醫筆記 - 心臟系統&lt;/title&gt;
+    
+    &lt;!-- 引入外部 CSS 檔案 --&gt;
+    &lt;link rel="stylesheet" href="css/reset.css"&gt;
+    &lt;link rel="stylesheet" href="css/styles.css"&gt;
+    
+    &lt;!-- 內部樣式表 - 頁面特定樣式 --&gt;
+    &lt;style&gt;
+        .page-header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class="page-header"&gt;
+        &lt;h1&gt;中西醫筆記系統&lt;/h1&gt;
+        &lt;p&gt;心臟循環系統專題&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;main class="main-content"&gt;
+        &lt;section class="heart-section"&gt;
+            &lt;h2&gt;心臟系統概述&lt;/h2&gt;
+            &lt;p&gt;心臟是循環系統的核心器官...&lt;/p&gt;
+            &lt;img src="img/heart.jpg" alt="心臟結構圖" class="medical-image"&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">css/reset.css - CSS Reset 檔案</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">css/styles.css - 主要樣式檔案</span>
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                        </div>
+                        <pre><code>/* 主要樣式 */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.heart-section {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.medical-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 2px solid #ddd;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .heart-section {
+        padding: 1rem;
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="example-result">
+                        <h5>實際效果預覽：</h5>
+                        <div class="preview-container">
+                            <div class="preview-header">
+                                <h3>中西醫筆記系統</h3>
+                                <p>心臟循環系統專題</p>
+                            </div>
+                            <div class="preview-content">
+                                <h4>心臟系統概述</h4>
+                                <p>心臟是循環系統的核心器官，負責將血液泵送到全身各個部位...</p>
+                                <div class="preview-image">🫀 心臟結構圖</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="loading-order">
+                        <h5>📋 CSS 載入順序說明：</h5>
+                        <ol>
+                            <li><strong>reset.css</strong> - 首先載入，重置所有預設樣式</li>
+                            <li><strong>styles.css</strong> - 然後載入，套用主要樣式</li>
+                            <li><strong>內部樣式</strong> - 最後套用，覆蓋外部樣式</li>
+                        </ol>
+                        <p class="note">💡 載入順序很重要！後載入的樣式會覆蓋先載入的樣式。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS Reset -->
+        <section class="css-reset-section">
+            <h2 class="section-title">CSS Reset</h2>
+            <div class="content-card">
+                <h3>為什麼需要 CSS Reset？</h3>
+                <p>不同的瀏覽器對 HTML 元素有預設的樣式，這些預設樣式可能不一致，導致網頁在不同瀏覽器中顯示效果不同。CSS Reset 可以統一這些預設樣式。</p>
+                
+                <div class="reset-comparison">
+                    <div class="before-after">
+                        <h4>沒有 CSS Reset 的問題：</h4>
+                        <div class="problem-demo">
+                            <div class="browser-demo">
+                                <h5>Chrome</h5>
+                                <div class="demo-element">標題文字</div>
+                                <div class="demo-element">段落文字</div>
+                            </div>
+                            <div class="browser-demo">
+                                <h5>Firefox</h5>
+                                <div class="demo-element">標題文字</div>
+                                <div class="demo-element">段落文字</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">基本 CSS Reset</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>/* 基本 CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 移除預設樣式 */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+                </div>
+
+                <div class="reset-benefits">
+                    <h4>🎯 CSS Reset 的好處</h4>
+                    <ul>
+                        <li><strong>統一跨瀏覽器顯示</strong>：確保在不同瀏覽器中一致</li>
+                        <li><strong>提供乾淨的起點</strong>：從零開始建立樣式</li>
+                        <li><strong>提高開發效率</strong>：減少樣式衝突問題</li>
+                        <li><strong>更好的控制權</strong>：完全掌控元素樣式</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Box-sizing -->
+        <section class="box-sizing-section">
+            <h2 class="section-title">Box-sizing 盒模型控制</h2>
+            <div class="content-card">
+                <h3>什麼是 Box-sizing？</h3>
+                <p>box-sizing 屬性控制元素的寬度和高度計算方式，決定是否包含內距 (padding) 和邊框 (border)。</p>
+                
+                <div class="box-sizing-demo">
+                    <div class="box-sizing-comparison">
+                        <div class="box-example">
+                            <h4>content-box (預設值)</h4>
+                            <div class="box-visual content-box-demo">
+                                <div class="box-content">
+                                    <span>內容區域</span>
+                                    <small>width: 200px</small>
+                                </div>
+                            </div>
+                            <p>總寬度 = width + padding + border</p>
+                            <div class="calculation">
+                                <code>200px + 20px + 4px = 224px</code>
+                            </div>
+                        </div>
+
+                        <div class="box-example">
+                            <h4>border-box (推薦)</h4>
+                            <div class="box-visual border-box-demo">
+                                <div class="box-content">
+                                    <span>內容區域</span>
+                                    <small>width: 200px</small>
+                                </div>
+                            </div>
+                            <p>總寬度 = width (包含 padding 和 border)</p>
+                            <div class="calculation">
+                                <code>200px (總寬度固定)</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">Box-sizing 範例</span>
+                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                    </div>
+                    <pre><code>/* content-box - 預設值 */
+.content-box {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    box-sizing: content-box;
+    /* 實際寬度 = 200px + 20px + 4px = 224px */
+}
+
+/* border-box - 推薦使用 */
+.border-box {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    /* 實際寬度 = 200px (固定) */
+}
+
+/* 全域設定 border-box */
+* {
+    box-sizing: border-box;
+}</code></pre>
+                </div>
+
+                <div class="box-sizing-tips">
+                    <h4>💡 Box-sizing 使用建議</h4>
+                    <ul>
+                        <li><strong>全域設定 border-box</strong>：讓所有元素使用統一的盒模型</li>
+                        <li><strong>更直觀的尺寸控制</strong>：設定的寬度就是實際寬度</li>
+                        <li><strong>簡化響應式設計</strong>：更容易計算和調整佈局</li>
+                        <li><strong>避免意外溢出</strong>：減少因 padding 和 border 造成的佈局問題</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <!-- CSS 選擇器 -->
         <section class="selectors-section">
             <h2 class="section-title">CSS 選擇器</h2>

@@ -99,6 +99,9 @@ body {
 
 /* 章節樣式 */
 .intro-section,
+.css-introduction-section,
+.css-reset-section,
+.box-sizing-section,
 .selectors-section,
 .box-model-section,
 .colors-typography-section,
@@ -192,6 +195,414 @@ body {
     left: 0;
     color: var(--success-color);
     font-weight: bold;
+}
+
+/* CSS 引入方式樣式 */
+.introduction-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.method-card {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.method-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.method-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+}
+
+.method-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.method-pros-cons {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+}
+
+.pros {
+    color: var(--success-color);
+    margin-bottom: 0.5rem;
+}
+
+.cons {
+    color: var(--error-color);
+}
+
+.best-practices {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.1));
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.best-practices h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.best-practices ul {
+    list-style: none;
+    padding: 0;
+}
+
+.best-practices li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.best-practices li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+}
+
+/* 實際範例樣式 */
+.practical-example {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(16, 185, 129, 0.05));
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.practical-example h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.practical-example h5 {
+    color: var(--text-primary);
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1rem;
+}
+
+.file-structure {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.file-tree {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.folder {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.file {
+    color: var(--text-secondary);
+    margin-left: 1rem;
+}
+
+.file.indent {
+    margin-left: 2rem;
+}
+
+.example-result {
+    margin: 2rem 0;
+}
+
+.preview-container {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-top: 1rem;
+}
+
+.preview-header {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.preview-header h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.preview-header p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.preview-content {
+    padding: 1.5rem;
+}
+
+.preview-content h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.preview-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.preview-image {
+    background: #f1f5f9;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin: 1rem 0;
+}
+
+.loading-order {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(37, 99, 235, 0.1));
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.loading-order h5 {
+    color: var(--warning-color);
+    margin-bottom: 1rem;
+}
+
+.loading-order ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.loading-order li {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.loading-order .note {
+    background: rgba(37, 99, 235, 0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+/* CSS Reset 樣式 */
+.reset-comparison {
+    margin: 2rem 0;
+}
+
+.before-after h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.problem-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.browser-demo {
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.browser-demo h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.demo-element {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+.reset-benefits {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(37, 99, 235, 0.1));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.reset-benefits h4 {
+    color: var(--success-color);
+    margin-bottom: 1rem;
+}
+
+.reset-benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.reset-benefits li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.reset-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* Box-sizing 樣式 */
+.box-sizing-demo {
+    margin: 2rem 0;
+}
+
+.box-sizing-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.box-example {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.box-example h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+.box-visual {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+}
+
+.content-box-demo {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    box-sizing: content-box;
+}
+
+.border-box-demo {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #4ecdc4;
+    background: rgba(78, 205, 196, 0.1);
+    box-sizing: border-box;
+}
+
+.box-content {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.box-content span {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.box-content small {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+}
+
+.box-example p {
+    color: var(--text-secondary);
+    margin: 1rem 0;
+    font-size: 0.875rem;
+}
+
+.calculation {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.box-sizing-tips {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(37, 99, 235, 0.1));
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.box-sizing-tips h4 {
+    color: var(--warning-color);
+    margin-bottom: 1rem;
+}
+
+.box-sizing-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.box-sizing-tips li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.box-sizing-tips li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
 }
 
 /* 程式碼範例 */
@@ -765,6 +1176,40 @@ body {
     .demo-container {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .introduction-methods {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .box-sizing-comparison {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .problem-demo {
+        grid-template-columns: 1fr;
+    }
+
+    .practical-example {
+        padding: 1rem;
+    }
+
+    .file-tree {
+        font-size: 0.75rem;
+    }
+
+    .preview-header {
+        padding: 1rem;
+    }
+
+    .preview-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .preview-content {
+        padding: 1rem;
     }
 
     .box-model-demo {
