@@ -84,6 +84,14 @@
                         中西醫人體導覽(Bootstrap框架)
                     </a>
                 </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">參考資源</div>
+                    <a href="reference.html" class="nav-item">
+                        <span class="nav-item-icon">📖</span>
+                        開發參考資源
+                    </a>
+                </div>
             </nav>
         </aside>
 
@@ -214,6 +222,13 @@
         </main>
     </div>
 
+    <!-- Sticky Quick Link Button -->
+    <div class="sticky-quick-link">
+        <a href="reference.html" target="_blank" class="sticky-btn" title="開啟參考資源頁面">
+            <span class="sticky-text">參考資源</span>
+        </a>
+    </div>
+
     <script>
         // 基礎 JavaScript 功能
         document.addEventListener('DOMContentLoaded', function() {
@@ -237,10 +252,27 @@
             
             // 章節卡片點擊事件
             chapterCards.forEach(card => {
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function(e) {
+                    // 如果點擊的是連結，不處理卡片點擊
+                    if (e.target.closest('a')) {
+                        return;
+                    }
+                    
                     const chapterNumber = this.dataset.chapter;
-                    // 這裡可以添加章節內容載入邏輯
-                    console.log(`載入章節 ${chapterNumber}`);
+                    const pageMap = {
+                        0: 'lesson_0.html',
+                        1: 'lesson_1.html',
+                        2: 'lesson_2.html',
+                        2.5: 'lesson_2_5.html',
+                        3: 'lesson_3.html',
+                        4: 'lesson_4.html',
+                        5: 'lesson_5.html'
+                    };
+                    
+                    const targetPage = pageMap[chapterNumber];
+                    if (targetPage) {
+                        window.location.href = targetPage;
+                    }
                 });
             });
             
@@ -287,7 +319,8 @@
                     'demo_1.html': 'demo1',
                     'demo_2.html': 'demo2',
                     'demo_3.html': 'demo3',
-                    'demo_2.5.html': 'demo2.5'
+                    'demo_2.5.html': 'demo2.5',
+                    'reference.html': 'reference'
                 };
                 
                 const currentChapter = pageMap[currentPage];

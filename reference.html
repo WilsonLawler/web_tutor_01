@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網頁開發參考資源 - 網頁製作學習</title>
+    <meta name="description" content="網頁開發必備參考資源，包含文檔、工具、框架、設計資源等實用連結">
+    <meta name="keywords" content="網頁開發, 參考資源, 文檔, 工具, 框架, 設計">
+    
+    <!-- 預載入字體和圖示 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 主要樣式表 -->
+    <link rel="stylesheet" href="css/reference.css">
+</head>
+<body>
+    <div class="main-layout">
+        <!-- 側邊欄導航 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-title-link">
+                    <h1 class="sidebar-title">網頁製作學習</h1>
+                    <p class="sidebar-subtitle">開發參考資源</p>
+                </a>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <div class="nav-section-title">快速導航</div>
+                    <a href="index.html" class="nav-item">
+                        <span class="nav-item-icon">🏠</span>
+                        回到首頁
+                    </a>
+                    <a href="#documentation" class="nav-item">
+                        <span class="nav-item-icon">📚</span>
+                        官方文檔
+                    </a>
+                    <a href="#tools" class="nav-item">
+                        <span class="nav-item-icon">🛠️</span>
+                        開發工具
+                    </a>
+                    <a href="#frameworks" class="nav-item">
+                        <span class="nav-item-icon">⚡</span>
+                        框架庫
+                    </a>
+                    <a href="#design" class="nav-item">
+                        <span class="nav-item-icon">🎨</span>
+                        設計資源
+                    </a>
+                    <a href="#learning" class="nav-item">
+                        <span class="nav-item-icon">🎓</span>
+                        學習資源
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 主要內容區域 -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 class="content-title">網頁開發參考資源</h1>
+                <p class="content-description">
+                    收集了網頁開發過程中常用的官方文檔、工具、框架和設計資源。
+                    這些連結將幫助您快速找到所需的技術資料和學習資源。
+                </p>
+            </header>
+
+            <!-- 官方文檔 -->
+            <section id="documentation" class="reference-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book me-2"></i>
+                    官方文檔
+                </h2>
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3 class="category-title">基礎技術</h3>
+                        <div class="resource-links">
+                            <a href="https://developer.mozilla.org/zh-TW/docs/Web/HTML" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>HTML 文檔</h4>
+                                    <p>MDN Web Docs - HTML 完整參考</p>
+                                </div>
+                            </a>
+                            <a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-css3-alt"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>CSS 文檔</h4>
+                                    <p>MDN Web Docs - CSS 完整參考</p>
+                                </div>
+                            </a>
+                            <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>JavaScript 文檔</h4>
+                                    <p>MDN Web Docs - JavaScript 完整參考</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3 class="category-title">框架文檔</h3>
+                        <div class="resource-links">
+                            <a href="https://getbootstrap.com/docs/5.3/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-bootstrap"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Bootstrap 5.3</h4>
+                                    <p>最受歡迎的 CSS 框架</p>
+                                </div>
+                            </a>
+                            <a href="https://reactjs.org/docs/getting-started.html" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>React</h4>
+                                    <p>Facebook 開發的 JavaScript 庫</p>
+                                </div>
+                            </a>
+                            <a href="https://vuejs.org/guide/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-vuejs"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Vue.js</h4>
+                                    <p>漸進式 JavaScript 框架</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 開發工具 -->
+            <section id="tools" class="reference-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tools me-2"></i>
+                    開發工具
+                </h2>
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3 class="category-title">程式碼編輯器</h3>
+                        <div class="resource-links">
+                            <a href="https://code.visualstudio.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Visual Studio Code</h4>
+                                    <p>微軟開發的免費程式碼編輯器</p>
+                                </div>
+                            </a>
+                            <a href="https://www.sublimetext.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Sublime Text</h4>
+                                    <p>輕量級文字編輯器</p>
+                                </div>
+                            </a>
+                            <a href="https://atom.io/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-atom"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Atom</h4>
+                                    <p>GitHub 開發的開源編輯器</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3 class="category-title">版本控制</h3>
+                        <div class="resource-links">
+                            <a href="https://git-scm.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-git-alt"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Git</h4>
+                                    <p>分散式版本控制系統</p>
+                                </div>
+                            </a>
+                            <a href="https://github.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>GitHub</h4>
+                                    <p>程式碼託管和協作平台</p>
+                                </div>
+                            </a>
+                            <a href="https://gitlab.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-gitlab"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>GitLab</h4>
+                                    <p>完整的 DevOps 平台</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 框架庫 -->
+            <section id="frameworks" class="reference-section">
+                <h2 class="section-title">
+                    <i class="fas fa-layer-group me-2"></i>
+                    框架與函式庫
+                </h2>
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3 class="category-title">CSS 框架</h3>
+                        <div class="resource-links">
+                            <a href="https://tailwindcss.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Tailwind CSS</h4>
+                                    <p>實用優先的 CSS 框架</p>
+                                </div>
+                            </a>
+                            <a href="https://bulma.io/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-cube"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Bulma</h4>
+                                    <p>現代 CSS 框架</p>
+                                </div>
+                            </a>
+                            <a href="https://foundation.zurb.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Foundation</h4>
+                                    <p>響應式前端框架</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3 class="category-title">JavaScript 函式庫</h3>
+                        <div class="resource-links">
+                            <a href="https://jquery.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>jQuery</h4>
+                                    <p>快速、簡潔的 JavaScript 函式庫</p>
+                                </div>
+                            </a>
+                            <a href="https://lodash.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-list"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Lodash</h4>
+                                    <p>JavaScript 實用工具函式庫</p>
+                                </div>
+                            </a>
+                            <a href="https://momentjs.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Moment.js</h4>
+                                    <p>日期時間處理函式庫</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 設計資源 -->
+            <section id="design" class="reference-section">
+                <h2 class="section-title">
+                    <i class="fas fa-palette me-2"></i>
+                    設計資源
+                </h2>
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3 class="category-title">圖示與字體</h3>
+                        <div class="resource-links">
+                            <a href="https://fontawesome.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-icons"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Font Awesome</h4>
+                                    <p>最受歡迎的圖示字體庫</p>
+                                </div>
+                            </a>
+                            <a href="https://fonts.google.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-font"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Google Fonts</h4>
+                                    <p>免費的網頁字體庫</p>
+                                </div>
+                            </a>
+                            <a href="https://feathericons.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-feather"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Feather Icons</h4>
+                                    <p>簡潔美觀的 SVG 圖示</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3 class="category-title">色彩與設計</h3>
+                        <div class="resource-links">
+                            <a href="https://coolors.co/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Coolors</h4>
+                                    <p>色彩搭配生成器</p>
+                                </div>
+                            </a>
+                            <a href="https://dribbble.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-basketball-ball"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Dribbble</h4>
+                                    <p>設計師作品展示平台</p>
+                                </div>
+                            </a>
+                            <a href="https://www.figma.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Figma</h4>
+                                    <p>協作式 UI 設計工具</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 學習資源 -->
+            <section id="learning" class="reference-section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap me-2"></i>
+                    學習資源
+                </h2>
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3 class="category-title">線上課程</h3>
+                        <div class="resource-links">
+                            <a href="https://www.freecodecamp.org/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-campground"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>freeCodeCamp</h4>
+                                    <p>免費程式設計學習平台</p>
+                                </div>
+                            </a>
+                            <a href="https://www.codecademy.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Codecademy</h4>
+                                    <p>互動式程式設計學習</p>
+                                </div>
+                            </a>
+                            <a href="https://www.udemy.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Udemy</h4>
+                                    <p>線上課程平台</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3 class="category-title">技術社群</h3>
+                        <div class="resource-links">
+                            <a href="https://stackoverflow.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-stack-overflow"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Stack Overflow</h4>
+                                    <p>程式設計問答社群</p>
+                                </div>
+                            </a>
+                            <a href="https://dev.to/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>DEV Community</h4>
+                                    <p>開發者社群平台</p>
+                                </div>
+                            </a>
+                            <a href="https://www.reddit.com/r/webdev/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-reddit"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>r/webdev</h4>
+                                    <p>Reddit 網頁開發社群</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 實用工具 -->
+            <section id="utilities" class="reference-section">
+                <h2 class="section-title">
+                    <i class="fas fa-wrench me-2"></i>
+                    實用工具
+                </h2>
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3 class="category-title">測試與除錯</h3>
+                        <div class="resource-links">
+                            <a href="https://validator.w3.org/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>W3C Validator</h4>
+                                    <p>HTML 和 CSS 驗證工具</p>
+                                </div>
+                            </a>
+                            <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>PageSpeed Insights</h4>
+                                    <p>網頁效能分析工具</p>
+                                </div>
+                            </a>
+                            <a href="https://caniuse.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Can I Use</h4>
+                                    <p>瀏覽器相容性查詢</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3 class="category-title">部署與託管</h3>
+                        <div class="resource-links">
+                            <a href="https://pages.github.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>GitHub Pages</h4>
+                                    <p>免費靜態網站託管</p>
+                                </div>
+                            </a>
+                            <a href="https://www.netlify.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Netlify</h4>
+                                    <p>現代化網站部署平台</p>
+                                </div>
+                            </a>
+                            <a href="https://vercel.com/" target="_blank" class="resource-link">
+                                <div class="resource-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="resource-info">
+                                    <h4>Vercel</h4>
+                                    <p>前端部署平台</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 搜尋功能
+        function initSearch() {
+            const searchInput = document.createElement('input');
+            searchInput.type = 'text';
+            searchInput.placeholder = '搜尋資源...';
+            searchInput.className = 'search-input';
+            
+            const searchContainer = document.createElement('div');
+            searchContainer.className = 'search-container';
+            searchContainer.appendChild(searchInput);
+            
+            document.querySelector('.content-header').appendChild(searchContainer);
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const resourceLinks = document.querySelectorAll('.resource-link');
+                
+                resourceLinks.forEach(link => {
+                    const title = link.querySelector('h4').textContent.toLowerCase();
+                    const description = link.querySelector('p').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        link.style.display = 'flex';
+                    } else {
+                        link.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initSearch();
+            
+            // 載入動畫
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
