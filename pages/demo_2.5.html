@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中西醫人體導覽：臟腑、骨骼、肌肉與經脈全圖解</title>
+    <meta name="description" content="以清晰易讀的結構，從西醫的臟腑、骨骼、肌肉三大系統，到中醫的經脈學說、十二正經與奇經八脈、以及五臟六腑對應關係，完整介紹人體運作與常見症狀觀點。">
+    <meta name="keywords" content="西醫、臟腑、骨骼、肌肉、中醫、經脈、十二正經、奇經八脈、五臟六腑、身體構造、健康科普">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 自定義樣式 -->
+    <link rel="stylesheet" href="../css/demo_2.5.css">
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <i class="fas fa-heartbeat me-2"></i>
+                中西醫人體導覽
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#western-medicine">西醫系統</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#chinese-medicine">中醫系統</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#interactive">互動導覽</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lesson_2_5.html">Bootstrap 教學</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區塊 -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold text-white mb-4">
+                        <i class="fas fa-user-md me-3"></i>
+                        中西醫人體導覽
+                    </h1>
+                    <p class="lead text-white mb-4">
+                        臟腑、骨骼、肌肉與經脈全圖解
+                    </p>
+                    <p class="text-white-50 mb-5">
+                        以清晰易讀的結構，從西醫的臟腑、骨骼、肌肉三大系統，到中醫的經脈學說、十二正經與奇經八脈、以及五臟六腑對應關係，完整介紹人體運作與常見症狀觀點。
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#western-medicine" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-microscope me-2"></i>
+                            西醫系統
+                        </a>
+                        <a href="#chinese-medicine" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-yin-yang me-2"></i>
+                            中醫系統
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 西醫系統 -->
+    <section id="western-medicine" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center mb-5">
+                        <i class="fas fa-microscope text-primary me-3"></i>
+                        西醫｜系統解剖學
+                    </h2>
+                    <p class="text-center text-muted mb-5">
+                        以系統解剖學角度統整主要器官：心血管、呼吸、消化、泌尿、內分泌、神經等，說明核心功能與常見檢查指標。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 臟腑系統 -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 organ-card">
+                        <div class="card-img-top">
+                            <img src="../img/heart.jpeg" class="img-fluid" alt="心臟系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-heart text-danger me-2"></i>
+                                心臟系統
+                            </h5>
+                            <p class="card-text">泵血維持循環，重點指標：心跳、血壓、心電圖。</p>
+                            <div class="organ-features">
+                                <span class="badge bg-danger">心血管</span>
+                                <span class="badge bg-secondary">循環系統</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 organ-card">
+                        <div class="card-img-top">
+                            <img src="../img/lung.webp" class="img-fluid" alt="呼吸系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-lungs text-info me-2"></i>
+                                呼吸系統
+                            </h5>
+                            <p class="card-text">氣體交換，重點指標：血氧、肺功能（FEV1/FVC）。</p>
+                            <div class="organ-features">
+                                <span class="badge bg-info">呼吸</span>
+                                <span class="badge bg-secondary">氣體交換</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 organ-card">
+                        <div class="card-img-top">
+                            <img src="../img/liver.jpg" class="img-fluid" alt="肝臟系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-liver text-warning me-2"></i>
+                                肝臟系統
+                            </h5>
+                            <p class="card-text">代謝解毒、膽汁生成，重點指標：AST/ALT、膽紅素。</p>
+                            <div class="organ-features">
+                                <span class="badge bg-warning">代謝</span>
+                                <span class="badge bg-secondary">解毒</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 organ-card">
+                        <div class="card-img-top">
+                            <img src="../img/kidney.png" class="img-fluid" alt="腎臟系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-kidneys text-success me-2"></i>
+                                腎臟系統
+                            </h5>
+                            <p class="card-text">過濾、電解質與水分平衡，重點指標：eGFR、肌酸酐。</p>
+                            <div class="organ-features">
+                                <span class="badge bg-success">泌尿</span>
+                                <span class="badge bg-secondary">過濾</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 organ-card">
+                        <div class="card-img-top">
+                            <img src="../img/digestive.jpg" class="img-fluid" alt="消化系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-stomach text-primary me-2"></i>
+                                消化系統
+                            </h5>
+                            <p class="card-text">消化吸收，常見症狀：胃痛、脹氣、腹瀉/便秘。</p>
+                            <div class="organ-features">
+                                <span class="badge bg-primary">消化</span>
+                                <span class="badge bg-secondary">吸收</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 organ-card">
+                        <div class="card-img-top">
+                            <img src="../img/endocrine.jpg" class="img-fluid" alt="內分泌系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-seedling text-success me-2"></i>
+                                內分泌系統
+                            </h5>
+                            <p class="card-text">激素調節，甲狀腺、胰腺（血糖）等。</p>
+                            <div class="organ-features">
+                                <span class="badge bg-success">內分泌</span>
+                                <span class="badge bg-secondary">激素</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 骨骼與肌肉系統 -->
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100 system-card">
+                        <div class="card-img-top">
+                            <img src="../img/bones.gif" class="img-fluid" alt="骨骼系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-bone text-secondary me-2"></i>
+                                骨骼系統
+                            </h5>
+                            <p class="card-text">支撐、保護、造血（骨髓）、礦物質儲存（鈣、磷）。</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>脊柱（頸椎–胸椎–腰椎–薦尾）</li>
+                                <li><i class="fas fa-check text-success me-2"></i>胸廓、骨盆</li>
+                                <li><i class="fas fa-check text-success me-2"></i>四肢骨（肩帶、骨盆帶）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 system-card">
+                        <div class="card-img-top">
+                            <img src="../img/muscle_system.webp" class="img-fluid" alt="肌肉系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-dumbbell text-warning me-2"></i>
+                                肌肉系統
+                            </h5>
+                            <p class="card-text">骨骼肌、平滑肌與心肌差異，聚焦於動作與運動表現。</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>骨骼肌（隨意運動）</li>
+                                <li><i class="fas fa-check text-success me-2"></i>平滑肌（內臟與血管壁）</li>
+                                <li><i class="fas fa-check text-success me-2"></i>心肌（心臟專屬）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中醫系統 -->
+    <section id="chinese-medicine" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center mb-5">
+                        <i class="fas fa-yin-yang text-success me-3"></i>
+                        中醫｜經脈學說
+                    </h2>
+                    <p class="text-center text-muted mb-5">
+                        經絡為「聯絡臟腑、通達肢節、運行氣血、調節陰陽」之網路。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 經脈系統 -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6">
+                    <div class="card h-100 meridian-card">
+                        <div class="card-img-top">
+                            <img src="../img/Meridian.jpg" class="img-fluid" alt="經脈系統">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-project-diagram text-primary me-2"></i>
+                                經脈系統總論
+                            </h5>
+                            <p class="card-text">經（主幹）與絡（分支）；經別、經筋、皮部等。</p>
+                            <div class="meridian-features">
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="feature-item">
+                                            <i class="fas fa-route text-primary"></i>
+                                            <span>氣血循行</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="feature-item">
+                                            <i class="fas fa-clock text-info"></i>
+                                            <span>晝夜節律</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="feature-item">
+                                            <i class="fas fa-arrows-alt text-success"></i>
+                                            <span>上下往返</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="feature-item">
+                                            <i class="fas fa-link text-warning"></i>
+                                            <span>內外相連</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 meridian-card">
+                        <div class="card-img-top">
+                            <img src="../img/Meridian13.jpg" class="img-fluid" alt="十二正經">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-sitemap text-success me-2"></i>
+                                十二正經與奇經八脈
+                            </h5>
+                            <p class="card-text">主要經脈走向、所屬臟腑、常見症候與應用提示。</p>
+                            <div class="meridian-list">
+                                <div class="accordion" id="meridianAccordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                                手太陰肺經
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#meridianAccordion">
+                                            <div class="accordion-body">
+                                                胸起→上肢內側至拇指；常見症候：咳嗽、氣短、皮毛不固。
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                                手陽明大腸經
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#meridianAccordion">
+                                            <div class="accordion-body">
+                                                食指出發→上肢外側至面鼻；症候：咽喉腫痛、齒痛、鼻塞。
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                                足陽明胃經
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#meridianAccordion">
+                                            <div class="accordion-body">
+                                                面起→軀幹→下肢前外側至第二趾；症候：胃脘痛、消化不良。
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 五臟六腑 -->
+            <div class="row g-4">
+                <div class="col-lg-12">
+                    <h3 class="text-center mb-4">
+                        <i class="fas fa-heart text-danger me-2"></i>
+                        五臟六腑與經絡對應
+                    </h3>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 organ-system-card">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0">
+                                <i class="fas fa-heart me-2"></i>
+                                五臟（主藏精氣、偏陰）
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="organ-item">
+                                        <div class="organ-icon bg-danger">
+                                            <i class="fas fa-heart"></i>
+                                        </div>
+                                        <div class="organ-info">
+                                            <h6>心</h6>
+                                            <small>主血脈、神志；情志：喜；徵象：面色、舌</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="organ-item">
+                                        <div class="organ-icon bg-warning">
+                                            <i class="fas fa-liver"></i>
+                                        </div>
+                                        <div class="organ-info">
+                                            <h6>肝</h6>
+                                            <small>主疏泄、藏血；情志：怒；徵象：筋、爪、目</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="organ-item">
+                                        <div class="organ-icon bg-success">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <div class="organ-info">
+                                            <h6>脾</h6>
+                                            <small>主運化、統血；情志：思；徵象：肌肉、口唇</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 organ-system-card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="fas fa-cogs me-2"></i>
+                                六腑（主傳化、偏陽）
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="furnace-item">
+                                        <i class="fas fa-gallbladder text-warning"></i>
+                                        <span>膽</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="furnace-item">
+                                        <i class="fas fa-stomach text-primary"></i>
+                                        <span>胃</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="furnace-item">
+                                        <i class="fas fa-intestines text-info"></i>
+                                        <span>小腸</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="furnace-item">
+                                        <i class="fas fa-poop text-secondary"></i>
+                                        <span>大腸</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="furnace-item">
+                                        <i class="fas fa-bladder text-success"></i>
+                                        <span>膀胱</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="furnace-item">
+                                        <i class="fas fa-network-wired text-dark"></i>
+                                        <span>三焦</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 互動導覽 -->
+    <section id="interactive" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center mb-5">
+                        <i class="fas fa-mouse-pointer text-info me-3"></i>
+                        互動導覽
+                    </h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card h-100 interactive-card">
+                        <div class="card-body text-center">
+                            <div class="interactive-icon mb-3">
+                                <i class="fas fa-search text-primary"></i>
+                            </div>
+                            <h5 class="card-title">系統搜尋</h5>
+                            <p class="card-text">快速找到特定器官或系統的詳細資訊。</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                開始搜尋
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 interactive-card">
+                        <div class="card-body text-center">
+                            <div class="interactive-icon mb-3">
+                                <i class="fas fa-question-circle text-success"></i>
+                            </div>
+                            <h5 class="card-title">症狀查詢</h5>
+                            <p class="card-text">根據症狀查詢可能相關的器官或經脈。</p>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#symptomModal">
+                                查詢症狀
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 interactive-card">
+                        <div class="card-body text-center">
+                            <div class="interactive-icon mb-3">
+                                <i class="fas fa-book text-warning"></i>
+                            </div>
+                            <h5 class="card-title">學習筆記</h5>
+                            <p class="card-text">記錄學習重點，建立個人化的醫學筆記。</p>
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#notesModal">
+                                建立筆記
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 搜尋模態框 -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-search me-2"></i>
+                        系統搜尋
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="searchInput" class="form-label">搜尋器官或系統</label>
+                        <input type="text" class="form-control" id="searchInput" placeholder="輸入器官名稱...">
+                    </div>
+                    <div class="search-results">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-heart text-danger me-2"></i>
+                                心臟系統
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-lungs text-info me-2"></i>
+                                呼吸系統
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-liver text-warning me-2"></i>
+                                肝臟系統
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 症狀查詢模態框 -->
+    <div class="modal fade" id="symptomModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-question-circle me-2"></i>
+                        症狀查詢
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="symptomInput" class="form-label">輸入症狀</label>
+                        <input type="text" class="form-control" id="symptomInput" placeholder="例如：胸悶、頭痛、胃痛...">
+                    </div>
+                    <div class="symptom-results">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            請輸入症狀，系統將為您分析可能相關的器官或經脈。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 筆記模態框 -->
+    <div class="modal fade" id="notesModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-book me-2"></i>
+                        學習筆記
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="noteTitle" class="form-label">筆記標題</label>
+                        <input type="text" class="form-control" id="noteTitle" placeholder="輸入筆記標題...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="noteContent" class="form-label">筆記內容</label>
+                        <textarea class="form-control" id="noteContent" rows="6" placeholder="記錄學習重點..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="noteTags" class="form-label">標籤</label>
+                        <input type="text" class="form-control" id="noteTags" placeholder="用逗號分隔標籤...">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">儲存筆記</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>中西醫人體導覽</h5>
+                    <p class="mb-0">僅供教育與參考使用，不替代專業診療。</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2024 人體導覽專題. All rights reserved.</p>
+                    <p class="mb-0">
+                        <small>如有身體不適，建議向合格醫事人員諮詢。</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 自定義 JavaScript -->
+    <script>
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 搜尋功能
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const results = document.querySelectorAll('.search-results .list-group-item');
+            
+            results.forEach(result => {
+                const text = result.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    result.style.display = 'block';
+                } else {
+                    result.style.display = 'none';
+                }
+            });
+        });
+
+        // 症狀查詢功能
+        document.getElementById('symptomInput').addEventListener('input', function() {
+            const symptom = this.value;
+            const resultsDiv = document.querySelector('.symptom-results');
+            
+            if (symptom.length > 0) {
+                resultsDiv.innerHTML = `
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        正在分析症狀：「${symptom}」...
+                    </div>
+                `;
+            } else {
+                resultsDiv.innerHTML = `
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        請輸入症狀，系統將為您分析可能相關的器官或經脈。
+                    </div>
+                `;
+            }
+        });
+
+        // 筆記儲存功能
+        document.querySelector('#notesModal .btn-primary').addEventListener('click', function() {
+            const title = document.getElementById('noteTitle').value;
+            const content = document.getElementById('noteContent').value;
+            const tags = document.getElementById('noteTags').value;
+            
+            if (title && content) {
+                alert('筆記已儲存！\n標題：' + title + '\n內容：' + content.substring(0, 50) + '...');
+                // 這裡可以添加實際的儲存邏輯
+            } else {
+                alert('請填寫標題和內容！');
+            }
+        });
+
+        // 卡片懸停效果
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

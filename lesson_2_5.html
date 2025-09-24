@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 框架 - 網頁製作學習</title>
+    <meta name="description" content="學習 Bootstrap CSS 框架，快速建立響應式網頁介面">
+    <meta name="keywords" content="Bootstrap, CSS框架, 響應式設計, 網格系統, 元件庫">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 自定義樣式 -->
+    <link rel="stylesheet" href="css/lesson_2_5.css">
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>
+                網頁製作學習
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lesson_2.html">上一章：CSS 基礎</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lesson_3.html">下一章：進階 CSS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="main-content">
+        <!-- 課程標題區 -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <div class="hero-content">
+                            <h1 class="display-4 fw-bold text-primary mb-4">
+                                <i class="fas fa-rocket me-3"></i>
+                                Bootstrap 框架
+                            </h1>
+                            <p class="lead text-muted mb-4">
+                                學習最受歡迎的 CSS 框架，快速建立現代化的響應式網頁介面
+                            </p>
+                            <div class="hero-stats">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="stat-item">
+                                            <i class="fas fa-clock text-primary"></i>
+                                            <span>約 2 小時</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="stat-item">
+                                            <i class="fas fa-layer-group text-success"></i>
+                                            <span>網格系統</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="stat-item">
+                                            <i class="fas fa-mobile-alt text-info"></i>
+                                            <span>響應式設計</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 課程大綱 -->
+        <section class="outline-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-list-ul me-2"></i>
+                            課程大綱
+                        </h2>
+                        <div class="outline-grid">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="outline-card">
+                                        <div class="outline-icon">
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                        <h5>Bootstrap 介紹與安裝</h5>
+                                        <p>了解 Bootstrap 框架的優勢，學習 CDN 和本地安裝方式</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="outline-card">
+                                        <div class="outline-icon">
+                                            <i class="fas fa-th"></i>
+                                        </div>
+                                        <h5>網格系統</h5>
+                                        <p>掌握 12 欄網格系統，建立響應式佈局</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="outline-card">
+                                        <div class="outline-icon">
+                                            <i class="fas fa-puzzle-piece"></i>
+                                        </div>
+                                        <h5>元件庫</h5>
+                                        <p>學習按鈕、表單、導航等常用元件</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="outline-card">
+                                        <div class="outline-icon">
+                                            <i class="fas fa-tools"></i>
+                                        </div>
+                                        <h5>工具類別</h5>
+                                        <p>使用 Bootstrap 工具類別快速調整樣式</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootstrap 介紹 -->
+        <section class="intro-section py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-info-circle me-2"></i>
+                            什麼是 Bootstrap？
+                        </h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="intro-card">
+                                    <h4><i class="fas fa-star text-warning me-2"></i>Bootstrap 的優勢</h4>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>快速開發響應式網站</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>豐富的元件庫</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>跨瀏覽器相容性</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>活躍的社群支援</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>免費開源</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="intro-card">
+                                    <h4><i class="fas fa-cogs text-primary me-2"></i>主要特色</h4>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>12 欄網格系統</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>響應式斷點</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>預設元件樣式</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>工具類別</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>JavaScript 插件</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 安裝方式 -->
+        <section class="installation-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-download me-2"></i>
+                            Bootstrap 安裝方式
+                        </h2>
+                        
+                        <!-- CDN 方式 -->
+                        <div class="installation-method mb-5">
+                            <h3 class="mb-3">
+                                <i class="fas fa-cloud text-primary me-2"></i>
+                                方式一：CDN 連結（推薦初學者）
+                            </h3>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span>HTML</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-target="cdn-code">
+                                        <i class="fas fa-copy"></i> 複製
+                                    </button>
+                                </div>
+                                <pre id="cdn-code"><code>&lt;!-- Bootstrap CSS --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;!-- Bootstrap JavaScript --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+                            </div>
+                            <div class="method-pros-cons">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="pros">
+                                            <h5><i class="fas fa-thumbs-up text-success me-2"></i>優點</h5>
+                                            <ul>
+                                                <li>快速開始，無需下載</li>
+                                                <li>自動更新到最新版本</li>
+                                                <li>減少本地檔案大小</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="cons">
+                                            <h5><i class="fas fa-thumbs-down text-danger me-2"></i>缺點</h5>
+                                            <ul>
+                                                <li>需要網路連線</li>
+                                                <li>無法自訂版本</li>
+                                                <li>依賴外部服務</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 本地安裝 -->
+                        <div class="installation-method">
+                            <h3 class="mb-3">
+                                <i class="fas fa-folder text-info me-2"></i>
+                                方式二：本地安裝
+                            </h3>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span>下載並引入</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-target="local-code">
+                                        <i class="fas fa-copy"></i> 複製
+                                    </button>
+                                </div>
+                                <pre id="local-code"><code>&lt;!-- 下載 Bootstrap 檔案後 --&gt;
+&lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;script src="js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 網格系統 -->
+        <section class="grid-section py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-th me-2"></i>
+                            網格系統 (Grid System)
+                        </h2>
+                        
+                        <div class="grid-explanation mb-5">
+                            <div class="alert alert-info">
+                                <h5><i class="fas fa-lightbulb me-2"></i>網格系統概念</h5>
+                                <p class="mb-0">Bootstrap 使用 12 欄的網格系統，透過 <code>.container</code>、<code>.row</code> 和 <code>.col-*</code> 類別來建立響應式佈局。</p>
+                            </div>
+                        </div>
+
+                        <!-- 基本網格範例 -->
+                        <div class="grid-example mb-5">
+                            <h3 class="mb-3">基本網格範例</h3>
+                            <div class="code-example mb-3">
+                                <div class="code-header">
+                                    <span>HTML</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-target="basic-grid-code">
+                                        <i class="fas fa-copy"></i> 複製
+                                    </button>
+                                </div>
+                                <pre id="basic-grid-code"><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-4"&gt;欄位 1&lt;/div&gt;
+    &lt;div class="col-md-4"&gt;欄位 2&lt;/div&gt;
+    &lt;div class="col-md-4"&gt;欄位 3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                            
+                            <!-- 實際展示 -->
+                            <div class="grid-demo">
+                                <div class="container">
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <div class="demo-box bg-primary text-white text-center py-3">
+                                                <i class="fas fa-columns"></i> 欄位 1
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="demo-box bg-success text-white text-center py-3">
+                                                <i class="fas fa-columns"></i> 欄位 2
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="demo-box bg-warning text-white text-center py-3">
+                                                <i class="fas fa-columns"></i> 欄位 3
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 響應式網格 -->
+                        <div class="responsive-grid-example">
+                            <h3 class="mb-3">響應式網格範例</h3>
+                            <div class="code-example mb-3">
+                                <div class="code-header">
+                                    <span>HTML</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-target="responsive-grid-code">
+                                        <i class="fas fa-copy"></i> 複製
+                                    </button>
+                                </div>
+                                <pre id="responsive-grid-code"><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-12 col-sm-6 col-md-4 col-lg-3"&gt;
+      &lt;!-- 手機：全寬，平板：一半，桌面：1/3，大螢幕：1/4 --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                            
+                            <!-- 響應式展示 -->
+                            <div class="responsive-demo">
+                                <div class="container">
+                                    <div class="row g-2">
+                                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="demo-box bg-info text-white text-center py-2">
+                                                <small>col-12 col-sm-6 col-md-4 col-lg-3</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="demo-box bg-danger text-white text-center py-2">
+                                                <small>col-12 col-sm-6 col-md-4 col-lg-3</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="demo-box bg-secondary text-white text-center py-2">
+                                                <small>col-12 col-sm-6 col-md-4 col-lg-3</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="demo-box bg-dark text-white text-center py-2">
+                                                <small>col-12 col-sm-6 col-md-4 col-lg-3</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常用元件 -->
+        <section class="components-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-puzzle-piece me-2"></i>
+                            常用元件
+                        </h2>
+                        
+                        <!-- 按鈕 -->
+                        <div class="component-example mb-5">
+                            <h3 class="mb-3">按鈕 (Buttons)</h3>
+                            <div class="code-example mb-3">
+                                <div class="code-header">
+                                    <span>HTML</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-target="buttons-code">
+                                        <i class="fas fa-copy"></i> 複製
+                                    </button>
+                                </div>
+                                <pre id="buttons-code"><code>&lt;!-- 不同樣式的按鈕 --&gt;
+&lt;button type="button" class="btn btn-primary"&gt;主要按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-secondary"&gt;次要按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-success"&gt;成功按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-danger"&gt;危險按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-warning"&gt;警告按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-info"&gt;資訊按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-light"&gt;淺色按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-dark"&gt;深色按鈕&lt;/button&gt;
+
+&lt;!-- 不同大小的按鈕 --&gt;
+&lt;button type="button" class="btn btn-primary btn-lg"&gt;大按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-primary"&gt;一般按鈕&lt;/button&gt;
+&lt;button type="button" class="btn btn-primary btn-sm"&gt;小按鈕&lt;/button&gt;</code></pre>
+                            </div>
+                            
+                            <div class="component-demo">
+                                <div class="mb-3">
+                                    <h5>不同樣式：</h5>
+                                    <button type="button" class="btn btn-primary me-2">主要按鈕</button>
+                                    <button type="button" class="btn btn-secondary me-2">次要按鈕</button>
+                                    <button type="button" class="btn btn-success me-2">成功按鈕</button>
+                                    <button type="button" class="btn btn-danger me-2">危險按鈕</button>
+                                    <button type="button" class="btn btn-warning me-2">警告按鈕</button>
+                                    <button type="button" class="btn btn-info me-2">資訊按鈕</button>
+                                </div>
+                                <div>
+                                    <h5>不同大小：</h5>
+                                    <button type="button" class="btn btn-primary btn-lg me-2">大按鈕</button>
+                                    <button type="button" class="btn btn-primary me-2">一般按鈕</button>
+                                    <button type="button" class="btn btn-primary btn-sm">小按鈕</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 表單 -->
+                        <div class="component-example mb-5">
+                            <h3 class="mb-3">表單 (Forms)</h3>
+                            <div class="code-example mb-3">
+                                <div class="code-header">
+                                    <span>HTML</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-target="forms-code">
+                                        <i class="fas fa-copy"></i> 複製
+                                    </button>
+                                </div>
+                                <pre id="forms-code"><code>&lt;form&gt;
+  &lt;div class="mb-3"&gt;
+    &lt;label for="email" class="form-label"&gt;電子郵件&lt;/label&gt;
+    &lt;input type="email" class="form-control" id="email" placeholder="請輸入電子郵件"&gt;
+  &lt;/div&gt;
+  &lt;div class="mb-3"&gt;
+    &lt;label for="password" class="form-label"&gt;密碼&lt;/label&gt;
+    &lt;input type="password" class="form-control" id="password" placeholder="請輸入密碼"&gt;
+  &lt;/div&gt;
+  &lt;div class="mb-3 form-check"&gt;
+    &lt;input type="checkbox" class="form-check-input" id="remember"&gt;
+    &lt;label class="form-check-label" for="remember"&gt;記住我&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button type="submit" class="btn btn-primary"&gt;登入&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                            </div>
+                            
+                            <div class="component-demo">
+                                <form class="border p-4 rounded">
+                                    <div class="mb-3">
+                                        <label for="demo-email" class="form-label">電子郵件</label>
+                                        <input type="email" class="form-control" id="demo-email" placeholder="請輸入電子郵件">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="demo-password" class="form-label">密碼</label>
+                                        <input type="password" class="form-control" id="demo-password" placeholder="請輸入密碼">
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="demo-remember">
+                                        <label class="form-check-label" for="demo-remember">記住我</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">登入</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- 卡片 -->
+                        <div class="component-example">
+                            <h3 class="mb-3">卡片 (Cards)</h3>
+                            <div class="code-example mb-3">
+                                <div class="code-header">
+                                    <span>HTML</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-target="cards-code">
+                                        <i class="fas fa-copy"></i> 複製
+                                    </button>
+                                </div>
+                                <pre id="cards-code"><code>&lt;div class="card" style="width: 18rem;"&gt;
+  &lt;img src="..." class="card-img-top" alt="..."&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;卡片標題&lt;/h5&gt;
+    &lt;p class="card-text"&gt;這是一個卡片的內容範例。&lt;/p&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;前往&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                            
+                            <div class="component-demo">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <i class="fas fa-heart text-danger me-2"></i>
+                                                    心血管系統
+                                                </h5>
+                                                <p class="card-text">學習心臟、血管的結構與功能，了解血液循環系統。</p>
+                                                <a href="#" class="btn btn-primary btn-sm">開始學習</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <i class="fas fa-lungs text-info me-2"></i>
+                                                    呼吸系統
+                                                </h5>
+                                                <p class="card-text">探索肺部結構，學習氣體交換與呼吸機制。</p>
+                                                <a href="#" class="btn btn-primary btn-sm">開始學習</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <i class="fas fa-brain text-warning me-2"></i>
+                                                    神經系統
+                                                </h5>
+                                                <p class="card-text">了解大腦、脊髓與神經的複雜網路結構。</p>
+                                                <a href="#" class="btn btn-primary btn-sm">開始學習</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工具類別 -->
+        <section class="utilities-section py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-tools me-2"></i>
+                            工具類別 (Utilities)
+                        </h2>
+                        
+                        <div class="utilities-grid">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="utility-card">
+                                        <h4><i class="fas fa-palette text-primary me-2"></i>間距 (Spacing)</h4>
+                                        <div class="utility-examples">
+                                            <div class="mb-2">
+                                                <code>.m-3</code> - 外邊距
+                                                <div class="demo-box bg-primary text-white m-3 d-inline-block">範例</div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <code>.p-3</code> - 內邊距
+                                                <div class="demo-box bg-success text-white p-3 d-inline-block">範例</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="utility-card">
+                                        <h4><i class="fas fa-align-left text-info me-2"></i>文字對齊</h4>
+                                        <div class="utility-examples">
+                                            <div class="mb-2">
+                                                <code>.text-start</code>
+                                                <div class="text-start border p-2">左對齊文字</div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <code>.text-center</code>
+                                                <div class="text-center border p-2">置中文字</div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <code>.text-end</code>
+                                                <div class="text-end border p-2">右對齊文字</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="utility-card">
+                                        <h4><i class="fas fa-eye text-success me-2"></i>顯示 (Display)</h4>
+                                        <div class="utility-examples">
+                                            <div class="mb-2">
+                                                <code>.d-none</code> - 隱藏元素
+                                            </div>
+                                            <div class="mb-2">
+                                                <code>.d-block</code> - 區塊顯示
+                                            </div>
+                                            <div class="mb-2">
+                                                <code>.d-flex</code> - Flexbox 顯示
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="utility-card">
+                                        <h4><i class="fas fa-mobile-alt text-warning me-2"></i>響應式工具</h4>
+                                        <div class="utility-examples">
+                                            <div class="mb-2">
+                                                <code>.d-md-block</code> - 中等螢幕以上顯示
+                                            </div>
+                                            <div class="mb-2">
+                                                <code>.d-lg-none</code> - 大螢幕隱藏
+                                            </div>
+                                            <div class="mb-2">
+                                                <code>.text-sm-center</code> - 小螢幕置中
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 實作範例 -->
+        <section class="practice-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-code me-2"></i>
+                            實作範例：醫學筆記頁面
+                        </h2>
+                        
+                        <div class="practice-example">
+                            <div class="code-example mb-4">
+                                <div class="code-header">
+                                    <span>完整 HTML 範例</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-target="practice-code">
+                                        <i class="fas fa-copy"></i> 複製
+                                    </button>
+                                </div>
+                                <pre id="practice-code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-TW"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;醫學筆記 - Bootstrap 範例&lt;/title&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 導航欄 --&gt;
+    &lt;nav class="navbar navbar-expand-lg navbar-dark bg-primary"&gt;
+        &lt;div class="container"&gt;
+            &lt;a class="navbar-brand" href="#"&gt;醫學筆記&lt;/a&gt;
+            &lt;div class="navbar-nav ms-auto"&gt;
+                &lt;a class="nav-link" href="#"&gt;首頁&lt;/a&gt;
+                &lt;a class="nav-link" href="#"&gt;筆記&lt;/a&gt;
+                &lt;a class="nav-link" href="#"&gt;關於&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- 主要內容 --&gt;
+    &lt;div class="container my-5"&gt;
+        &lt;div class="row"&gt;
+            &lt;!-- 側邊欄 --&gt;
+            &lt;div class="col-md-3"&gt;
+                &lt;div class="card"&gt;
+                    &lt;div class="card-header"&gt;章節列表&lt;/div&gt;
+                    &lt;div class="list-group list-group-flush"&gt;
+                        &lt;a href="#" class="list-group-item list-group-item-action"&gt;心血管系統&lt;/a&gt;
+                        &lt;a href="#" class="list-group-item list-group-item-action"&gt;呼吸系統&lt;/a&gt;
+                        &lt;a href="#" class="list-group-item list-group-item-action"&gt;消化系統&lt;/a&gt;
+                        &lt;a href="#" class="list-group-item list-group-item-action"&gt;神經系統&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 主要內容區 --&gt;
+            &lt;div class="col-md-9"&gt;
+                &lt;div class="card"&gt;
+                    &lt;div class="card-body"&gt;
+                        &lt;h1 class="card-title"&gt;心血管系統&lt;/h1&gt;
+                        &lt;p class="card-text"&gt;心血管系統是人體循環系統的核心...&lt;/p&gt;
+                        &lt;div class="row g-3"&gt;
+                            &lt;div class="col-md-6"&gt;
+                                &lt;div class="card bg-light"&gt;
+                                    &lt;div class="card-body"&gt;
+                                        &lt;h5 class="card-title"&gt;心臟結構&lt;/h5&gt;
+                                        &lt;p class="card-text"&gt;心臟由四個腔室組成...&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="col-md-6"&gt;
+                                &lt;div class="card bg-light"&gt;
+                                    &lt;div class="card-body"&gt;
+                                        &lt;h5 class="card-title"&gt;血管系統&lt;/h5&gt;
+                                        &lt;p class="card-text"&gt;血管分為動脈、靜脈和微血管...&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                            
+                            <div class="practice-demo">
+                                <h4>實際效果預覽：</h4>
+                                <div class="border rounded p-3 bg-white">
+                                    <!-- 簡化版的實際效果 -->
+                                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+                                        <div class="container-fluid">
+                                            <a class="navbar-brand" href="#">醫學筆記</a>
+                                            <div class="navbar-nav ms-auto">
+                                                <a class="nav-link" href="#">首頁</a>
+                                                <a class="nav-link" href="#">筆記</a>
+                                                <a class="nav-link" href="#">關於</a>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <div class="card">
+                                                <div class="card-header">章節列表</div>
+                                                <div class="list-group list-group-flush">
+                                                    <a href="#" class="list-group-item list-group-item-action">心血管系統</a>
+                                                    <a href="#" class="list-group-item list-group-item-action">呼吸系統</a>
+                                                    <a href="#" class="list-group-item list-group-item-action">消化系統</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">心血管系統</h5>
+                                                    <p class="card-text">心血管系統是人體循環系統的核心，負責輸送氧氣和營養物質到全身各處。</p>
+                                                    <div class="row g-2">
+                                                        <div class="col-6">
+                                                            <div class="card bg-light">
+                                                                <div class="card-body p-2">
+                                                                    <h6 class="card-title">心臟結構</h6>
+                                                                    <small class="card-text">四個腔室組成</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="card bg-light">
+                                                                <div class="card-body p-2">
+                                                                    <h6 class="card-title">血管系統</h6>
+                                                                    <small class="card-text">動脈、靜脈、微血管</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最佳實踐 -->
+        <section class="best-practices-section py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-star me-2"></i>
+                            Bootstrap 最佳實踐
+                        </h2>
+                        
+                        <div class="practices-grid">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="practice-card">
+                                        <div class="practice-icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <h5>響應式優先</h5>
+                                        <p>始終使用響應式類別，確保在不同裝置上都有良好的顯示效果。</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="practice-card">
+                                        <div class="practice-icon">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <h5>語義化 HTML</h5>
+                                        <p>使用適當的 HTML 標籤，不要過度依賴 Bootstrap 類別。</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="practice-card">
+                                        <div class="practice-icon">
+                                            <i class="fas fa-palette"></i>
+                                        </div>
+                                        <h5>自訂主題</h5>
+                                        <p>使用 CSS 變數或 SASS 來自訂 Bootstrap 的預設樣式。</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="practice-card">
+                                        <div class="practice-icon">
+                                            <i class="fas fa-tachometer-alt"></i>
+                                        </div>
+                                        <h5>效能優化</h5>
+                                        <p>只引入需要的 Bootstrap 元件，避免載入不必要的 CSS 和 JS。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 實作展示 -->
+        <section class="demo-showcase-section py-5 bg-primary text-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h2 class="mb-3">
+                            <i class="fas fa-heartbeat me-3"></i>
+                            實作展示：中西醫人體導覽
+                        </h2>
+                        <p class="lead mb-4">
+                            運用 Bootstrap 框架建立完整的醫學學習平台，包含響應式設計、互動元件和現代化介面。
+                        </p>
+                        <div class="demo-features">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <i class="fas fa-mobile-alt me-2"></i>
+                                        響應式設計
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <i class="fas fa-search me-2"></i>
+                                        互動搜尋功能
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <i class="fas fa-book me-2"></i>
+                                        學習筆記系統
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="feature-item">
+                                        <i class="fas fa-chart-line me-2"></i>
+                                        症狀查詢工具
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <div class="demo-preview">
+                            <div class="demo-card">
+                                <div class="demo-header">
+                                    <div class="demo-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <div class="demo-title">中西醫人體導覽</div>
+                                </div>
+                                <div class="demo-content">
+                                    <div class="demo-nav">
+                                        <div class="nav-item active">西醫系統</div>
+                                        <div class="nav-item">中醫系統</div>
+                                        <div class="nav-item">互動導覽</div>
+                                    </div>
+                                    <div class="demo-grid">
+                                        <div class="grid-item">
+                                            <i class="fas fa-heart"></i>
+                                            <span>心臟</span>
+                                        </div>
+                                        <div class="grid-item">
+                                            <i class="fas fa-lungs"></i>
+                                            <span>肺部</span>
+                                        </div>
+                                        <div class="grid-item">
+                                            <i class="fas fa-liver"></i>
+                                            <span>肝臟</span>
+                                        </div>
+                                        <div class="grid-item">
+                                            <i class="fas fa-kidneys"></i>
+                                            <span>腎臟</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="pages/demo_2.5.html" class="btn btn-light btn-lg mt-4" target="_blank">
+                            <i class="fas fa-external-link-alt me-2"></i>
+                            查看完整範例
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 課程總結 -->
+        <section class="summary-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="mb-4">
+                            <i class="fas fa-graduation-cap me-2"></i>
+                            課程總結
+                        </h2>
+                        <div class="summary-content">
+                            <p class="lead mb-4">
+                                恭喜你完成了 Bootstrap 框架的學習！你現在已經掌握了：
+                            </p>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <div class="summary-item">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        Bootstrap 安裝與設定
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="summary-item">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        12 欄網格系統
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="summary-item">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        常用元件使用
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="summary-item">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        工具類別應用
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="next-steps">
+                                <h4 class="mb-3">下一步學習建議：</h4>
+                                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                                    <a href="lesson_3.html" class="btn btn-primary">
+                                        <i class="fas fa-arrow-right me-2"></i>
+                                        進階 CSS
+                                    </a>
+                                    <a href="pages/demo_2.5.html" class="btn btn-success" target="_blank">
+                                        <i class="fas fa-heartbeat me-2"></i>
+                                        Bootstrap 醫學範例
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>網頁製作學習</h5>
+                    <p class="mb-0">從零開始學習現代網頁開發技術</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2024 網頁製作學習課程. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 自定義 JavaScript -->
+    <script>
+        // 複製程式碼功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    const code = targetElement.textContent;
+                    
+                    navigator.clipboard.writeText(code).then(() => {
+                        // 暫時改變按鈕文字
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-check"></i> 已複製';
+                        this.classList.remove('btn-outline-primary');
+                        this.classList.add('btn-success');
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.classList.remove('btn-success');
+                            this.classList.add('btn-outline-primary');
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
